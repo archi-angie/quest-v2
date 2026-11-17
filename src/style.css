@@ -346,3 +346,63 @@
   .destination-row strong,.destination-row small{font-size:10px;white-space:normal}
 }
 @media(prefers-reduced-motion:reduce){.marquee-photo{height:calc(var(--marquee-height) - 28px)}}
+
+/* Ticket-style Offers and compact navigation. */
+.header{height:82px;padding-inline:clamp(18px,2.8vw,54px);background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+.header.scrolled{height:64px;padding-inline:clamp(18px,2.2vw,42px);background:#6c217f33;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 1px 0 #ffffff2b}
+.header .brand img{width:132px;transition:width .35s ease}
+.header.scrolled .brand img{width:105px}
+.header .desktop-nav a,.header .desktop-nav span{font-size:14px;transition:font-size .35s ease,color .2s ease}
+.header.scrolled .desktop-nav a,.header.scrolled .desktop-nav span{font-size:12px}
+.header .nav-book{font-size:14px;padding:12px 22px;transition:padding .35s ease,font-size .35s ease,transform .2s ease,box-shadow .2s ease}
+.header.scrolled .nav-book{font-size:12px;padding:9px 18px;min-height:42px}
+
+.hero.section{--gallery-viewport-width:min(1160px,calc(100vw - 2 * var(--hero-inline-padding)))}
+.hero .hero-gallery{width:var(--gallery-viewport-width);margin-top:8px}
+.gallery-track{margin-left:max(0px,calc((var(--gallery-viewport-width) - var(--gallery-width))/2))}
+.hero .booking-shell{margin-top:clamp(13px,2svh,20px)}
+
+.stacked-hotel-card,.stacked-hotel-card.active{box-shadow:9px 9px 0 #6c217f}
+.hotels .hotel-cards{transform:translateY(-5px)}
+.hotels .carousel-controls{margin-top:8px;min-height:42px}
+.hotels .carousel-controls.is-single{visibility:hidden;pointer-events:none}
+.hotel-location{display:flex;align-items:center;gap:5px;font-size:12px;line-height:1.3}
+.hotel-location img{width:15px;height:15px;flex:none}
+
+.offers.section{padding:clamp(80px,8vw,120px) var(--gutter);background:#fdb913;color:#6c217f}
+.offers-pattern{width:min(380px,32vw);right:-9%;bottom:-20%;opacity:.13;filter:brightness(0) saturate(100%) invert(15%) sepia(35%) saturate(4270%) hue-rotate(274deg)}
+.offers-layout{position:relative;z-index:1;display:grid;grid-template-columns:minmax(280px,.78fr) minmax(550px,1.4fr);gap:clamp(55px,7vw,120px);max-width:1420px;margin:auto;align-items:start}
+.offers-intro{position:sticky;top:100px}
+.offers-intro .eyebrow{color:#6c217f}
+.offers-intro h2{margin:0 0 26px;line-height:.95;color:#6c217f;text-transform:uppercase}
+.offers-intro h2 span{display:block;font:800 clamp(48px,5vw,78px)/.96 Poppins,Arial,sans-serif;letter-spacing:-.055em}
+.offers-intro h2 strong{display:block;margin-top:12px;font:400 clamp(30px,3vw,46px)/1.1 'Permanent Marker',cursive}
+.offers-intro>p:not(.eyebrow){max-width:350px;font-size:15px;line-height:1.7;margin-bottom:27px}
+.offers-all{display:inline-flex;align-items:center;gap:12px;border-bottom:2px solid #6c217f;padding-bottom:5px;font-size:14px;font-weight:800}
+.offers-all span{transition:transform .2s ease}.offers-all:hover span{transform:translate(3px,-3px)}
+.offers-list{display:grid;gap:26px}
+.offer-ticket{position:relative;display:grid;grid-template-columns:180px minmax(0,1fr);align-items:center;gap:27px;min-height:175px;padding:19px 22px;isolation:isolate;border:1.5px solid #6c217f;border-radius:20px;background:#fdb913;transition:background-color .3s ease,box-shadow .3s ease,transform .3s ease}
+.offer-ticket:before,.offer-ticket:after{content:'';position:absolute;top:calc(50% - 11px);width:20px;height:20px;border:1.5px solid #6c217f;border-radius:50%;background:#fdb913;pointer-events:none}
+.offer-ticket:before{left:-11px}.offer-ticket:after{right:-11px}
+.offer-ticket:hover,.offer-ticket:focus-within{background:#fff9ed;box-shadow:7px 7px 0 #6c217f;transform:translate(-2px,-2px)}
+.offer-thumbnail-wrap{position:relative;width:180px;aspect-ratio:3/2;overflow:hidden;border-radius:12px;background:#6c217f url('/quest-v2/assets/pattern-02.svg') center/cover}
+.offer-thumbnail{display:block;width:calc(100% - 9px);height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:10px}
+.offer-ticket-copy{min-width:0;padding-right:clamp(106px,9vw,145px)}
+.offer-count{display:block;margin-bottom:8px;color:#6c217f;font:400 12px/1.2 'Permanent Marker',cursive;text-transform:uppercase}
+.offer-title{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin:0 0 7px;color:#6c217f;font:800 clamp(20px,2vw,27px)/1.12 Poppins,Arial,sans-serif;text-transform:none}
+.offer-ticket-copy p{margin:0 0 8px;font-size:12px;line-height:1.5;color:#575756}
+.offer-sample{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#6c217f}
+.offer-learn{position:absolute;top:17px;right:18px;overflow:hidden;border:0;border-radius:12px;padding:10px 14px;background:#6c217f;color:#fff;font:700 12px Poppins,Arial,sans-serif;box-shadow:4px 4px 0 #3d0c50;opacity:0;pointer-events:none;transform:translateY(5px);transition:opacity .25s ease,transform .25s ease,box-shadow .25s ease}
+.offer-learn:after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,#ffffff55 50%,transparent 65%);transform:translateX(-150%);transition:transform .7s ease;pointer-events:none}
+.offer-ticket:hover .offer-learn,.offer-ticket:focus-within .offer-learn{opacity:1;pointer-events:auto;transform:translateY(0)}
+.offer-ticket:hover .offer-learn:after,.offer-ticket:focus-within .offer-learn:after{transform:translateX(150%)}
+.offer-learn:hover{box-shadow:2px 2px 0 #3d0c50;transform:translate(2px,2px)!important}
+.offer-learn:focus-visible{outline:3px solid #3d0c50;outline-offset:3px}
+.offer-note{position:absolute;right:18px;bottom:12px;max-width:180px;color:#6c217f;font:600 10px/1.2 Poppins,Arial,sans-serif;text-align:right;opacity:0;pointer-events:none;transition:opacity .2s ease}
+.offer-ticket.is-sample-noted .offer-note{opacity:1}
+@media(hover:none){.offer-learn{opacity:1;pointer-events:auto;transform:none}}
+
+@media(max-width:1100px){.offers-layout{grid-template-columns:minmax(240px,.7fr) minmax(0,1.3fr);gap:42px}.offer-ticket{grid-template-columns:145px minmax(0,1fr);gap:18px}.offer-thumbnail-wrap{width:145px}.offer-ticket-copy{padding-right:105px}}
+@media(max-width:800px){.offers-layout{display:block}.offers-intro{position:static;margin-bottom:45px}.offers-intro h2 span{font-size:clamp(46px,8vw,68px)}.offers-list{max-width:760px}}
+@media(max-width:700px){.header,.header.scrolled{padding-inline:18px}.header .brand img{width:108px}.header.scrolled .brand img{width:92px}.header .nav-book{display:none}.hero .hero-gallery{width:calc(100vw - 20px);margin-top:20px}.gallery-track{margin-left:0}.offers.section{padding:75px 23px}.offers-list{gap:20px}.offer-ticket{grid-template-columns:110px minmax(0,1fr);gap:13px;min-height:165px;padding:15px 14px}.offer-thumbnail-wrap{width:110px}.offer-ticket-copy{padding-right:0;padding-top:35px}.offer-count{font-size:10px}.offer-title{font-size:18px}.offer-ticket-copy p{font-size:11px}.offer-learn{top:10px;right:11px;padding:7px 10px;font-size:10px}.offer-note{position:static;grid-column:1/-1;max-width:none;text-align:left}.offer-ticket.is-sample-noted .offer-note{padding-top:4px}.hotel-location{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.offer-ticket,.offer-learn,.offer-learn:after,.offers-all span,.header,.header .brand img,.header .desktop-nav a,.header .desktop-nav span{transition:none!important}.offer-ticket,.offer-learn{transform:none!important}.offer-learn:after{display:none}}
