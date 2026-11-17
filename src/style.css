@@ -35,3 +35,66 @@
 .corner-tr img,.corner-br img{transform:none}
 .hero:before{background:#fff;filter:none;opacity:.10;-webkit-mask:url('/quest-v2/assets/pattern-02.svg') center top / 760px auto repeat;mask:url('/quest-v2/assets/pattern-02.svg') center top / 760px auto repeat}
 .hero:before{background:transparent url('/quest-v2/assets/pattern-white.svg') center top / 760px auto repeat;-webkit-mask:none;mask:none;opacity:.10}
+
+/* Fit the complete hero in a desktop viewport while keeping the mobile flow natural. */
+.hero.section{
+  --gallery-width:min(1260px,calc(100vw - 2 * var(--hero-inline-padding) - 44px));
+  --gallery-height:clamp(264px,36svh,352px);
+  min-height:100svh;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:flex-start;
+  padding-top:clamp(94px,10.5svh,125px);
+  padding-bottom:clamp(45px,6svh,72px);
+}
+.hero:before{
+  background-size:clamp(250px,22vw,360px) auto;
+  opacity:.035;
+}
+.hero h1 span{font-size:clamp(36px,4vw,62px)}
+.hero h1 strong{font-size:clamp(51px,5.1vw,76px)}
+.hero .hero-gallery{
+  height:var(--gallery-height);
+  margin-top:clamp(16px,2.3svh,27px);
+}
+.gallery-sequence{height:var(--gallery-height)}
+.gallery-outer{--marquee-height:calc(var(--gallery-height) - 112px)}
+.gallery-mid{--marquee-height:calc(var(--gallery-height) - 76px)}
+.gallery-center{--marquee-height:calc(var(--gallery-height) - 46px)}
+.marquee-card figcaption{height:46px;font-size:clamp(11px,.95vw,14px)}
+.marquee-divider{margin-bottom:46px;height:clamp(110px,16svh,165px)}
+.hero .booking-shell{margin-top:clamp(23px,3.2svh,38px)}
+.corner-tl,.corner-tr{width:clamp(155px,13vw,220px);height:clamp(170px,21vw,295px)}
+.corner-bl,.corner-br{width:clamp(110px,12vw,175px);height:clamp(110px,13vw,190px)}
+.hero-corner:after{
+  content:'';
+  position:absolute;
+  inset:-25%;
+  pointer-events:none;
+  background:linear-gradient(115deg,transparent 37%,rgba(255,255,255,.14) 50%,transparent 63%);
+  transform:translateX(-115%);
+  animation:corner-sheen 13s ease-in-out infinite;
+}
+@keyframes corner-sheen{
+  0%,58%,100%{transform:translateX(-115%)}
+  75%{transform:translateX(115%)}
+}
+@media(max-width:1050px){
+  .hero.section{--gallery-height:clamp(270px,35svh,320px);min-height:0;padding-top:105px}
+  .hero .hero-gallery,.gallery-sequence{height:var(--gallery-height)}
+  .gallery-outer{--marquee-height:calc(var(--gallery-height) - 102px)}
+  .gallery-mid{--marquee-height:calc(var(--gallery-height) - 68px)}
+  .gallery-center{--marquee-height:calc(var(--gallery-height) - 46px)}
+}
+@media(max-width:700px){
+  .hero.section{--gallery-height:340px;padding:98px 20px 52px}
+  .hero .hero-gallery{height:var(--gallery-height);margin-top:28px}
+  .gallery-sequence{height:var(--gallery-height)}
+  .gallery-outer,.gallery-mid,.gallery-center{--marquee-height:290px}
+  .hero .booking-shell{margin-top:30px}
+  .corner-tl,.corner-tr{width:95px;height:130px}
+  .corner-bl,.corner-br{width:70px;height:95px}
+}
+@media(prefers-reduced-motion:reduce){.hero-corner:after{animation:none;opacity:0}}
