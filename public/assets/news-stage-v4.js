@@ -40,9 +40,7 @@
       button.hidden = false;
       setImage(button.querySelector('img'),item);
       button.querySelector('.news-stage-preview-hotel').textContent = item.hotelName || 'Quest Hotels';
-      setDate(button.querySelector('.news-stage-preview-date'),item.createdAt);
       button.querySelector('strong').textContent = item.title;
-      button.querySelector('span:last-child').textContent = item.description || '';
       button.setAttribute('aria-label',`Show ${direction} news story: ${item.title}`);
     };
     const render = () => {
@@ -94,7 +92,7 @@
     if (!reduce.matches && 'IntersectionObserver' in window) {
       stage.classList.add('motion-ready');
       const observer = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {stage.classList.add('is-visible');observer.disconnect();}
+        stage.classList.toggle('is-visible',entries[0].isIntersecting);
       },{threshold:.12});
       observer.observe(stage);
     }
