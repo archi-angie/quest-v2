@@ -90,7 +90,7 @@
       changing = true;
       pauseTimer();
       const old = active;
-      const from = source?.closest('.reels-phone-preview');
+      const from = source?.closest('.reels-phone-preview') || section.querySelector('.reels-phone-preview[data-reel="' + index + '"]');
       const motion = !reduced.matches && from && from.animate && window.innerWidth > 700;
       if (motion) {
         const a = from.getBoundingClientRect(), b = screen.getBoundingClientRect();
