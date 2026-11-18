@@ -54,7 +54,7 @@
       const reel = reels[index];
       return '<button type="button" class="reels-phone-preview" data-reel="' + index + '" aria-label="Show ' + reel.accessibleLabel + '">' +
         '<span class="reels-phone-preview__rail" aria-hidden="true"></span>' +
-        '<span class="reels-phone-preview__media"><video muted playsinline preload="metadata" poster="' + reel.posterSrc + '" src="' + (fallback.has(index) ? '' : reel.videoSrc) + '" aria-hidden="true"></video></span>' +
+        '<span class="reels-phone-preview__media"><video muted playsinline preload="metadata" poster="' + reel.posterSrc + '"' + (fallback.has(index) ? '' : ' src="' + reel.videoSrc + '"') + ' aria-hidden="true"></video></span>' +
         '<span class="reels-phone-preview__rail reels-phone-preview__rail--right" aria-hidden="true"></span>' +
       '</button>';
     };
