@@ -13,7 +13,7 @@
   const formatDate = iso => new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(iso+'T00:00:00Z'));
   const setDate = (element,iso) => {
     element.hidden = !iso;
-    if (iso) {element.dateTime = iso;element.textContent = 'Created ' + formatDate(iso);}
+    if (iso) {element.dateTime = iso;const formatted = formatDate(iso);element.textContent = element.classList.contains('news-stage-date-sticker') ? formatted.toUpperCase() : 'Created ' + formatted;element.setAttribute('aria-label','Created ' + formatted);}
   };
   const init = () => {
     const stage = document.querySelector('.news-stage');
@@ -49,7 +49,7 @@
       const item = items[active];
       setImage(featured.querySelector('img'),item);
       featured.querySelector('.news-stage-badge').textContent = item.hotelName || 'Quest Hotels';
-      setDate(featured.querySelector('.news-stage-date'),item.createdAt);
+      setDate(featured.querySelector('.news-stage-date-sticker'),item.createdAt);
       featured.querySelector('h3').textContent = item.title;
       const description = featured.querySelector('p:not(.news-stage-detail-note)');
       description.textContent = item.description || '';

@@ -267,3 +267,32 @@
   .news-stage-featured-image{width:min(67vw,300px);height:min(67vw,300px)}
   .news-stage-preview img{width:min(32vw,145px);height:min(32vw,145px)}
 }
+
+
+/* News headline, paired rays, compact arrows, and story date sticker. */
+.news-stage-heading{height:clamp(94px,12svh,124px);margin-bottom:0}
+.news-stage-heading svg:not(.news-stage-underline):not(.news-stage-sparkle){width:min(1100px,100%)}
+.news-stage-heading .news-stage-underline{bottom:clamp(30px,4svh,43px);width:clamp(200px,22vw,270px);height:clamp(29px,3.5svh,38px)}
+.news-stage-heading .news-stage-sparkle{top:35%;width:clamp(38px,4vw,52px);height:clamp(38px,4vw,52px)}
+.news-stage-sparkle-left{left:calc(50% - clamp(265px,23vw,330px))}
+.news-stage-sparkle-right{right:calc(50% - clamp(265px,23vw,330px))}
+.news-stage-sparkle-left path,.news-stage-sparkle-right path{stroke:#fdb913}
+.news-stage-date-sticker{--sticker-shape:polygon(50% 0,57% 8%,66% 2%,70% 12%,80% 8%,82% 19%,93% 18%,91% 30%,100% 36%,93% 45%,99% 54%,90% 61%,93% 72%,82% 77%,80% 89%,69% 88%,63% 98%,53% 92%,44% 100%,36% 91%,26% 96%,21% 84%,10% 84%,12% 72%,2% 66%,9% 56%,0 48%,8% 40%,3% 29%,15% 26%,16% 14%,28% 16%,35% 4%,44% 9%);position:absolute;z-index:2;top:9%;right:-11%;display:grid;place-items:center;width:clamp(80px,7vw,96px);aspect-ratio:1;padding:15px;clip-path:var(--sticker-shape);background:#3d0c50;color:#6c217f;font:500 12px/1.15 Poppins,Arial,sans-serif;text-align:center;overflow-wrap:normal;pointer-events:none;filter:drop-shadow(2px 3px 0 rgba(30,0,45,.25))}
+.news-stage-date-sticker:before{content:'';position:absolute;z-index:-1;inset:4px;clip-path:var(--sticker-shape);background:#fff9ee}
+.news-stage-date-sticker[hidden]{display:none}
+@media(min-width:851px){
+  .news-stage-control{top:42%}
+  .news-stage-control-prev{left:0}
+  .news-stage-control-next{right:0}
+}
+@media(max-width:850px){
+  .news-stage-heading{height:auto;min-height:0;padding-bottom:36px;margin-bottom:5px}
+  .news-stage-heading-mobile{line-height:1.08}
+  .news-stage-heading .news-stage-underline{bottom:0;width:200px;height:30px}
+  .news-stage-date-sticker{right:-8%;width:82px}
+}
+@media(max-width:700px){
+  .news-stage-heading{padding-bottom:33px}
+  .news-stage-heading .news-stage-underline{bottom:0;width:170px;height:25px}
+  .news-stage-date-sticker{top:7%;right:-7%;width:76px;padding:11px;font-size:11px}
+}
