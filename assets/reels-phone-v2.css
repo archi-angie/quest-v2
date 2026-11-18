@@ -1,0 +1,120 @@
+/* Phone composition for Quest Moments */
+.moments.reels-section.reels-phone-mode.section{display:block;overflow:hidden;padding:clamp(64px,6vw,92px) var(--page-gutter) clamp(66px,6vw,96px);background:#6c217f;color:#fff}
+.reels-phone-pattern{position:absolute;z-index:0;left:-4%;top:2%;width:min(48vw,700px);height:auto;opacity:.055;pointer-events:none}
+.reels-phone-content{position:relative;z-index:1;max-width:1600px;margin:auto}
+.reels-phone-heading{text-align:center;margin-bottom:clamp(36px,4vw,58px)}
+.moments.reels-section.reels-phone-mode h2{margin:0 0 12px;color:#fdb913;font:400 clamp(52px,6vw,94px)/1 'Permanent Marker',cursive;text-transform:uppercase}
+.reels-phone-heading p{margin:0;color:#fff;font:600 clamp(17px,1.8vw,25px)/1.4 Poppins,Arial,sans-serif}
+.reels-phone-stage{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) minmax(235px,1.48fr) repeat(2,minmax(0,1fr));align-items:center;gap:clamp(13px,1.5vw,28px);min-height:clamp(500px,45vw,620px)}
+.reels-phone{grid-column:3;grid-row:1;position:relative;z-index:3;justify-self:center;width:100%;max-width:330px;filter:drop-shadow(0 22px 22px #24062c88)}
+.reels-phone:after{content:'';position:absolute;left:14%;right:14%;bottom:-24px;height:14px;border-radius:50%;background:#2d08367a;filter:blur(10px)}
+.reels-phone__edge{position:relative;padding:16px 7px 8px;border:2px solid #d7d5d7;border-radius:clamp(32px,3vw,48px);background:linear-gradient(100deg,#09090a,#323235 48%,#09090a);box-shadow:inset 0 0 0 2px #070708,0 4px 0 #311039}
+.reels-phone__screen{aspect-ratio:9/16;overflow:hidden;border-radius:clamp(25px,2.4vw,38px);background:#32133d;transition:opacity .26s ease}
+.reels-phone__screen.is-changing{opacity:.22}
+.reels-phone__screen video{display:block;width:100%;height:100%;object-fit:cover}
+.reels-phone__camera{position:absolute;top:5px;left:50%;width:60px;height:6px;transform:translateX(-50%);border-radius:10px;background:#050505;box-shadow:inset 0 1px 1px #ffffff2d}
+.reels-phone__camera:after{content:'';position:absolute;right:6px;top:1px;width:4px;height:4px;border-radius:50%;background:#254156}
+.reels-phone-slot{min-width:0;position:relative;z-index:2}
+.reels-phone-slot--outer-left{grid-column:1;grid-row:1;transform:translateY(72px)}
+.reels-phone-slot--inner-left{grid-column:2;grid-row:1;transform:translateY(-38px)}
+.reels-phone-slot--inner-right{grid-column:4;grid-row:1;transform:translateY(-38px)}
+.reels-phone-slot--outer-right{grid-column:5;grid-row:1;transform:translateY(72px)}
+.reels-phone-preview{position:relative;z-index:1;display:grid;grid-template-columns:clamp(14px,1.5vw,23px) minmax(0,1fr) clamp(14px,1.5vw,23px);align-items:stretch;width:100%;padding:0;border:2px solid #fff;border-radius:20px;background:#fdb913;box-shadow:6px 8px 0 #3d0c50;overflow:hidden;cursor:pointer;transition:box-shadow .22s ease,border-color .22s ease}
+.reels-phone-preview:hover{border-color:#fdb913;box-shadow:8px 11px 0 #3d0c50}
+.reels-phone-preview:focus-visible{outline:4px solid #fdb913;outline-offset:5px}
+.reels-phone-preview__rail{position:relative;background:#fdb913 url('/quest-v2/assets/pattern-02.svg') 18% 5%/118px auto repeat-y}
+.reels-phone-preview__rail--right{background-position:80% 38%}
+.reels-phone-preview__media{min-width:0;aspect-ratio:9/16;overflow:hidden;background:#3d0c50}
+.reels-phone-preview__media video{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.reels-phone-controls{position:relative;display:flex;align-items:center;justify-content:center;gap:24px;margin-top:clamp(34px,4vw,58px);min-height:44px}
+.reels-phone-dots{display:flex;align-items:center;justify-content:center;gap:13px}
+.reels-phone-dots button{width:13px;height:13px;padding:0;border:1px solid #fff;border-radius:50%;background:#fff;opacity:.9;cursor:pointer;transition:background .2s,transform .2s,opacity .2s}
+.reels-phone-dots button[aria-pressed="true"]{border-color:#fdb913;background:#fdb913;opacity:1;transform:scale(1.22)}
+.reels-phone-dots button:focus-visible,.reels-phone-toggle:focus-visible,.reels-phone-play:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.reels-phone-toggle,.reels-phone-play{position:absolute;right:0;min-height:40px;padding:8px 15px;border:1px solid #fdb913;border-radius:12px;background:#6c217f;color:#fdb913;font:600 12px/1 Poppins,Arial,sans-serif}
+.reels-phone-toggle:hover,.reels-phone-play:hover{background:#fdb913;color:#6c217f}
+.reels-phone-play{right:auto;left:0}
+.reels-phone-play[hidden]{display:none}
+.reels-phone-mode .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.social-ribbon{height:76px;background:#6c217f}
+.social-ribbon__slope{top:9px;height:54px;transform:rotate(-1.2deg);box-shadow:0 4px 0 #3d0c50}
+.social-ribbon__sequence{align-items:center}
+.social-ribbon__item{width:auto;min-width:max-content;gap:10px;padding:0 clamp(22px,2.4vw,42px);font:700 clamp(13px,1.1vw,16px)/1 Poppins,Arial,sans-serif;text-transform:none}
+.social-ribbon__item:after{content:'';display:block;width:1px;height:20px;margin-left:clamp(8px,1vw,15px);background:#6c217f99}
+.social-ribbon__item iconify-icon{font-size:clamp(19px,1.6vw,24px)}
+@media(max-width:1050px){
+ .reels-phone-stage{grid-template-columns:repeat(2,minmax(0,1fr)) minmax(205px,1.48fr) repeat(2,minmax(0,1fr));gap:12px;min-height:500px}
+ .reels-phone-slot--outer-left,.reels-phone-slot--outer-right{transform:translateY(48px)}
+ .reels-phone-slot--inner-left,.reels-phone-slot--inner-right{transform:translateY(-24px)}
+ .reels-phone-preview{border-radius:14px}
+}
+@media(max-width:700px){
+ .moments.reels-section.reels-phone-mode.section{padding-block:58px 68px}
+ .reels-phone-heading{margin-bottom:32px}
+ .moments.reels-section.reels-phone-mode h2{font-size:clamp(44px,10vw,65px)}
+ .reels-phone-heading p{font-size:16px}
+ .reels-phone-stage{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px;min-height:0;max-width:520px;margin:auto}
+ .reels-phone{grid-column:1/-1;grid-row:1;width:min(72%,290px);margin:0 auto 25px}
+ .reels-phone-slot{grid-row:auto!important;grid-column:auto!important;transform:none!important;max-width:195px;width:100%;justify-self:center}
+ .reels-phone-slot--outer-left,.reels-phone-slot--inner-right{justify-self:end}
+ .reels-phone-slot--inner-left,.reels-phone-slot--outer-right{justify-self:start}
+ .reels-phone-controls{margin-top:30px;padding-bottom:40px}
+ .reels-phone-toggle,.reels-phone-play{top:40px}
+ .social-ribbon{height:68px}
+ .social-ribbon__slope{top:8px;height:49px}
+}
+@media(prefers-reduced-motion:reduce){
+ .reels-phone-preview,.reels-phone__screen,.reels-phone-dots button{transition:none!important}
+ .social-ribbon__track{animation:none!important;transform:none!important}
+ .social-ribbon__sequence[aria-hidden="true"]{display:none}
+ .social-ribbon__slope{overflow-x:auto}
+}
+
+
+/* Compact Quest Moments stage with the supplied transparent-edge phone artwork. */
+.moments.reels-section.reels-phone-mode.section{--moments-phone-height:clamp(360px,52svh,570px);display:flex;align-items:center;min-height:calc(100svh - 82px);padding-block:clamp(18px,2.2svh,30px)}
+.reels-phone-content{width:100%}
+.reels-phone-heading{margin-bottom:0}
+.moments.reels-section.reels-phone-mode h2{margin-bottom:4px;font-size:clamp(44px,5.5svh,68px);line-height:1.05}
+.reels-phone-heading p{font-size:clamp(14px,1.75svh,19px);line-height:1.35}
+.reels-phone-mode .social-ribbon{position:relative;z-index:1;left:50%;width:110vw;height:clamp(48px,6svh,62px);margin:10px 0 14px -55vw;overflow:hidden;background:transparent}
+.reels-phone-mode .social-ribbon__slope{top:5px;left:-4%;width:108%;height:calc(100% - 10px);transform:rotate(-3deg);box-shadow:0 4px 0 #3d0c50}
+.reels-phone-mode .social-ribbon__item{padding-inline:clamp(19px,2vw,32px);font-size:clamp(12px,1vw,15px)}
+.reels-phone-stage{height:var(--moments-phone-height);min-height:0;grid-template-columns:repeat(2,minmax(0,1fr)) minmax(0,1.25fr) repeat(2,minmax(0,1fr));gap:clamp(8px,1vw,20px)}
+.reels-phone{width:min(100%,calc(var(--moments-phone-height) * .497));max-width:none}
+.reels-phone__mockup{position:relative;z-index:0;display:block;width:100%;height:auto}
+.reels-phone__screen{position:absolute;z-index:1;top:1.8%;left:3.2%;width:93.6%;height:96%;aspect-ratio:auto;border-radius:12% / 6%;overflow:hidden;background:#171017}
+.reels-phone__screen video{width:100%;height:100%;object-fit:cover}
+.reels-phone__top{position:absolute;z-index:2;top:0;left:0;right:0;height:2.5%;background:url('/quest-v2/assets/home-mockup.png') center top/100% auto no-repeat;pointer-events:none}
+.reels-phone-slot{width:100%;max-width:calc(var(--moments-phone-height) * .45);justify-self:center}
+.reels-phone-slot--outer-left,.reels-phone-slot--outer-right{transform:translateY(36px)}
+.reels-phone-slot--inner-left,.reels-phone-slot--inner-right{transform:translateY(-24px)}
+.reels-phone-preview__media{background:#4b2660}
+.reels-phone-preview__media video:not([src]){background:linear-gradient(145deg,#6c217f 0%,#4a1761 70%,#3d0c50 100%)}
+.reels-phone-controls{margin-top:clamp(8px,1.5svh,17px);min-height:36px}
+.reels-phone-toggle{width:1px;height:1px;min-height:0;padding:0;border:0;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+.reels-phone-toggle:focus-visible{width:auto;height:40px;min-height:40px;padding:8px 15px;border:1px solid #fdb913;clip-path:none;overflow:visible;white-space:normal}
+.reels-pattern-triangle{position:absolute;z-index:0;bottom:0;width:clamp(210px,27vw,420px);height:auto;aspect-ratio:1;object-fit:cover;opacity:.7;clip-path:polygon(0 100%,50% 0,100% 100%);pointer-events:none}
+.reels-pattern-triangle--left{left:-7vw}
+.reels-pattern-triangle--right{right:-7vw}
+@media(max-width:1050px){
+ .moments.reels-section.reels-phone-mode.section{--moments-phone-height:clamp(345px,49svh,470px)}
+ .reels-phone-stage{grid-template-columns:repeat(2,minmax(0,1fr)) minmax(0,1.2fr) repeat(2,minmax(0,1fr));gap:8px}
+ .reels-phone-slot--outer-left,.reels-phone-slot--outer-right{transform:translateY(23px)}
+ .reels-phone-slot--inner-left,.reels-phone-slot--inner-right{transform:translateY(-14px)}
+}
+@media(max-width:700px){
+ .moments.reels-section.reels-phone-mode.section{display:block;min-height:0;padding-block:50px 60px}
+ .reels-phone-mode .social-ribbon{width:120vw;margin-left:-60vw;margin-top:15px;margin-bottom:25px;height:54px}
+ .reels-phone-mode .social-ribbon__slope{transform:rotate(-2.4deg)}
+ .reels-phone-stage{height:auto;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
+ .reels-phone{width:min(72%,270px);margin-bottom:15px}
+ .reels-phone-slot{max-width:185px}
+ .reels-phone-controls{margin-top:22px}
+ .reels-pattern-triangle{width:clamp(130px,42vw,240px);opacity:.42}
+ .reels-pattern-triangle--left{left:-15vw}
+ .reels-pattern-triangle--right{right:-15vw}
+}
+@media(prefers-reduced-motion:reduce){
+ .reels-phone-mode .social-ribbon__slope{transform:rotate(-2deg)}
+}
