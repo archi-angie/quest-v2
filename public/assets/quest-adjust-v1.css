@@ -1,0 +1,9 @@
+/* Keep the News stage purple when its entrance animation resets. */
+.news-stage.motion-ready:not(.is-visible) .news-stage-oval{opacity:1;transform:none}
+/* Balance Quest Moments within its stage, and offset the two genuine Quest patterns. */
+@media(min-width:701px){.reels-phone-mode .reels-phone-content{position:relative;transform:translateY(clamp(22px,4.5svh,48px))}}
+.reels-phone-mode .reels-pattern-block--right{top:0;right:0;left:auto}
+.reels-phone-mode .reels-pattern-block--left{top:-75px;left:0;right:auto;transform:scaleX(-1);opacity:.37}
+.reels-phone-mode .reels-pattern-block{mask-image:linear-gradient(to bottom,transparent 0%,#000 21%,#000 70%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 21%,#000 70%,transparent 100%)}
+@media(max-width:700px){.reels-phone-mode .reels-phone-content{transform:none}.reels-phone-mode .reels-pattern-block--left{top:-25px;width:clamp(90px,25vw,140px);opacity:.23}}
+@media(prefers-reduced-motion:reduce){.reels-phone-mode .reels-phone-content{transform:none}}
