@@ -582,3 +582,44 @@
 .news-stage-featured h3,.news-stage-featured>p:not(.news-stage-detail-note),.news-stage-action{transition:opacity .45s .56s ease,transform .55s .56s cubic-bezier(.22,1,.36,1)}
 .news-stage.motion-ready:not(.is-visible) .news-stage-badge{opacity:0;transform:translate(-50%,13px)}
 .news-stage.motion-ready:not(.is-visible) .news-stage-featured h3,.news-stage.motion-ready:not(.is-visible) .news-stage-featured>p:not(.news-stage-detail-note),.news-stage.motion-ready:not(.is-visible) .news-stage-action{opacity:0;transform:translateY(13px)}
+
+/* Inverted News stage, curved underline, reference sparkles, and dated stories. */
+.news-stage.section{background:#fdb913;color:#fff}
+.news-stage-oval{background:#6c217f}
+.news-stage-heading{position:relative}
+.news-stage-heading text{fill:#fdb913}
+.news-stage-heading .news-stage-underline{position:absolute;left:50%;bottom:0;display:block;width:min(370px,32vw);height:58px;margin:0;transform:translateX(-50%);overflow:visible}
+.news-stage-underline path{fill:none;stroke:#fdb913;stroke-width:7;stroke-linecap:round}
+.news-stage-heading .news-stage-sparkle{position:absolute;top:35%;display:block;width:68px;height:68px;margin:0;overflow:visible}
+.news-stage-sparkle-left{left:9%}.news-stage-sparkle-right{right:9%}
+.news-stage-sparkle path{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round}
+.news-stage-sparkle-two,.news-stage-sparkle-lower{position:absolute;display:block;overflow:visible;pointer-events:none}
+.news-stage-sparkle-two{top:13%;right:-15%;width:83px;height:83px}
+.news-stage-sparkle-lower{bottom:1%;left:-9%;width:55px;height:55px}
+.news-stage-sparkle-two path,.news-stage-sparkle-lower path{fill:none;stroke:#fdb913;stroke-width:4;stroke-linejoin:round;stroke-linecap:round}
+.news-stage-preview{color:#fff}
+.news-stage-preview-hotel{color:#fdb913}
+.news-stage-preview-date,.news-stage-date{display:block;color:#fff;font:700 11px/1.3 Poppins,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.news-stage-preview-date{margin-top:-4px}
+.news-stage-date{margin:0 auto 8px}
+.news-stage-featured h3{min-height:0;margin-bottom:7px;color:#fff;-webkit-line-clamp:2}
+.news-stage-featured>p:not(.news-stage-detail-note){min-height:0;margin-bottom:0;color:#fff}
+.news-stage-preview strong,.news-stage-preview>span:last-child{min-height:0}
+.news-stage-action{margin-top:14px;min-height:47px}
+.news-stage-read,.news-stage-read:hover{background:#fdb913;color:#6c217f;box-shadow:5px 5px 0 #3d0c50}
+.news-stage-read:hover{background:#ffd45b}
+.news-stage-read:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.news-stage-badge{background:#fdb913;color:#6c217f;border-color:#fff}
+.news-stage-detail-note{color:#fff}
+.news-stage-grid{min-height:730px}
+.news-stage-featured-image{margin-bottom:35px}
+.news-stage-preview[hidden],.news-stage-control[hidden],.news-stage-date[hidden],.news-stage-preview-date[hidden]{display:none!important}
+.moments{background:#6c217f;color:#fff}
+.moments h2{color:#fdb913}
+.moments .eyebrow{color:#fdb913}
+.moments-header p:not(.eyebrow){color:#fff}
+.moments-controls button{border-color:#fff;background:#fdb913;color:#6c217f}
+@media(max-width:1100px){.news-stage-grid{min-height:650px}.news-stage-heading .news-stage-sparkle{width:54px;height:54px}.news-stage-sparkle-left{left:4%}.news-stage-sparkle-right{right:4%}}
+@media(max-width:850px){.news-stage-grid{min-height:0}.news-stage-heading-mobile{color:#fdb913}.news-stage-heading .news-stage-underline{bottom:4px;width:260px;height:35px}.news-stage-heading .news-stage-sparkle{display:none}.news-stage-sparkle-two{right:-8%;width:58px;height:58px}.news-stage-sparkle-lower{left:-3%;width:42px;height:42px}}
+@media(max-width:700px){.news-stage-heading .news-stage-underline{width:180px;height:28px;bottom:0}.news-stage-sparkle-two{right:-2%;top:10%;width:44px;height:44px}.news-stage-sparkle-lower{display:none}.news-stage-date,.news-stage-preview-date{font-size:10px}.news-stage-preview{gap:7px}}
+@media(prefers-reduced-motion:reduce){.news-stage-sparkle-two,.news-stage-sparkle-lower,.news-stage-heading .news-stage-sparkle,.news-stage-heading .news-stage-underline{animation:none!important;transition:none!important}}

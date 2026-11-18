@@ -2,13 +2,19 @@
 (() => {
   const asset = '/quest-v2/assets/';
   const fallback = asset + 'hero-quality.webp';
+  // Story concepts and publication dates are placeholders; hotel names mirror the verified hotel list.
   const items = [
-    {id:'moments',image:asset+'hero-quality.webp',imageAlt:'Mother and daughter laughing together',hotelName:'Quest Hotels',title:'Little moments, lasting memories',description:'Stories and smiles that make time together feel special.'},
-    {id:'breakfast',image:asset+'hero-breakfast.webp',imageAlt:'Breakfast with pancakes and fruit',hotelName:'Quest Hotels',title:'Breakfast stories worth sharing',description:'Good mornings start around the same table.'},
-    {id:'explore',image:asset+'hero-memories.webp',imageAlt:'Family walking together in a tropical garden',hotelName:'Quest Hotels',title:'New places, familiar smiles',description:'A little time to wander can become a favorite memory.'},
-    {id:'rest',image:'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1000&q=85',imageAlt:'Warm and comfortable hotel room',hotelName:'Quest Hotels',title:'Room to recharge',description:'Come back to comfort after a day out together.'},
-    {id:'pool',image:asset+'hero-pool.webp',imageAlt:'Family laughing together in a hotel pool',hotelName:'Quest Hotels',title:'Pool days at Quest',description:'Time to slow down and enjoy the water together.'}
+    {id:'moments',image:asset+'hero-quality.webp',imageAlt:'Mother and daughter laughing together',hotelName:'Quest Hotel San Denpasar',createdAt:'2026-11-12',title:'Little moments, lasting memories',description:'Stories and smiles that make time together feel special.'},
+    {id:'breakfast',image:asset+'hero-breakfast.webp',imageAlt:'Breakfast with pancakes and fruit',hotelName:'Quest Prime Cikarang',createdAt:'2026-11-08',title:'Breakfast stories worth sharing',description:'Good mornings start around the same table.'},
+    {id:'explore',image:asset+'hero-memories.webp',imageAlt:'Family walking together in a tropical garden',hotelName:'Quest Hotel Kuta',createdAt:'2026-10-31',title:'Finding more time together around the city and back again at Quest',description:'A little time to wander can become a favorite memory.'},
+    {id:'rest',image:'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1000&q=85',imageAlt:'Warm and comfortable hotel room',hotelName:'Quest Hotel Simpang Lima - Semarang',createdAt:'2026-10-24',title:'Room to recharge',description:'Come back to comfort after a day out together.'},
+    {id:'pool',image:asset+'hero-pool.webp',imageAlt:'Family laughing together in a hotel pool',hotelName:'Quest Hotel Balikpapan',createdAt:'2026-10-28',title:'Pool days at Quest',description:'Time to slow down and enjoy the water together.'}
   ];
+  const formatDate = iso => new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(iso+'T00:00:00Z'));
+  const setDate = (element,iso) => {
+    element.hidden = !iso;
+    if (iso) {element.dateTime = iso;element.textContent = 'Created ' + formatDate(iso);}
+  };
   const init = () => {
     const stage = document.querySelector('.news-stage');
     if (!stage) return;
@@ -34,6 +40,7 @@
       button.hidden = false;
       setImage(button.querySelector('img'),item);
       button.querySelector('.news-stage-preview-hotel').textContent = item.hotelName || 'Quest Hotels';
+      setDate(button.querySelector('.news-stage-preview-date'),item.createdAt);
       button.querySelector('strong').textContent = item.title;
       button.querySelector('span:last-child').textContent = item.description || '';
       button.setAttribute('aria-label',`Show ${direction} news story: ${item.title}`);
@@ -42,6 +49,7 @@
       const item = items[active];
       setImage(featured.querySelector('img'),item);
       featured.querySelector('.news-stage-badge').textContent = item.hotelName || 'Quest Hotels';
+      setDate(featured.querySelector('.news-stage-date'),item.createdAt);
       featured.querySelector('h3').textContent = item.title;
       const description = featured.querySelector('p:not(.news-stage-detail-note)');
       description.textContent = item.description || '';
