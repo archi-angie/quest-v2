@@ -35,6 +35,13 @@
     const dotButtons = [...pagination.querySelectorAll('button')];
     const lanes = [upper,lower];
     const tracks = [upperTrack,lowerTrack];
+    const syncInteraction = () => section.classList.toggle('is-interacting',lanes.some(lane=>lane.matches(':hover') || lane.matches(':focus-within')));
+    lanes.forEach(lane=>{
+      lane.addEventListener('pointerenter',syncInteraction);
+      lane.addEventListener('pointerleave',syncInteraction);
+      lane.addEventListener('focusin',syncInteraction);
+      lane.addEventListener('focusout',()=>requestAnimationFrame(syncInteraction));
+    });
     const resize = () => lanes.forEach(lane=>lane.style.setProperty('--lane-width',lane.clientWidth+'px'));
     resize();
     if ('ResizeObserver' in window) new ResizeObserver(resize).observe(section);
