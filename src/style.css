@@ -480,3 +480,29 @@
 @media(max-width:800px){.offer-pagination{margin-top:28px}.offers-intro:before{left:calc(-1 * var(--page-gutter));top:-20px;width:min(38vw,290px)}}
 @media(max-width:700px){.hotels-corner{top:-48px;width:95px;height:130px}.hotels .hotel-cards{transform:translateY(-14px)}.offer-ticket{--offer-thumb:clamp(105px,28vw,155px);grid-template-columns:var(--offer-thumb) minmax(0,1fr);gap:14px;min-height:174px;padding:16px 14px}.offer-thumbnail-wrap{width:var(--offer-thumb)}.offer-perforation{left:calc(14px + var(--offer-thumb) + 7px);top:15px;bottom:15px;border-left-width:1px}.offer-title{max-width:none;font-size:17px}.offer-ticket-copy{padding-right:0}.offer-ticket:before,.offer-ticket:after{-webkit-mask-image:radial-gradient(circle 14px at left center,transparent 98%,#000 100%),radial-gradient(circle 14px at right center,transparent 98%,#000 100%);mask-image:radial-gradient(circle 14px at left center,transparent 98%,#000 100%),radial-gradient(circle 14px at right center,transparent 98%,#000 100%)}.offer-pagination{margin-top:24px}}
 @media(prefers-reduced-motion:reduce){.offer-ticket,.offer-page-bubble{animation:none!important;transition:none!important}}
+
+/* Compact offer programme with a full-height Quest pattern and one ticket notch. */
+.offers.section{padding-block:70px 78px}
+.offers.section:before{content:'';position:absolute;z-index:0;top:0;bottom:0;left:0;width:min(37vw,740px);background:url('/quest-v2/assets/pattern-05.svg') left center/cover no-repeat;opacity:.30;mix-blend-mode:multiply;pointer-events:none}
+.offers-intro:before{display:none}
+.offers-layout{row-gap:12px;align-items:start}
+.offers-intro{margin-top:clamp(60px,7vw,120px)}
+.offers-intro h2{margin-bottom:20px;line-height:1.02}
+.offers-intro h2 span,.offers-intro h2 strong{font-family:'Permanent Marker',cursive;font-weight:400;letter-spacing:0}
+.offers-intro h2 span{font-size:clamp(51px,5.2vw,76px);line-height:1.02}
+.offers-intro h2 strong{font-size:clamp(31px,3vw,46px);line-height:1.1;margin-top:10px}
+.offers-intro>p:not(.eyebrow){margin-bottom:24px}
+.offers-list{gap:28px}
+.offer-ticket{--offer-thumb:clamp(205px,16vw,300px);grid-template-columns:var(--offer-thumb) minmax(0,1fr);gap:30px;min-height:clamp(185px,11.5vw,220px);padding:9px 11px;border-radius:18px}
+.offer-ticket:before,.offer-ticket:after{-webkit-mask-image:radial-gradient(circle 21px at right center,transparent 98%,#000 100%);mask-image:radial-gradient(circle 21px at right center,transparent 98%,#000 100%);-webkit-mask-composite:source-over;mask-composite:add}
+.offer-ticket:after{-webkit-mask-image:radial-gradient(circle 22px at right center,transparent 98%,#000 100%);mask-image:radial-gradient(circle 22px at right center,transparent 98%,#000 100%)}
+.offer-thumbnail-wrap{width:var(--offer-thumb);aspect-ratio:3/2;border-radius:12px;background:#6c217f}
+.offer-thumbnail{display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover;border-radius:11px}
+.offer-perforation{left:calc(11px + var(--offer-thumb) + 15px);top:13px;bottom:13px}
+.offer-ticket-copy{padding-right:6px}
+.offer-title{max-width:390px;margin-bottom:7px}
+.offer-learn{top:-16px;right:-23px}
+.offer-pagination{margin-top:2px}
+@media(max-width:1200px){.offers.section{padding-block:62px 70px}.offers-intro{margin-top:clamp(45px,6vw,80px)}.offer-ticket{--offer-thumb:clamp(170px,17vw,235px);gap:23px;min-height:clamp(170px,13vw,195px);padding:9px 10px}.offer-perforation{left:calc(10px + var(--offer-thumb) + 11px)}}
+@media(max-width:800px){.offers.section{padding-block:60px 67px}.offers-intro{margin-top:0;margin-bottom:32px}.offers.section:before{width:48vw;opacity:.22}.offers-layout{row-gap:10px}}
+@media(max-width:700px){.offers.section{padding-block:54px 60px}.offers.section:before{width:60vw}.offer-ticket{--offer-thumb:clamp(104px,28vw,145px);grid-template-columns:var(--offer-thumb) minmax(0,1fr);gap:13px;min-height:158px;padding:8px}.offer-perforation{left:calc(8px + var(--offer-thumb) + 6px);top:12px;bottom:12px}.offer-ticket:before,.offer-ticket:after{-webkit-mask-image:radial-gradient(circle 14px at right center,transparent 98%,#000 100%);mask-image:radial-gradient(circle 14px at right center,transparent 98%,#000 100%)}.offer-thumbnail-wrap{width:var(--offer-thumb)}.offer-title{font-size:16px}.offer-learn{top:-10px;right:-7px}.offers-intro h2 span{font-size:clamp(48px,11vw,64px)}}
