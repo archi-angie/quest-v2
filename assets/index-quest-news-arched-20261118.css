@@ -351,3 +351,17 @@
 .news-stage-sparkle-right{right:calc(50% - clamp(330px,29vw,430px))}
 @media(max-width:850px){.news-stage-oval{top:clamp(24px,4svh,38px);clip-path:ellipse(90% 100% at 50% 100%)}}
 @media(max-width:700px){.news-stage-oval{top:24px;clip-path:ellipse(115% 100% at 50% 100%)}}
+
+
+/* News stage: a centered arched panel with a rounded crown and straight sides. */
+.news-stage-oval{left:0;right:0;top:clamp(36px,5svh,56px);bottom:0;width:min(84vw,1600px);height:auto;margin-inline:auto;clip-path:none;border-radius:50% 50% 0 0 / clamp(280px,25vw,430px) clamp(280px,25vw,430px) 0 0}
+@media(min-width:851px){
+  .news-stage-control-prev{left:clamp(16px,2vw,28px)}
+  .news-stage-control-next{right:clamp(16px,2vw,28px)}
+}
+@media(max-width:850px){
+  .news-stage-oval{top:clamp(24px,4svh,38px);width:92vw;border-radius:50% 50% 0 0 / clamp(170px,27vw,250px) clamp(170px,27vw,250px) 0 0}
+}
+@media(max-width:700px){
+  .news-stage-oval{top:18px;width:calc(100% - 8px);border-radius:50% 50% 0 0 / clamp(85px,28vw,145px) clamp(85px,28vw,145px) 0 0}
+}
