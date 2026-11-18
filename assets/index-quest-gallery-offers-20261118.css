@@ -38,3 +38,38 @@
 @media(max-width:700px){:root{--page-gutter:22px}.hero.section{--hero-inline-padding:var(--page-gutter);--gallery-height:365px;padding:102px var(--page-gutter) 62px}.hero h1 strong{font-size:clamp(42px,11vw,59px)}.hero .hero-gallery{margin-top:20px}.hero .booking-shell{margin-top:20px}.hotels-corner{top:-46px;width:68px;height:112px}.offers.section,.hotels.section{padding-inline:var(--page-gutter)}.offer-ticket-copy{padding-right:0}.offer-learn{top:-12px;right:11px}.offers-list{gap:28px}}
 @media(hover:none){.offer-learn{transform:rotate(7deg)}}
 @media(prefers-reduced-motion:reduce){.offer-ticket,.offer-learn,.stacked-hotel-card{transition:none!important}.offers-intro:before{animation:none!important}}
+
+/* Centered gallery, matched triangles, and illustrated offer tickets. */
+.hero .gallery-track{align-items:center}
+.hero .gallery-sequence{align-items:center}
+.hero .marquee-card{justify-content:center}
+.hero .marquee-divider{align-self:center}
+.hotels-corner{top:calc(-.5 * clamp(170px,21vw,295px));width:clamp(155px,13vw,220px);height:clamp(170px,21vw,295px);background:#fdb913;overflow:hidden}
+.hotels-corner-left{left:0;clip-path:polygon(0 0,100% 50%,0 100%);transform:rotate(7deg);transform-origin:left center}
+.hotels-corner-right{right:0;clip-path:polygon(100% 0,0 50%,100% 100%);transform:rotate(-7deg);transform-origin:right center}
+.hotels-corner img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hotels .hotel-cards{transform:translateY(-22px)}
+.hotels .carousel-controls{margin-top:8px}
+.offers-intro:before{left:calc(-1 * var(--page-gutter));top:-60px;width:min(23vw,450px);height:auto;aspect-ratio:368.5/552.76;max-width:none;background:transparent url('/quest-v2/assets/pattern-05.svg') center/contain no-repeat;opacity:.38;mix-blend-mode:multiply;-webkit-mask:none;mask:none}
+.offer-ticket{--offer-thumb:clamp(210px,16vw,280px);grid-template-columns:var(--offer-thumb) minmax(0,1fr);gap:34px;min-height:clamp(205px,17vw,240px);padding:20px 28px;border-radius:18px}
+.offer-ticket:before,.offer-ticket:after{border-radius:18px;-webkit-mask-image:radial-gradient(circle 22px at left center,transparent 98%,#000 100%),radial-gradient(circle 22px at right center,transparent 98%,#000 100%);mask-image:radial-gradient(circle 22px at left center,transparent 98%,#000 100%),radial-gradient(circle 22px at right center,transparent 98%,#000 100%);-webkit-mask-composite:source-in;mask-composite:intersect}
+.offer-ticket:after{border-radius:17px;-webkit-mask-image:radial-gradient(circle 23px at left center,transparent 98%,#000 100%),radial-gradient(circle 23px at right center,transparent 98%,#000 100%);mask-image:radial-gradient(circle 23px at left center,transparent 98%,#000 100%),radial-gradient(circle 23px at right center,transparent 98%,#000 100%)}
+.offer-thumbnail-wrap{width:var(--offer-thumb);aspect-ratio:3/2;border-radius:13px}
+.offer-thumbnail{aspect-ratio:3/2;object-fit:cover}
+.offer-perforation{position:absolute;left:calc(28px + var(--offer-thumb) + 17px);top:20px;bottom:20px;border-left:2px dashed #6c217f80;pointer-events:none}
+.offer-ticket-copy{padding-right:10px}
+.offer-title{max-width:390px;min-height:2.24em;-webkit-line-clamp:2}
+.offer-ticket:nth-child(3) .offer-title{min-height:0}
+.offer-count{font-size:12px}
+.offer-pagination{grid-column:2;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:-4px}
+.offer-page-bubble{position:relative;width:28px;height:30px;overflow:hidden;border:0;border-radius:50% 50% 27% 27%;background:#d89110;cursor:pointer;transition:transform .25s ease,background-color .25s ease}
+.offer-page-bubble:before{content:'';position:absolute;inset:0;background:url('/quest-v2/assets/pattern-05.svg') center/cover no-repeat;opacity:.18;pointer-events:none}
+.offer-page-bubble.is-active{background:#6c217f;transform:translateY(-3px)}
+.offer-page-bubble:hover{transform:translateY(-4px)}
+.offer-page-bubble:focus-visible{outline:3px solid #6c217f;outline-offset:4px}
+.offer-ticket{animation:offer-page-in .4s calc(var(--offer-index,0) * .06s) backwards}
+@keyframes offer-page-in{from{opacity:.3;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1200px){.offer-ticket{--offer-thumb:clamp(170px,18vw,230px);gap:26px;padding:18px 22px}.offer-perforation{left:calc(22px + var(--offer-thumb) + 13px)}.offers-intro:before{top:-20px;width:26vw}}
+@media(max-width:800px){.offer-pagination{margin-top:28px}.offers-intro:before{left:calc(-1 * var(--page-gutter));top:-20px;width:min(38vw,290px)}}
+@media(max-width:700px){.hotels-corner{top:-48px;width:95px;height:130px}.hotels .hotel-cards{transform:translateY(-14px)}.offer-ticket{--offer-thumb:clamp(105px,28vw,155px);grid-template-columns:var(--offer-thumb) minmax(0,1fr);gap:14px;min-height:174px;padding:16px 14px}.offer-thumbnail-wrap{width:var(--offer-thumb)}.offer-perforation{left:calc(14px + var(--offer-thumb) + 7px);top:15px;bottom:15px;border-left-width:1px}.offer-title{max-width:none;font-size:17px}.offer-ticket-copy{padding-right:0}.offer-ticket:before,.offer-ticket:after{-webkit-mask-image:radial-gradient(circle 14px at left center,transparent 98%,#000 100%),radial-gradient(circle 14px at right center,transparent 98%,#000 100%);mask-image:radial-gradient(circle 14px at left center,transparent 98%,#000 100%),radial-gradient(circle 14px at right center,transparent 98%,#000 100%)}.offer-pagination{margin-top:24px}}
+@media(prefers-reduced-motion:reduce){.offer-ticket,.offer-page-bubble{animation:none!important;transition:none!important}}
