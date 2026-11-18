@@ -342,3 +342,12 @@
   .news-stage-featured h3{font-size:clamp(23px,6.5vw,28px)}
   .news-stage-featured>p:not(.news-stage-detail-note){font-size:14px}
 }
+
+
+/* Restore the complete curved title and give the stage its rising edge. */
+.news-stage-oval{top:clamp(36px,5svh,56px);clip-path:ellipse(62% 100% at 50% 100%)}
+.news-stage-heading text{font-size:90px}
+.news-stage-sparkle-left{left:calc(50% - clamp(330px,29vw,430px))}
+.news-stage-sparkle-right{right:calc(50% - clamp(330px,29vw,430px))}
+@media(max-width:850px){.news-stage-oval{top:clamp(24px,4svh,38px);clip-path:ellipse(90% 100% at 50% 100%)}}
+@media(max-width:700px){.news-stage-oval{top:24px;clip-path:ellipse(115% 100% at 50% 100%)}}
