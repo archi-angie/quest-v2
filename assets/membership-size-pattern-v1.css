@@ -1,0 +1,68 @@
+/* Quest-05 motifs cropped from the supplied geometric artwork. */
+.membership-poster .membership-piece{
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  pointer-events:none;
+}
+.membership-poster .membership-piece-one{
+  left:0;top:10%;bottom:auto;right:auto;
+  width:clamp(120px,12vw,185px);aspect-ratio:2/1;
+  background-image:url('/quest-v2/assets/membership-pattern-piece-1.svg');
+  opacity:.67;
+}
+.membership-poster .membership-piece-two{
+  right:0;top:38%;bottom:auto;left:auto;
+  width:clamp(66px,6vw,92px);aspect-ratio:1/2;
+  background-image:url('/quest-v2/assets/membership-pattern-piece-2.svg');
+  opacity:.66;
+}
+.membership-poster .membership-piece-three{
+  right:2.5%;top:8%;bottom:auto;left:auto;
+  width:clamp(85px,8vw,122px);aspect-ratio:1;
+  background-image:url('/quest-v2/assets/membership-pattern-piece-3.svg');
+  opacity:.76;
+}
+.membership-poster .membership-piece-four{
+  left:48%;top:8%;bottom:auto;right:auto;
+  width:clamp(66px,6vw,90px);aspect-ratio:1;
+  background-image:url('/quest-v2/assets/membership-pattern-piece-4.svg');
+  opacity:.58;
+}
+.membership-poster .membership-piece-five{
+  right:2%;bottom:6%;top:auto;left:auto;
+  width:clamp(100px,9vw,140px);aspect-ratio:1;
+  background-image:url('/quest-v2/assets/membership-pattern-piece-5.svg');
+  opacity:.68;
+}
+/* Keep the tilted original phone grounded on the smaller stage. */
+.membership-poster .membership-visual{
+  width:min(100%,520px);
+  height:clamp(500px,43vw,620px);
+}
+.membership-poster .membership-phone-art{
+  left:calc(50% - 17px);
+  bottom:clamp(73px,6.2vw,95px);
+  width:clamp(240px,19vw,300px);
+}
+.membership-poster .membership-platform{
+  width:clamp(265px,25vw,375px);
+  height:clamp(58px,5.5vw,75px);
+}
+/* Permanent Marker’s glyphs need a little room at this large scale. */
+.membership-poster .membership-stay{letter-spacing:.025em}
+@media(max-width:1100px){
+  .membership-poster .membership-visual{height:clamp(490px,53vw,570px)}
+  .membership-poster .membership-phone-art{left:calc(50% - 14px);bottom:80px;width:clamp(235px,25vw,285px)}
+  .membership-poster .membership-platform{width:clamp(265px,31vw,350px)}
+}
+@media(max-width:700px){
+  .membership-poster .membership-visual{width:100%;height:clamp(480px,125vw,570px)}
+  .membership-poster .membership-phone-art{left:calc(50% - 9px);bottom:72px;width:min(60vw,275px)}
+  .membership-poster .membership-platform{width:min(78vw,340px);height:58px;bottom:10px}
+  .membership-poster .membership-piece-one{width:125px;top:4%}
+  .membership-poster .membership-piece-two{width:60px;top:43%}
+  .membership-poster .membership-piece-three{width:72px;top:8%;right:0}
+  .membership-poster .membership-piece-four{width:60px;top:7%;left:54%}
+  .membership-poster .membership-piece-five{width:78px;bottom:4%;right:0}
+}
