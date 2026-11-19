@@ -1,0 +1,24 @@
+/* Preserve the supplied iPhone artwork, including its camera and speaker. */
+.reels-phone-mode .reels-phone__mockup{z-index:2;mask-image:url('/quest-v2/assets/phone-screen-cutout-v2.svg');-webkit-mask-image:url('/quest-v2/assets/phone-screen-cutout-v2.svg');mask-size:100% 100%;-webkit-mask-size:100% 100%;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat}
+.reels-phone-mode .reels-phone__screen{top:5.56%;left:3.02%;width:93.96%;height:92.30%;border-radius:0 0 10% 10% / 0 0 5% 5%;z-index:1}
+.reels-phone-mode .reels-phone__island,.reels-phone-mode .reels-phone__top{display:none!important}
+/* The video area and its portrait card follow 9:16; Quest artwork stays outside the video. */
+.reels-phone-mode .reels-phone-slot{max-width:calc(var(--moments-phone-height) * .37)}
+.reels-phone-mode .reels-phone-preview{position:relative;display:block;aspect-ratio:9/16;width:100%;height:auto;padding:0;border:0;border-radius:17px;background:transparent;box-shadow:none;overflow:visible}
+.reels-phone-mode .reels-phone-preview:hover{box-shadow:none}
+.reels-phone-mode .reels-phone-preview__media{position:relative;z-index:1;display:block;box-sizing:border-box;width:100%;height:auto;aspect-ratio:9/16!important;border:2px solid #fff;border-radius:17px;overflow:hidden;box-shadow:6px 8px 0 #3d0c50}
+.reels-phone-mode .reels-phone-preview__media video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.reels-phone-mode .reels-phone-preview__rail{position:absolute;z-index:0;top:1px;bottom:1px;left:-14px;width:14px;background:#fdb913 url('/quest-v2/assets/pattern-02.svg') 18% 5%/118px auto repeat-y;border-radius:10px 0 0 10px}
+.reels-phone-mode .reels-phone-preview__rail--right{left:auto;right:-14px;background-position:80% 38%;border-radius:0 10px 10px 0}
+.reels-phone-mode .reels-phone-preview:hover .reels-phone-preview__media{border-color:#fdb913;box-shadow:8px 11px 0 #3d0c50}
+/* The same diamond navigation language in Offers and Quest Moments. */
+.offer-page-bubble,.reels-phone-mode .reels-phone-dots button{width:16px;height:16px;min-width:16px;padding:0;border:0;border-radius:2px;transform:rotate(45deg);transition:transform .22s ease,background-color .22s ease,opacity .22s ease}
+.offer-page-bubble{background:#d89110;overflow:hidden;margin:5px 3px}
+.offer-page-bubble.is-active{background:#6c217f;transform:rotate(45deg) scale(1.18)}
+.offer-page-bubble:hover{transform:rotate(45deg) scale(1.17)}
+.reels-phone-mode .reels-phone-dots button{background:#ffffffaa;opacity:1}
+.reels-phone-mode .reels-phone-dots button[aria-pressed="true"]{background:#fdb913;border-color:#fdb913;transform:rotate(45deg) scale(1.18)}
+.reels-phone-mode .reels-phone-dots button:hover{transform:rotate(45deg) scale(1.17)}
+.offer-page-bubble:focus-visible,.reels-phone-mode .reels-phone-dots button:focus-visible{outline:3px solid #fff;outline-offset:5px}
+@media(max-width:700px){.reels-phone-mode .reels-phone-slot{max-width:150px}.reels-phone-mode .reels-phone-preview__rail{left:-10px;width:10px}.reels-phone-mode .reels-phone-preview__rail--right{left:auto;right:-10px}}
+@media(prefers-reduced-motion:reduce){.offer-page-bubble,.reels-phone-mode .reels-phone-dots button{transition:none}}
