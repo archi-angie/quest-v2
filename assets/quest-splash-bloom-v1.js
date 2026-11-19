@@ -53,7 +53,7 @@
   window.addEventListener('resize',() => { if (started) finish(); },{once:true});
   const boot = () => {
     if (started || finished) return true;
-    if (reduce.matches || scrollY > 24 || location.hash || (logoImage?.complete && !logoImage.naturalWidth)) { finish(); return true; }
+    if (reduce.matches || (logoImage?.complete && !logoImage.naturalWidth)) { finish(); return true; }
     const navLogo = document.querySelector('.header .logo-light');
     const hero = document.querySelector('.hero');
     if (!navLogo || !hero || !logo) return false;
