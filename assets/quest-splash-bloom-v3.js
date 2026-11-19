@@ -1,0 +1,145 @@
+(() => {
+  const html = document.documentElement;
+  const splash = document.getElementById('quest-splash');
+  if (!splash || !html.classList.contains('quest-splash-pending')) { splash?.remove(); return; }
+  const app = document.getElementById('app');
+  const logo = splash.querySelector('.quest-splash-logo');
+  const logoImage = logo?.querySelector('img');
+  const skip = splash.querySelector('.quest-splash-skip');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const NS = 'http://www.w3.org/2000/svg';
+  const TOTAL = 5600;
+  let finished = false, started = false, frame = 0, observer;
+  let startTime = 0;
+  const clamp = x => Math.max(0, Math.min(1, x));
+  const smooth = x => { x = clamp(x); return x*x*(3-2*x); };
+  const accel = x => clamp(x)**2.4;
+  const lerp = (a,b,t) => a + (b-a)*t;
+  const phase = (t,a,b,ease=smooth) => ease((t-a)/(b-a));
+  const shape = (parent, tag, attrs) => {
+    const el = document.createElementNS(NS,tag);
+    for (const [k,v] of Object.entries(attrs)) el.setAttribute(k,v);
+    parent.append(el);
+    return el;
+  };
+  const points = (count, outer, inner) => {
+    const p = [];
+    for (let i=0;i<count*2;i++) {
+      const a = -Math.PI/2 + i*Math.PI/count;
+      const r = i%2 ? inner : outer;
+      p.push((Math.cos(a)*r).toFixed(2)+','+(Math.sin(a)*r).toFixed(2));
+    }
+    return p.join(' ');
+  };
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    cancelAnimationFrame(frame);
+    observer?.disconnect();
+    if (window.__questSplashWatchdog) clearTimeout(window.__questSplashWatchdog);
+    app?.removeAttribute('inert');
+    html.classList.remove('quest-splash-pending','quest-show-corners','quest-show-headline','quest-show-gallery','quest-show-booking','quest-show-nav','quest-show-logo');
+    splash.remove();
+    document.removeEventListener('keydown',onKey);
+    reduce.removeEventListener('change',onReduce);
+  };
+  const onKey = e => { if (e.key === 'Escape') finish(); };
+  const onReduce = () => { if (reduce.matches) finish(); };
+  skip?.addEventListener('click',finish);
+  document.addEventListener('keydown',onKey);
+  reduce.addEventListener('change',onReduce);
+  logoImage?.addEventListener('error',finish,{once:true});
+  window.addEventListener('pagehide',finish,{once:true});
+  window.addEventListener('resize',() => { if (started) finish(); },{once:true});
+  const boot = () => {
+    if (started || finished) return true;
+    if (reduce.matches || (logoImage?.complete && !logoImage.naturalWidth)) { finish(); return true; }
+    const navLogo = document.querySelector('.header .logo-light');
+    const hero = document.querySelector('.hero');
+    if (!navLogo || !hero || !logo) return false;
+    started = true;
+    app?.setAttribute('inert','');
+    const svg = shape(splash,'svg',{class:'quest-splash-bloom',viewBox:'-540 -540 1080 1080',preserveAspectRatio:'xMidYMid slice','aria-hidden':'true'});
+    const circles = shape(svg,'g',{fill:'#6C217F'});
+    const circleNodes = [[-172,-172],[172,-172],[-172,172],[172,172]].map(() => shape(circles,'circle',{r:'230'}));
+    const longGroup = shape(svg,'g',{fill:'#FDB913'});
+    const long = shape(longGroup,'polygon',{points:''});
+    const spikyGroup = shape(svg,'g',{fill:'#6C217F'});
+    const spiky = shape(spikyGroup,'polygon',{points:''});
+    const heroGroup = shape(svg,'g',{fill:'#A600D0'});
+    const heroStar = shape(heroGroup,'polygon',{points:''});
+    const tick = now => {
+      if (finished) return;
+      const t = Math.min(TOTAL,now-startTime);
+      const ringGrow = phase(t,0,800);
+      const ringCollapse = 1-phase(t,2500,3300,accel);
+      const ringScale = ringGrow*ringCollapse;
+      const ringRotate = lerp(35,90,phase(t,800,3000));
+      circles.setAttribute('transform','rotate('+ringRotate.toFixed(2)+') scale('+ringScale.toFixed(4)+')');
+      const swap = phase(t,1000,1800);
+      const burst = phase(t,1800,2600);
+      const returnToCenter = phase(t,2600,3400,accel);
+      circleNodes.forEach((node,i) => {
+        const left = i%2===0, top = i<2;
+        const originalX = left ? -172 : 172, originalY = top ? -172 : 172;
+        const x = originalX + (left ? 344 : -344)*swap + (left ? -600 : 600)*burst + (left ? 600 : -600)*returnToCenter;
+        const y = originalY + (top ? -600 : 600)*burst + (top ? 600 : -600)*returnToCenter;
+        const growth = 1+2*burst*(1-returnToCenter);
+        node.setAttribute('transform','translate('+x.toFixed(2)+' '+y.toFixed(2)+') scale('+growth.toFixed(3)+')');
+      });
+      const longGrow = phase(t,200,800);
+      const longCollapse = 1-phase(t,2300,3100,accel);
+      const longAngle = lerp(-10,45,phase(t,800,3000));
+      const thick = phase(t,1000,1600);
+      const spike = phase(t,1600,2200);
+      const longOuter = lerp(540,460,thick*(1-spike));
+      const longInner = lerp(.2,.45,thick*(1-spike))*longOuter;
+      long.setAttribute('points',points(4,longOuter,longInner));
+      longGroup.setAttribute('transform','rotate('+longAngle.toFixed(2)+') scale('+(longGrow*longCollapse).toFixed(4)+')');
+      const spikyGrow = phase(t,200,800);
+      const spikyCollapse = 1-phase(t,2400,3200,accel);
+      const spikyRatio = .7+.2*thick*(1-spike);
+      spiky.setAttribute('points',points(24,400,400*spikyRatio));
+      spikyGroup.setAttribute('transform','rotate('+longAngle.toFixed(2)+') scale('+(spikyGrow*spikyCollapse).toFixed(4)+')');
+      const heroGrow = phase(t,400,1000);
+      const heroCollapse = 1-.25*phase(t,2200,3000,accel)-.75*phase(t,5050,5500,accel);
+      const heroAngle = lerp(5,-45,phase(t,1000,3000));
+      const heroRatio = lerp(.55,.4,phase(t,1600,2200));
+      heroStar.setAttribute('points',points(4,400,400*heroRatio*heroGrow));
+      heroGroup.setAttribute('transform','rotate('+heroAngle.toFixed(2)+') scale('+(heroGrow*heroCollapse).toFixed(4)+')');
+      // The Q is clipped from the actual white Quest SVG. Reveal the remaining original paths next.
+      const q = phase(t,3250,3500);
+      const word = phase(t,3900,4400);
+      const reveal = q ? lerp(68.75,0,word) : 68.75;
+      const travel = phase(t,5050,5600);
+      const rect = navLogo.getBoundingClientRect();
+      const dx = rect.left+rect.width/2-innerWidth/2;
+      const qOffset = logo.offsetWidth*.34*(1-word);
+      const dy = rect.top+rect.height/2-innerHeight/2;
+      const scale = rect.width/logo.offsetWidth || 1;
+      logo.style.opacity = String(q);
+      logo.style.clipPath = 'inset(0 '+reveal.toFixed(2)+'% 0 0)';
+      logo.style.transform = 'translate(-50%,-50%) translate3d('+(dx*travel+qOffset).toFixed(2)+'px,'+(dy*travel).toFixed(2)+'px,0) scale('+lerp(1,scale,travel).toFixed(4)+')';
+      if (t>=5100) html.classList.add('quest-show-corners');
+      if (t>=5200) html.classList.add('quest-show-headline');
+      if (t>=5280) html.classList.add('quest-show-gallery');
+      if (t>=5380) html.classList.add('quest-show-booking','quest-show-nav');
+      if (t>=5510) html.classList.add('quest-show-logo');
+      if (t>=5250) splash.style.opacity = String(1-.98*phase(t,5250,5600));
+      if (t < TOTAL) frame = requestAnimationFrame(tick);
+      else finish();
+    };
+    startTime = performance.now();
+    frame = requestAnimationFrame(tick);
+    return true;
+  };
+  const safeBoot = () => { try { return boot(); } catch (_) { finish(); return true; } };
+  const ready = () => {
+    if (safeBoot()) return;
+    observer = new MutationObserver(() => { if (safeBoot()) observer.disconnect(); });
+    observer.observe(app,{childList:true,subtree:true});
+    setTimeout(() => { if (!started) finish(); },2200);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',ready,{once:true});
+  else ready();
+})();
