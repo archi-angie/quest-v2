@@ -1,0 +1,13 @@
+/* Extra room for the headline, social ticker, reels, and pagination. */
+.moments.reels-section.reels-phone-mode.section{--moments-phone-height:clamp(330px,44svh,495px);min-height:calc(100svh - 82px);height:auto;padding-top:clamp(78px,10svh,112px);padding-bottom:clamp(86px,10svh,116px)}
+.reels-phone-mode .reels-phone-content{transform:none!important}
+.reels-phone-mode .reels-phone-heading{margin-bottom:clamp(17px,2.2svh,26px)!important}
+.reels-phone-mode .social-ribbon{margin-bottom:clamp(27px,3.2svh,39px)!important}
+.reels-phone-mode .reels-phone-controls{margin-top:clamp(24px,3svh,36px)!important}
+/* The actual phone PNG forms the bezel and camera above a matching clipped screen. */
+.reels-phone-mode .reels-phone__mockup{mask-image:url('/quest-v2/assets/phone-screen-cutout-v3.svg');-webkit-mask-image:url('/quest-v2/assets/phone-screen-cutout-v3.svg');mask-size:100% 100%;-webkit-mask-size:100% 100%;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;z-index:2}
+.reels-phone-mode .reels-phone__screen{position:absolute;z-index:1;top:5.46%;left:2.80%;width:94.40%;height:92.52%;overflow:hidden;border-radius:2% 2% 10% 10% / 1% 1% 5% 5%;isolation:isolate;background:#09090a}
+.reels-phone-mode .reels-phone__screen video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.reels-phone-mode .reels-phone__island{display:none!important}
+@media(max-width:700px){.moments.reels-section.reels-phone-mode.section{min-height:0;padding-top:70px;padding-bottom:100px}.reels-phone-mode .reels-phone-heading{margin-bottom:17px!important}.reels-phone-mode .social-ribbon{margin-bottom:27px!important}.reels-phone-mode .reels-phone-controls{margin-top:27px!important}}
+@media(prefers-reduced-motion:reduce){.reels-phone-mode .reels-phone-content{transform:none!important}}
