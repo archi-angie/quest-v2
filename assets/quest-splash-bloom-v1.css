@@ -1,0 +1,21 @@
+html.quest-splash-pending{overflow:hidden}
+.quest-splash{display:none;position:fixed;inset:0;z-index:200;overflow:hidden;background:#6c217f;isolation:isolate}
+html.quest-splash-pending .quest-splash{display:block}
+.quest-splash-pattern{position:absolute;inset:-50vmax;background:url('/quest-v2/assets/pattern-02.svg') center/clamp(320px,36vw,620px) repeat;transform:rotate(90deg);opacity:.15;pointer-events:none}
+.quest-splash-bloom{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.quest-splash-logo{position:absolute;z-index:2;left:50%;top:50%;width:clamp(190px,26vw,330px);aspect-ratio:150/45;opacity:0;transform:translate(-50%,-50%);clip-path:inset(0 68% 0 0);will-change:transform,opacity,clip-path}
+.quest-splash-logo img{display:block;width:100%;height:100%;object-fit:contain}
+.quest-splash-skip{position:absolute;z-index:3;right:clamp(20px,3vw,48px);bottom:clamp(20px,3vw,40px);padding:8px 13px;border:1px solid #ffffffa6;border-radius:999px;background:#4a145bb8;color:#fff;font:600 12px/1.3 Poppins,sans-serif;cursor:pointer}
+.quest-splash-skip:hover{background:#4a145b}
+.quest-splash-skip:focus-visible{outline:3px solid #fdb913;outline-offset:4px}
+html.quest-splash-pending .header .logo-light{opacity:0!important}
+html.quest-splash-pending.quest-show-logo .header .logo-light{opacity:1!important;transition:opacity .16s ease}
+html.quest-splash-pending .header .desktop-nav,html.quest-splash-pending .header .nav-book,html.quest-splash-pending .header .menu-toggle{opacity:0!important;transition:opacity .4s ease}
+html.quest-splash-pending.quest-show-nav .header .desktop-nav,html.quest-splash-pending.quest-show-nav .header .nav-book,html.quest-splash-pending.quest-show-nav .header .menu-toggle{opacity:1!important}
+html.quest-splash-pending .hero .hero-content,html.quest-splash-pending .hero .hero-gallery,html.quest-splash-pending .hero .booking-shell{opacity:0!important;transform:translateY(24px)!important;transition:opacity .45s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1)}
+html.quest-splash-pending.quest-show-headline .hero .hero-content,html.quest-splash-pending.quest-show-gallery .hero .hero-gallery,html.quest-splash-pending.quest-show-booking .hero .booking-shell{opacity:1!important;transform:none!important}
+html.quest-splash-pending .hero .hero-corner{opacity:0!important;transition:opacity .4s ease}
+html.quest-splash-pending.quest-show-corners .hero .hero-corner{opacity:1!important}
+html.quest-splash-pending:not(.quest-show-gallery) .hero .gallery-track,html.quest-splash-pending:not(.quest-show-gallery) .hero .gallery-item,html.quest-splash-pending:not(.quest-show-gallery) .hero .marquee-card{animation-play-state:paused!important}
+@media(max-width:700px){.quest-splash-pattern{background-size:300px}.quest-splash-logo{width:min(55vw,235px)}}
+@media(prefers-reduced-motion:reduce){.quest-splash{display:none!important}html.quest-splash-pending{overflow:auto}}
