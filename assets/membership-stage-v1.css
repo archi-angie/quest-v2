@@ -45,7 +45,7 @@
 }
 .membership-redesign .membership-headline{
   grid-column:1/-1;grid-row:1;display:grid;grid-template-columns:subgrid;
-  align-items:center;width:100%;margin:0;
+  align-items:center;width:100%;max-width:none;margin:0;
   font-family:Poppins,sans-serif;line-height:1;
 }
 .membership-headline-left,.membership-headline-right{
