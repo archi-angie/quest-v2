@@ -1,7 +1,7 @@
 :root{--quest-yellow:#fdb913;--quest-purple:#6c217f}
 .membership-redesign.section{
   --member-sweep-height:clamp(75px,7vw,112px);
-  position:relative;isolation:isolate;display:block;
+  position:relative;z-index:2;isolation:isolate;display:block;
   min-height:calc(100svh - 82px);
   padding:clamp(50px,6svh,80px) var(--page-gutter) clamp(42px,5svh,70px);
   overflow:visible;background:var(--quest-yellow);color:var(--quest-purple)
