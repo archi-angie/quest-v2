@@ -1,0 +1,18 @@
+/* Individual motifs cropped from the supplied Quest geometric artwork. */
+.membership-poster .membership-accent{display:none}
+.membership-poster .membership-piece{position:absolute;z-index:1;display:block;width:clamp(62px,6.8vw,104px);aspect-ratio:1;background-image:url('/quest-v2/assets/pattern-02.svg');background-repeat:no-repeat;background-size:400% 600%;opacity:.83;pointer-events:none;user-select:none;transform:translateY(var(--member-pattern-shift,0px))}
+.membership-piece-one{left:1.8%;top:14%;background-position:100% 40%}
+.membership-piece-two{right:3%;top:15%;background-position:33.333% 20%}
+.membership-piece-three{right:5%;top:52%;background-position:100% 80%}
+.membership-piece-four{left:2%;bottom:14%;background-position:100% 20%}
+.membership-piece-five{right:2%;bottom:9%;background-position:66.667% 20%}
+/* Bring the original tilted phone into contact with the pedestal. */
+.membership-poster .membership-phone-art{left:calc(50% - 22px);bottom:clamp(78px,7vw,104px);width:clamp(270px,22vw,335px);filter:drop-shadow(8px 15px 10px #43211580)}
+.membership-poster .membership-platform-top{box-shadow:0 10px 17px #a86b1e66,inset 0 6px 10px #fff9,inset 0 -8px 12px #c17e1255}
+.membership-poster .membership-platform-face{box-shadow:inset 0 -7px 9px #bd751e66,0 10px 16px #9d651f55}
+.membership-poster .membership-platform{filter:drop-shadow(0 19px 17px #8b4e1f80)}
+/* The two store destinations remain in their original supplied badge artwork. */
+.membership-poster .membership-stores img{width:clamp(190px,14vw,230px)}
+.membership-poster .membership-stores{gap:18px;margin-top:28px}
+@media(max-width:1100px){.membership-poster .membership-phone-art{left:calc(50% - 15px);width:min(30vw,310px);bottom:88px}.membership-poster .membership-stores img{width:clamp(170px,17vw,205px)}}
+@media(max-width:700px){.membership-poster .membership-piece{width:clamp(54px,15vw,82px);opacity:.65}.membership-piece-one{top:7%;left:0}.membership-piece-two{top:9%;right:0}.membership-piece-three{top:61%;right:0}.membership-piece-four{bottom:11%;left:0}.membership-piece-five{bottom:5%;right:0}.membership-poster .membership-phone-art{left:calc(50% - 9px);bottom:76px;width:clamp(245px,65vw,310px)}.membership-poster .membership-stores img{width:clamp(160px,42vw,185px)}.membership-poster .membership-stores{gap:9px;margin-top:21px}}
