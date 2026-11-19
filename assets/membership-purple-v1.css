@@ -1,0 +1,30 @@
+/* The supplied Quest-05 geometry is recolored into tonal Quest purples. */
+.membership-purple.section{position:relative;display:block;min-height:calc(100svh - 82px);padding:clamp(60px,7svh,90px) var(--page-gutter) clamp(68px,8svh,100px);background:#6c217f;color:#fff;overflow:hidden}
+.membership-purple .membership-sweep,.membership-purple .membership-capsule,.membership-purple .membership-underline{display:none!important}
+.membership-purple .membership-texture{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.07;filter:none;pointer-events:none}
+.membership-purple .membership-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(35px,5vw,80px);min-height:620px;max-width:1500px;margin:0 auto}
+.membership-purple .membership-copy{max-width:680px}
+.membership-purple h2{align-items:flex-start;gap:1px;color:#fff;line-height:1}
+.membership-purple .membership-love,.membership-purple .membership-about{display:block;max-width:100%;padding:0;margin:0;background:none;box-shadow:none;transform:none;color:#fff;-webkit-text-stroke:0;text-shadow:none;font:800 clamp(43px,4.3vw,74px)/1.02 Poppins,sans-serif;letter-spacing:-.04em}
+.membership-purple .membership-stay{display:block;padding:0;margin:4px 0 0;color:#fdb913;-webkit-text-stroke:0;text-shadow:none;font:400 clamp(79px,8vw,121px)/1 'Permanent Marker',cursive;letter-spacing:-.04em}
+.membership-purple .membership-description{max-width:450px;margin:26px 0 0;color:#fff;font:400 clamp(16px,1.35vw,20px)/1.45 Poppins,sans-serif}
+.membership-purple .membership-stores{margin:25px 0 0;gap:16px}
+.membership-purple .membership-stores img{width:clamp(170px,13vw,210px)}
+.membership-purple .membership-visual{position:relative;justify-self:center;width:min(100%,620px);height:clamp(620px,65svh,690px)}
+.membership-purple .membership-phone-art{left:calc(50% - 18px);bottom:100px;width:clamp(260px,21vw,320px);filter:drop-shadow(8px 13px 10px #2e07366b)}
+.membership-purple .membership-platform{left:50%;bottom:30px;width:clamp(300px,28vw,410px);height:70px;filter:drop-shadow(0 15px 14px #290c336b)}
+.membership-purple .membership-platform-top{box-shadow:0 9px 14px #3a164855,inset 0 5px 9px #fff9,inset 0 -8px 12px #c17e1255}
+.membership-purple .membership-platform-face{box-shadow:inset 0 -7px 9px #bd751e66,0 9px 13px #2e083766}
+/* Cropped tiles remain actual Quest artwork; the wavy pieces turn 90 degrees. */
+.membership-purple .membership-piece{position:absolute;z-index:1;display:block;aspect-ratio:1;background-image:url('/quest-v2/assets/pattern-05-purple.svg');background-repeat:no-repeat;background-size:400% 600%;opacity:.68;pointer-events:none;transform:translateY(var(--member-pattern-shift,0px))}
+.membership-purple .membership-piece-one{left:0;top:0;width:clamp(150px,15vw,250px);background-size:200% 300%;background-position:0 0;opacity:.72}
+.membership-purple .membership-piece-two{left:43%;top:3%;width:clamp(55px,5vw,85px);background-position:0 60%;opacity:.55}
+.membership-purple .membership-piece-three{right:0;top:0;width:clamp(92px,9vw,150px);background-position:100% 80%}
+.membership-purple .membership-piece-four{right:0;top:46%;width:clamp(80px,8vw,130px);background-position:100% 40%;opacity:.63}
+.membership-purple .membership-piece-five{left:0;bottom:0;width:clamp(110px,11vw,180px);background-position:100% 80%}
+.membership-purple .membership-piece-six{right:7%;bottom:0;width:clamp(80px,8vw,135px);background-position:66.667% 20%}
+.membership-purple .membership-piece-seven{right:0;bottom:1%;width:clamp(54px,5vw,85px);background-position:0 60%;opacity:.56}
+.membership-purple .membership-piece-wave{transform:translateY(var(--member-pattern-shift,0px)) rotate(90deg)}
+@media(max-width:1100px){.membership-purple .membership-inner{gap:22px}.membership-purple .membership-love,.membership-purple .membership-about{font-size:clamp(39px,4.8vw,60px)}.membership-purple .membership-visual{height:620px}.membership-purple .membership-phone-art{width:min(25vw,295px)}.membership-purple .membership-platform{width:min(33vw,370px)}}
+@media(max-width:700px){.membership-purple.section{padding:70px 24px 80px;min-height:0}.membership-purple .membership-inner{grid-template-columns:1fr;gap:22px;min-height:0}.membership-purple .membership-copy{width:min(100%,520px);margin:auto}.membership-purple .membership-love,.membership-purple .membership-about{font-size:clamp(37px,10vw,57px)}.membership-purple .membership-stay{font-size:clamp(77px,20vw,110px)}.membership-purple .membership-description{margin-top:18px;font-size:16px}.membership-purple .membership-stores{gap:8px;margin-top:20px}.membership-purple .membership-stores img{width:clamp(145px,41vw,185px)}.membership-purple .membership-visual{height:clamp(500px,132vw,590px)}.membership-purple .membership-phone-art{left:calc(50% - 8px);bottom:76px;width:min(62vw,270px)}.membership-purple .membership-platform{bottom:15px;width:min(82vw,350px);height:62px}.membership-purple .membership-piece-one{width:135px}.membership-purple .membership-piece-two{top:2%;left:auto;right:18%;width:55px}.membership-purple .membership-piece-three{width:90px}.membership-purple .membership-piece-four{top:58%;width:75px}.membership-purple .membership-piece-five{width:105px}.membership-purple .membership-piece-six{width:80px}.membership-purple .membership-piece-seven{width:55px}}
+@media(prefers-reduced-motion:reduce){.membership-purple.motion-ready:not(.is-visible) .membership-love,.membership-purple.motion-ready:not(.is-visible) .membership-about,.membership-purple.motion-ready:not(.is-visible) .membership-stay{opacity:1;transform:none}.membership-purple .membership-piece-wave{transform:rotate(90deg)}}
