@@ -1,0 +1,89 @@
+/* Lower the Hotels corner wedges so they sit within Hotels. */
+.hotels .hotels-corner{
+  top:0;
+}
+
+/* Quest Moments: lower the flipped left accent and scale down the right. */
+.moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+  top:43%;
+  transform:scaleX(-1);
+  transform-origin:center;
+}
+.moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+  right:calc(-1 * clamp(128px,8vw,148px));
+  width:clamp(216px,24vw,384px);
+}
+
+/* Two inset yellow contours follow the existing News ellipse. */
+.offers-news-flow .news-stage-oval::before,
+.offers-news-flow .news-stage-oval::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  display:block;
+  box-sizing:border-box;
+  border:3px solid #f9db6e;
+  border-radius:50%;
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+.offers-news-flow .news-stage-oval::before{
+  top:12px;
+  width:calc(124% - 24px);
+  height:calc(200% - 24px);
+}
+.offers-news-flow .news-stage-oval::after{
+  top:28px;
+  width:calc(124% - 56px);
+  height:calc(200% - 56px);
+  border-width:2px;
+}
+
+/* Extend the original Quest texture across Offers and echo a narrow crop on the right. */
+.offers-news-flow .offers-news-pattern{
+  left:0;
+  width:min(58vw,1000px);
+  height:clamp(1275px,90vw,1500px);
+  background-size:100% auto;
+  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 78%,transparent 100%);
+  mask-image:linear-gradient(to right,#000 0%,#000 78%,transparent 100%);
+}
+.offers-news-flow::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:0;
+  right:0;
+  width:10vw;
+  height:clamp(1275px,90vw,1500px);
+  background:url('/quest-v2/assets/pattern-05.svg') right top / min(58vw,1000px) auto repeat-y;
+  opacity:.24;
+  mix-blend-mode:multiply;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 32%);
+  mask-image:linear-gradient(to right,transparent 0%,#000 32%);
+  pointer-events:none;
+}
+
+@media(max-width:1050px){
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{top:40%}
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+    right:-96px;
+    width:clamp(196px,24.8vw,276px);
+  }
+}
+@media(max-width:850px){
+  .offers-news-flow .news-stage-oval::before{width:calc(180% - 24px)}
+  .offers-news-flow .news-stage-oval::after{width:calc(180% - 56px)}
+  .offers-news-flow .offers-news-pattern{width:58vw}
+  .offers-news-flow::after{background-size:58vw auto}
+}
+@media(max-width:700px){
+  .hotels .hotels-corner{top:16px}
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{top:260px}
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+    right:-72px;
+    width:164px;
+  }
+  .offers-news-flow .news-stage-oval::before{width:calc(230% - 24px)}
+  .offers-news-flow .news-stage-oval::after{width:calc(230% - 56px)}
+}
