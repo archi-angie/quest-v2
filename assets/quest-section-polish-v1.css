@@ -1,0 +1,88 @@
+/* Footer brand parade: tint only the brand marks, keeping the yellow bar. */
+.footer .qf-brands-sequence img{
+  filter:brightness(0) saturate(100%) invert(19%) sepia(50%) saturate(2033%) hue-rotate(265deg) brightness(88%) contrast(92%);
+}
+/* Hero headline badge and Membership banners share one type treatment. */
+.hero h1 .headline-highlight>span,
+.membership-redesign .membership-banner{
+  font-family:Poppins,Arial,sans-serif;
+  font-weight:800;
+  letter-spacing:-.045em;
+  line-height:1.04;
+}
+.membership-redesign .membership-banner{
+  -webkit-text-stroke:1px #4a115d;
+  text-shadow:2px 3px 0 #4a115d;
+}
+/* A quarter-curve Quest silhouette keeps the hotel image as the only card content. */
+.hotels .stacked-hotel-card,
+.hotels .stacked-hotel-card.active{
+  border-radius:30px 30px 30px clamp(78px,8vw,118px);
+}
+.hotels .stacked-hotel-card::after,
+.hotels .stacked-hotel-card:after,
+.hotels .stacked-hotel-card span{display:none}
+.hotels .hotel-details{min-width:0}
+.hotels .hotel-details h3{
+  max-width:100%;
+  overflow-wrap:anywhere;
+  hyphens:auto;
+  text-wrap:balance;
+}
+/* Membership entrance unfolds in distinct, gentle beats. */
+.membership-redesign .membership-banner{
+  transition:translate .7s .42s cubic-bezier(.22,1,.36,1),opacity .6s .42s ease;
+}
+.membership-redesign .membership-headline-right .membership-banner{
+  transition-delay:.54s;
+}
+.membership-redesign .membership-big{
+  transition:translate .76s .54s cubic-bezier(.22,1,.36,1),opacity .65s .54s ease;
+}
+.membership-redesign .membership-headline-right .membership-big{
+  transition-delay:.66s;
+}
+.membership-redesign.motion-ready:not(.is-visible) .membership-banner{
+  translate:0 12px;
+  opacity:.42;
+}
+.membership-redesign.motion-ready:not(.is-visible) .membership-big{
+  translate:0 18px;
+  opacity:.5;
+}
+.membership-redesign .membership-stores a{
+  transition:transform .22s ease,filter .22s ease,translate .7s .78s cubic-bezier(.22,1,.36,1),opacity .65s .78s ease;
+}
+.membership-redesign .membership-stores a:nth-child(2){
+  transition-delay:0s,0s,.9s,.9s;
+}
+.membership-redesign.motion-ready:not(.is-visible) .membership-stores a{
+  translate:0 14px;
+  opacity:.45;
+}
+.membership-redesign.is-active.is-settled .membership-phone-art{
+  animation:quest-member-float 6.8s ease-in-out infinite alternate;
+}
+@keyframes quest-member-float{
+  from{translate:0 0}
+  to{translate:0 -6px}
+}
+@media(prefers-reduced-motion:reduce){
+  .membership-redesign .membership-banner,
+  .membership-redesign .membership-big,
+  .membership-redesign .membership-stores a{
+    transition:none!important;
+    translate:none!important;
+    opacity:1!important;
+  }
+  .membership-redesign.is-active.is-settled .membership-phone-art{
+    animation:none!important;
+    translate:none!important;
+  }
+}
+@media(max-width:700px){
+  .hotels .stacked-hotel-card,
+  .hotels .stacked-hotel-card.active{
+    border-radius:20px 20px 20px 64px;
+  }
+}
