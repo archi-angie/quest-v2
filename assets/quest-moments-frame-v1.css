@@ -1,0 +1,109 @@
+/* Hero: keep the connected accents, remove any legacy triangular corners. */
+.hero .hero-corner.corner-bl,
+.hero .hero-corner.corner-br{display:none!important}
+.hero .hero-pattern-accent--right{translate:0 20%}
+
+/* Quest Moments: one original Quest artwork crop at each section edge. */
+.moments.reels-section.reels-phone-mode .reels-pattern-block{
+  position:absolute;
+  z-index:0;
+  display:block;
+  height:auto;
+  max-width:none;
+  opacity:1;
+  pointer-events:none;
+  user-select:none;
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+.moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+  top:18%;
+  left:-155px;
+  right:auto;
+  width:clamp(250px,27vw,430px);
+}
+.moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+  top:9%;
+  right:-145px;
+  left:auto;
+  width:clamp(230px,25vw,400px);
+}
+.moments.reels-section.reels-phone-mode .reels-phone-content{
+  position:relative;
+  z-index:1;
+}
+/* The patterned strip is outside the exact 9:16 video window. */
+.moments.reels-section.reels-phone-mode .reels-phone-preview{
+  position:relative;
+  display:block;
+  box-sizing:border-box;
+  width:100%;
+  height:auto;
+  aspect-ratio:auto;
+  padding:7px;
+  border:0;
+  border-radius:20px;
+  overflow:hidden;
+  background-color:#6c217f;
+  background-image:url('/quest-v2/assets/pattern-02.svg');
+  background-repeat:no-repeat;
+  background-size:250% auto;
+  box-shadow:none;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-slot--outer-left .reels-phone-preview{background-position:5% 8%}
+.moments.reels-section.reels-phone-mode .reels-phone-slot--inner-left .reels-phone-preview{background-position:62% 18%}
+.moments.reels-section.reels-phone-mode .reels-phone-slot--inner-right .reels-phone-preview{background-position:88% 65%}
+.moments.reels-section.reels-phone-mode .reels-phone-slot--outer-right .reels-phone-preview{background-position:20% 85%}
+.moments.reels-section.reels-phone-mode .reels-phone-preview:hover{box-shadow:none}
+.moments.reels-section.reels-phone-mode .reels-phone-preview__rail{display:none}
+.moments.reels-section.reels-phone-mode .reels-phone-preview__media{
+  position:relative;
+  z-index:1;
+  display:block;
+  box-sizing:border-box;
+  width:100%;
+  height:auto;
+  aspect-ratio:9/16!important;
+  padding:0;
+  margin:0;
+  border:0;
+  border-radius:13px;
+  overflow:hidden;
+  outline:1px solid #fff;
+  outline-offset:-1px;
+  box-shadow:none;
+  background:#15081c;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-preview:hover .reels-phone-preview__media{
+  border-color:transparent;
+  box-shadow:none;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-preview__media video{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+/* The existing marquee follows the dots without touching them. */
+.moments.reels-section.reels-phone-mode.section{
+  padding-bottom:clamp(32px,4svh,50px);
+}
+.reels-phone-mode + .social-ribbon{
+  position:relative;
+  z-index:2;
+  margin-top:0;
+}
+@media(max-width:1050px){
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{left:-115px;width:clamp(220px,29vw,310px)}
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--right{right:-110px;width:clamp(210px,28vw,300px)}
+}
+@media(max-width:700px){
+  .moments.reels-section.reels-phone-mode.section{padding-bottom:44px}
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{top:120px;left:-85px;width:180px}
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--right{top:auto;bottom:100px;right:-80px;width:175px}
+  .moments.reels-section.reels-phone-mode .reels-phone-preview{padding:5px;border-radius:15px}
+  .moments.reels-section.reels-phone-mode .reels-phone-preview__media{border-radius:10px}
+}
