@@ -1,0 +1,129 @@
+/* Quest hero: keep the connected accents, clear the legacy bottom corners. */
+.hero .hero-corner,
+.hero .hero-side,
+.hero .hero-pattern-triangle{display:none!important}
+.hero .hero-pattern-accent--right{translate:0 0}
+
+/* Quest Moments: the video windows themselves carry the visual weight. */
+.moments.reels-section.reels-phone-mode.section{
+  min-height:calc(100svh - 82px);
+  padding-bottom:clamp(62px,8svh,96px);
+}
+.moments.reels-section.reels-phone-mode .reels-phone-stage{
+  width:min(100%,calc(var(--moments-phone-height) * 2.26));
+  max-width:none;
+  height:var(--moments-phone-height);
+  min-height:0;
+  margin-inline:auto;
+  display:grid;
+  grid-template-columns:minmax(0,.66fr) minmax(0,.76fr) minmax(0,calc(var(--moments-phone-height) * .497)) minmax(0,.76fr) minmax(0,.66fr);
+  column-gap:clamp(10px,.9vw,16px);
+  row-gap:0;
+  align-items:center;
+  justify-items:stretch;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-slot{
+  width:100%;
+  min-width:0;
+  max-width:none;
+  justify-self:stretch;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-preview{
+  display:block;
+  box-sizing:border-box;
+  width:100%;
+  height:auto;
+  aspect-ratio:9/16;
+  padding:0!important;
+  border:0;
+  border-radius:16px;
+  overflow:hidden;
+  background:transparent;
+  background-image:none!important;
+  box-shadow:none;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-preview:hover{
+  border:0;
+  box-shadow:none;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-preview__rail{display:none}
+.moments.reels-section.reels-phone-mode .reels-phone-preview__media{
+  position:relative;
+  display:block;
+  flex:none;
+  box-sizing:border-box;
+  width:100%;
+  height:auto;
+  aspect-ratio:9/16!important;
+  padding:0;
+  margin:0;
+  border:0;
+  border-radius:16px;
+  overflow:hidden;
+  outline:1px solid #ffffffb3;
+  outline-offset:-1px;
+  box-shadow:none;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-preview__media video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-controls{
+  margin-top:clamp(20px,3svh,34px);
+}
+
+/* The marquee follows the gallery and dots; the transition starts below it. */
+.reels-phone-mode + .social-ribbon{
+  position:relative;
+  z-index:2;
+  height:calc(76px + clamp(92px,9.5vw,140px) + 40px);
+  margin:0;
+  background:#6c217f;
+}
+.reels-phone-mode + .social-ribbon .social-ribbon__track{
+  width:max-content;
+  animation:socialRibbonLoop 36s linear infinite;
+  will-change:transform;
+}
+.reels-phone-mode + .social-ribbon .social-ribbon__slope{
+  top:14px;
+  height:54px;
+  overflow:hidden;
+  transform:rotate(-1.2deg);
+}
+.reels-phone-mode + .social-ribbon:hover .social-ribbon__track,
+.reels-phone-mode + .social-ribbon:focus-within .social-ribbon__track{
+  animation-play-state:paused;
+}
+@media(max-width:700px){
+  .moments.reels-section.reels-phone-mode.section{min-height:0;padding-bottom:52px}
+  .moments.reels-section.reels-phone-mode .reels-phone-stage{
+    width:min(100%,520px);
+    height:auto;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px 14px;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-slot{
+    width:100%;
+    max-width:185px;
+    justify-self:center;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-preview,
+  .moments.reels-section.reels-phone-mode .reels-phone-preview__media{border-radius:14px}
+  .reels-phone-mode + .social-ribbon{
+    height:calc(68px + 92px + 32px);
+  }
+  .reels-phone-mode + .social-ribbon .social-ribbon__slope{
+    top:10px;
+    height:49px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .reels-phone-mode + .social-ribbon .social-ribbon__track{
+    animation:none!important;
+    transform:none!important;
+  }
+}
