@@ -16,8 +16,8 @@
   display:block;
   width:100%;
   height:auto;
-  -webkit-mask-image:url('/quest-v2/assets/phone-screen-cutout-v3.svg');
-  mask-image:url('/quest-v2/assets/phone-screen-cutout-v3.svg');
+  -webkit-mask-image:url('/quest-v2/assets/phone-screen-cutout-v5.svg');
+  mask-image:url('/quest-v2/assets/phone-screen-cutout-v5.svg');
   -webkit-mask-size:100% 100%;
   mask-size:100% 100%;
   -webkit-mask-repeat:no-repeat;
