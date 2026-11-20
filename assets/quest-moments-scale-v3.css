@@ -1,0 +1,109 @@
+/* The two lower triangles belong to Hotels; bring them farther into that section. */
+.hotels .hotels-corner{
+  top:calc(-.3 * clamp(170px,21vw,295px));
+}
+
+/* Quest Moments: enlarge the five-video stage and use the space below the dots. */
+.moments.reels-section.reels-phone-mode.section{
+  --moments-phone-height:clamp(410px,58svh,630px);
+  padding-bottom:clamp(28px,4svh,46px);
+}
+.moments.reels-section.reels-phone-mode .reels-phone-stage{
+  margin-top:clamp(18px,2.6svh,28px);
+}
+.moments.reels-section.reels-phone-mode .reels-phone-controls{
+  margin-top:clamp(20px,2.8svh,28px);
+}
+.moments.reels-section.reels-phone-mode .reels-phone-slot,
+.moments.reels-section.reels-phone-mode .reels-phone-preview,
+.moments.reels-section.reels-phone-mode .reels-phone-preview__media{
+  min-width:0;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-preview,
+.moments.reels-section.reels-phone-mode .reels-phone-preview__media{
+  aspect-ratio:9/16!important;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-toggle,
+.moments.reels-section.reels-phone-mode .reels-phone-play{display:none!important}
+
+/* Keep the supplied Quest artwork behind the reels, with more vertical presence. */
+.moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+  top:33%;
+  transform:scaleX(-1);
+  transform-origin:center;
+}
+.moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+  top:24%;
+  right:calc(-1 * clamp(160px,10vw,185px));
+  width:clamp(270px,30vw,480px);
+}
+
+/* A small crop of the real Quest pattern sits behind the heading. */
+.moments.reels-section.reels-phone-mode .reels-phone-heading{
+  position:relative;
+  isolation:isolate;
+}
+.moments.reels-section.reels-phone-mode .reels-phone-heading::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:50%;
+  top:50%;
+  width:clamp(160px,20vw,280px);
+  aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  background:url('/quest-v2/assets/pattern-02.svg') 32% 22% / 580px auto no-repeat;
+  opacity:.1;
+  -webkit-mask-image:radial-gradient(circle,#000 42%,transparent 76%);
+  mask-image:radial-gradient(circle,#000 42%,transparent 76%);
+  pointer-events:none;
+}
+
+@media(max-width:1050px){
+  .moments.reels-section.reels-phone-mode.section{
+    --moments-phone-height:clamp(385px,53svh,500px);
+  }
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+    top:30%;
+  }
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+    top:23%;
+    right:-120px;
+    width:clamp(245px,31vw,345px);
+  }
+}
+@media(max-width:700px){
+  .hotels .hotels-corner{top:-22px}
+  .moments.reels-section.reels-phone-mode.section{
+    --moments-phone-height:clamp(385px,53svh,500px);
+    padding-bottom:42px;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-stage{
+    margin-top:18px;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone{
+    width:min(82%,300px);
+    margin-bottom:18px;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-slot{
+    max-width:205px;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-controls{
+    margin-top:24px;
+  }
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+    top:180px;
+    left:-85px;
+    width:180px;
+  }
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+    top:auto;
+    bottom:40px;
+    right:-90px;
+    width:205px;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-heading::before{
+    width:155px;
+    background-size:400px auto;
+  }
+}
