@@ -1,0 +1,32 @@
+/* Match the phone image's full screen opening, with the original island in front. */
+.moments.reels-section.reels-phone-mode .reels-phone__mockup{
+  -webkit-mask-image:url('/quest-v2/assets/phone-screen-cutout-v6.svg');
+  mask-image:url('/quest-v2/assets/phone-screen-cutout-v6.svg');
+}
+.moments.reels-section.reels-phone-mode .reels-phone__screen{
+  top:1.4957%;
+  left:3.0172%;
+  width:93.9655%;
+  height:96.3675%;
+  border-radius:10.1% 10.1% 11.47% 11.47% / 4.88% 4.88% 5.54% 5.54%;
+}
+.moments.reels-section.reels-phone-mode .reels-phone__screen video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* Reverse the visible left wedge from the screenshot and meet the ribbon edge. */
+.moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+  top:auto!important;
+  bottom:0!important;
+  left:-155px;
+  transform:scaleX(1)!important;
+  transform-origin:center;
+}
+@media(max-width:1050px){
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{left:-115px}
+}
+@media(max-width:700px){
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{left:-85px}
+}
