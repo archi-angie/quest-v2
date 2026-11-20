@@ -114,7 +114,8 @@
   .moments.reels-section.reels-phone-mode .reels-phone-preview__media{
     aspect-ratio:9/16!important;
   }
-  .moments.reels-section.reels-phone-mode .reels-phone-preview__media{
+  .moments.reels-section.reels-phone-mode .reels-phone-preview__media,
+  .moments.reels-section.reels-phone-mode .reels-phone-preview:hover .reels-phone-preview__media{
     box-shadow:0 12px 22px #270a35a3;
   }
   .moments.reels-section.reels-phone-mode .reels-pattern-block--left{
