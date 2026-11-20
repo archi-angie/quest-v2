@@ -1,0 +1,35 @@
+/* Keep the original iPhone bezel and Dynamic Island above a truly clipped video. */
+.reels-phone-mode .reels-phone{aspect-ratio:464/936;isolation:isolate}
+.reels-phone-mode .reels-phone__mockup{
+ position:relative;z-index:3;display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;
+ -webkit-mask-image:url('/quest-v2/assets/phone-screen-cutout-v4.svg');
+ mask-image:url('/quest-v2/assets/phone-screen-cutout-v4.svg');
+ -webkit-mask-size:100% 100%;mask-size:100% 100%;
+ -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat
+}
+.reels-phone-mode .reels-phone__screen{
+ position:absolute;z-index:2;top:1.496%;left:3.017%;width:93.966%;height:96.368%;aspect-ratio:auto;
+ border-radius:10% 10% 11% 11% / 5% 5% 5.6% 5.6%;
+ overflow:hidden;isolation:isolate;background:#08090d;
+ clip-path:inset(0 round 10% 10% 11% 11% / 5% 5% 5.6% 5.6%);
+ transform:none!important
+}
+.reels-phone-mode .reels-phone__screen video{
+ position:absolute;inset:0;display:block;width:100%;height:100%;
+ object-fit:cover;object-position:center;max-width:none
+}
+.reels-phone-mode .reels-phone__island,.reels-phone-mode .reels-phone__top{display:none!important}
+/* Crop one original Quest tile into each bottom triangle. */
+.hero .hero-corner.corner-bl img,.hero .hero-corner.corner-br img{
+ position:absolute;top:0;width:400%;height:auto;max-width:none;
+ object-fit:fill;animation:none;transform:none;opacity:.82
+}
+.hero .hero-corner.corner-bl img{left:0}
+.hero .hero-corner.corner-br img{right:0;left:auto}
+/* Anchor the footer's right pattern to the bottom-right triangular corner. */
+.footer .qf-cta .qf-pattern--cta-right{
+ top:auto;bottom:0;right:0;left:auto;width:clamp(150px,18vw,285px);height:clamp(145px,16vw,240px);
+ object-fit:cover;object-position:right bottom;
+ clip-path:polygon(100% 0,0 100%,100% 100%);opacity:.86
+}
+@media(max-width:700px){.footer .qf-cta .qf-pattern--cta-right{top:auto;bottom:0;width:130px;height:130px}}
