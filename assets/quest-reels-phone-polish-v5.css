@@ -1,0 +1,69 @@
+/* One Quest-yellow contour inside the existing News ellipse. */
+.offers-news-flow .news-stage-oval::before{
+  border-color:#fdb913;
+  filter:drop-shadow(0 2px 0 #6c217f);
+}
+.offers-news-flow .news-stage-oval::after{display:none}
+
+/* The original phone PNG is the visible foreground; its black screen is cut out. */
+.moments.reels-section.reels-phone-mode .reels-phone{
+  position:relative;
+  isolation:isolate;
+}
+.moments.reels-section.reels-phone-mode .reels-phone__mockup{
+  position:relative;
+  z-index:2;
+  display:block;
+  width:100%;
+  height:auto;
+  -webkit-mask-image:url('/quest-v2/assets/phone-screen-cutout-v3.svg');
+  mask-image:url('/quest-v2/assets/phone-screen-cutout-v3.svg');
+  -webkit-mask-size:100% 100%;
+  mask-size:100% 100%;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+}
+.moments.reels-section.reels-phone-mode .reels-phone__screen{
+  position:absolute;
+  z-index:1;
+  top:4.2735%;
+  left:3.0172%;
+  width:93.9655%;
+  height:93.5897%;
+  overflow:hidden;
+  border-radius:6.42% 6.42% 11.47% 11.47% / 3.2% 3.2% 5.7% 5.7%;
+  background:#090909;
+}
+.moments.reels-section.reels-phone-mode .reels-phone__screen video{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.moments.reels-section.reels-phone-mode .reels-phone__island{
+  display:none!important;
+}
+
+/* Lower only the flipped left Quest artwork. */
+.moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+  top:63%;
+  transform:scaleX(-1);
+  transform-origin:center;
+}
+
+/* Keep the actual Quest texture faint, with a true circular boundary. */
+.moments.reels-section.reels-phone-mode .reels-phone-heading::before{
+  border-radius:50%;
+  overflow:hidden;
+  transform:translate(-50%,-30%);
+  -webkit-mask-image:radial-gradient(circle closest-side,#000 62%,transparent 100%);
+  mask-image:radial-gradient(circle closest-side,#000 62%,transparent 100%);
+}
+@media(max-width:1050px){
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{top:60%}
+}
+@media(max-width:700px){
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+    top:calc(260px + 12svh);
+  }
+}
