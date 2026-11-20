@@ -1,0 +1,47 @@
+/* Two balanced Quest SVG clusters replace the old triangular Hero corners. */
+.hero .hero-pattern-accent{
+  position:absolute;
+  z-index:1;
+  width:auto;
+  height:auto;
+  pointer-events:none;
+  user-select:none;
+}
+.hero .hero-pattern-accent img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:none;
+}
+.hero .hero-pattern-accent--left{
+  top:clamp(88px,11svh,125px);
+  left:-55px;
+  width:clamp(230px,21vw,315px);
+}
+.hero .hero-pattern-accent--right{
+  top:clamp(88px,11svh,125px);
+  right:-30px;
+  width:clamp(245px,23vw,340px);
+}
+@media(max-width:1050px){
+  .hero .hero-pattern-accent--left{
+    left:-65px;
+    width:clamp(190px,21vw,245px);
+  }
+  .hero .hero-pattern-accent--right{
+    right:-45px;
+    width:clamp(205px,24vw,275px);
+  }
+}
+@media(max-width:700px){
+  .hero .hero-pattern-accent--left{
+    top:72px;
+    left:-50px;
+    width:150px;
+  }
+  .hero .hero-pattern-accent--right{
+    top:340px;
+    right:-42px;
+    width:145px;
+  }
+}
