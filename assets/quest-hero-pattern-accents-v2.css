@@ -1,0 +1,49 @@
+/* Replace the four Hero corner decorations with two connected Quest artwork crops. */
+.hero .hero-corner.corner-tr,
+.hero .hero-corner.corner-bl{display:none!important}
+.hero .hero-corner.corner-tl,
+.hero .hero-corner.corner-br{
+  z-index:1;
+  overflow:visible;
+  pointer-events:none;
+  clip-path:none;
+  animation:none;
+  transform:none;
+  background-color:transparent;
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+}
+.hero .hero-corner.corner-tl::after,
+.hero .hero-corner.corner-br::after,
+.hero .hero-corner.corner-tl img,
+.hero .hero-corner.corner-br img{display:none!important}
+.hero .hero-corner.corner-tl{
+  top:clamp(74px,9vh,115px);
+  left:-90px;
+  width:clamp(340px,32vw,520px);
+  height:auto;
+  aspect-ratio:1;
+  background-image:url('/quest-v2/assets/hero-pattern-staircase-v1.svg');
+}
+.hero .hero-corner.corner-br{
+  top:auto;
+  bottom:-12px;
+  right:-6px;
+  width:clamp(170px,16vw,240px);
+  height:auto;
+  aspect-ratio:1;
+  background-image:url('/quest-v2/assets/hero-pattern-l-v1.svg');
+}
+@media(max-width:700px){
+  .hero .hero-corner.corner-tl{
+    top:-20px;
+    left:-45px;
+    width:clamp(165px,42vw,250px);
+  }
+  .hero .hero-corner.corner-br{
+    right:0;
+    bottom:-40px;
+    width:130px;
+  }
+}
