@@ -1,0 +1,209 @@
+/* Bring the left Quest wedge right to the ribbon boundary. */
+.moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+  bottom:calc(-1 * clamp(75px,6vw,110px))!important;
+}
+
+/* The sticky navbar keeps its established button with a readable label. */
+.header.scrolled .nav-book{font-size:14px}
+
+@media(max-width:700px){
+  /* Mobile navigation: original logo and a Quest-yellow three-line menu icon. */
+  .header,
+  .header.scrolled{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:68px;
+    padding-inline:20px;
+  }
+  .header .desktop-nav,
+  .header .nav-book{display:none!important}
+  .header .brand{margin:0}
+  .header .menu-toggle{
+    position:relative;
+    display:block;
+    flex:none;
+    width:44px;
+    height:44px;
+    margin:0;
+    padding:0;
+    border:0;
+    background:transparent;
+    color:#fdb913;
+    font-size:0;
+    cursor:pointer;
+  }
+  .header .menu-toggle::before{
+    content:"";
+    position:absolute;
+    left:10px;
+    top:20px;
+    width:24px;
+    height:3px;
+    border-radius:3px;
+    background:#fdb913;
+    box-shadow:0 -8px #fdb913,0 8px #fdb913;
+  }
+  .header .menu-toggle:focus-visible{
+    outline:3px solid #fdb913;
+    outline-offset:2px;
+  }
+
+  /* Keep booking fields readable with consistent compact spacing. */
+  .hero .booking-shell{padding-inline:0;margin-top:18px}
+  .hero .booking{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    padding:12px;
+    transform:none;
+  }
+  .hero .booking label{
+    box-sizing:border-box;
+    min-width:0;
+    min-height:60px;
+    margin:0;
+    padding:8px 10px;
+    border:1px solid #ffffff66!important;
+    border-radius:10px;
+  }
+  .hero .booking label:first-of-type,
+  .hero .booking label:nth-of-type(4),
+  .hero .booking-submit{grid-column:1/-1}
+  .hero .booking select,
+  .hero .booking input,
+  .hero .booking .guest-trigger{min-width:0;width:100%}
+  .hero .booking-submit{
+    box-sizing:border-box;
+    width:100%;
+    min-height:48px;
+    margin:2px 0 0;
+  }
+
+  /* Destinations read as a tidy left-aligned list without large pads. */
+  .hotels .destination-list{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:6px;
+  }
+  .hotels .destination-row{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    gap:2px;
+    min-height:52px;
+    padding:6px 8px;
+    text-align:left;
+  }
+  .hotels .destination-row strong,
+  .hotels .destination-row small{
+    width:100%;
+    margin:0;
+    text-align:left;
+    white-space:normal;
+  }
+  .hotels .hotel-details .hotel-location{
+    justify-content:center;
+    text-align:center;
+  }
+
+  /* The featured News card remains; carousel controls still switch stories. */
+  .news-stage .news-stage-preview-left,
+  .news-stage .news-stage-preview-right{display:none!important}
+  .news-stage .news-stage-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    justify-items:center;
+  }
+  .news-stage .news-stage-featured{width:min(100%,520px)}
+
+  /* Four 9:16 previews sit behind the smaller original-phone mockup. */
+  .moments.reels-section.reels-phone-mode .reels-phone-stage{
+    position:relative;
+    display:block;
+    width:min(100%,520px);
+    height:clamp(385px,112vw,500px);
+    min-height:0;
+    margin:18px auto 0;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone{
+    position:absolute;
+    z-index:4;
+    top:50%;
+    left:50%;
+    width:min(54vw,235px);
+    max-width:none;
+    margin:0;
+    transform:translate(-50%,-50%);
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-slot{
+    position:absolute;
+    z-index:2;
+    display:block;
+    width:clamp(76px,27vw,122px);
+    max-width:none;
+    margin:0;
+    transform:none!important;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--inner-left{
+    top:14%;
+    left:7%;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--inner-right{
+    top:14%;
+    right:7%;
+    left:auto;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--outer-left{
+    top:49%;
+    left:0;
+    width:clamp(68px,24vw,108px);
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--outer-right{
+    top:49%;
+    right:0;
+    left:auto;
+    width:clamp(68px,24vw,108px);
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-controls{
+    margin-top:20px;
+  }
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+    bottom:-80px!important;
+  }
+
+  /* Membership stays in two headline text rows at narrow widths. */
+  .membership-redesign .membership-headline{
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:center;
+    align-items:flex-start;
+    gap:6px;
+    width:100%;
+  }
+  .membership-redesign .membership-headline-left,
+  .membership-redesign .membership-headline-right{
+    flex:0 1 50%;
+    min-width:0;
+    align-items:center;
+  }
+  .membership-redesign .membership-banner{
+    max-width:none;
+    font-size:clamp(12px,3.3vw,20px);
+    white-space:nowrap;
+  }
+  .membership-redesign .membership-big,
+  .membership-redesign .membership-love,
+  .membership-redesign .membership-stay{
+    max-width:none;
+    font-size:clamp(30px,9vw,58px);
+    white-space:nowrap;
+  }
+}
+@media(max-width:360px){
+  .hero .booking{gap:6px;padding:10px}
+  .hero .booking label{padding:7px 8px}
+  .hotels .destination-list{grid-template-columns:minmax(0,1fr)}
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--inner-left{left:4%}
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--inner-right{right:4%}
+}
