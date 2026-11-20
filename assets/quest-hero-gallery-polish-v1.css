@@ -1,0 +1,51 @@
+/* Hero-only finishing pass. Keep the upper Quest accents and background texture. */
+.hero .hero-corner.corner-bl,
+.hero .hero-corner.corner-br{display:none!important}
+
+/* Use the existing ray artwork on both sides of the headline. */
+.hero .headline-stage .headline-rays-left{
+  left:-28px;
+  top:clamp(36px,4vw,57px);
+}
+.hero .headline-stage .headline-rays-right{
+  left:auto;
+  right:-28px;
+  top:clamp(36px,4vw,57px);
+  transform:scaleX(-1) rotate(-26deg);
+}
+
+/* The gallery viewport clips cards cleanly; it must not fade their images. */
+.hero .hero-gallery.qhc{
+  -webkit-mask-image:none;
+  mask-image:none;
+  overflow:hidden;
+}
+.hero .hero-gallery.qhc .qhc-card,
+.hero .hero-gallery.qhc .qhc-card-visual,
+.hero .hero-gallery.qhc .qhc-face,
+.hero .hero-gallery.qhc .qhc-face img{
+  opacity:1!important;
+  filter:none!important;
+}
+.hero .hero-gallery.qhc .qhc-face{
+  box-sizing:border-box;
+  border:2px solid #fdb913;
+  border-radius:17px;
+  background:#fdb913;
+  box-shadow:none;
+}
+.hero .hero-gallery.qhc .qhc-face img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+/* Preserve the rise entrance without making moving images translucent. */
+@keyframes qhc-rise{
+  from{transform:translateY(75px)}
+  to{transform:translateY(0)}
+}
+@media(max-width:700px){
+  .hero .headline-stage .headline-rays-left{left:-12px;top:38px}
+  .hero .headline-stage .headline-rays-right{right:-12px;top:38px}
+}
