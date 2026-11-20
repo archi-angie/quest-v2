@@ -1,0 +1,180 @@
+/* Remove extra Hero clutter in markup; shift the remaining supplied accent. */
+.hero .hero-pattern-accent--left{transform:translateX(-10%)}
+
+/* A compact 3:2 thumbnail sets the ticket's natural height. */
+.offers .offer-ticket{
+  --offer-thumb:clamp(180px,16vw,240px);
+  grid-template-columns:var(--offer-thumb) minmax(0,1fr);
+  align-items:center;
+  min-height:0;
+  gap:12px;
+  padding:6px;
+}
+.offers .offer-thumbnail-wrap{
+  box-sizing:border-box;
+  width:100%;
+  height:auto;
+  aspect-ratio:3/2;
+  overflow:hidden;
+}
+.offers .offer-thumbnail{
+  display:block;
+  width:100%;
+  height:100%;
+  aspect-ratio:3/2;
+  object-fit:cover;
+}
+.offers .offer-ticket-copy{min-width:0;padding:0}
+.offers .offer-perforation{
+  left:calc(6px + var(--offer-thumb) + 6px);
+  top:8px;
+  bottom:8px;
+}
+.offers .offers-list{gap:14px}
+
+/* Pull the running ribbon toward the gallery and its left pattern. */
+.reels-phone-mode + .social-ribbon{margin-top:-28px}
+
+/* New mobile-only semantic line; the original desktop poster stays intact. */
+.membership-redesign .membership-headline-mobile{display:none}
+
+@media(max-width:700px){
+  /* Two destinations per page, with accessible dot controls for the rest. */
+  .hotels .destination-list{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+  }
+  .hotels .destination-row[hidden]{display:none!important}
+  .hotels .destination-pages{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    margin:10px 0 0;
+  }
+  .hotels .destination-pages[hidden]{display:none!important}
+  .hotels .destination-page-dot{
+    position:relative;
+    width:30px;
+    height:30px;
+    padding:0;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+  }
+  .hotels .destination-page-dot::before{
+    content:"";
+    position:absolute;
+    top:10px;
+    left:10px;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#6c217f66;
+  }
+  .hotels .destination-page-dot[aria-pressed="true"]::before{
+    background:#6c217f;
+    transform:scale(1.25);
+  }
+  .hotels .destination-page-dot:focus-visible{
+    outline:2px solid #6c217f;
+    border-radius:50%;
+  }
+
+  .offers .offer-ticket{
+    --offer-thumb:clamp(112px,32vw,150px);
+    gap:9px;
+    padding:6px;
+  }
+  .offers .offer-perforation{
+    left:calc(6px + var(--offer-thumb) + 4px);
+    top:7px;
+    bottom:7px;
+  }
+  .offers .offers-list{gap:12px}
+
+  /* Two active 9:16 previews sit behind the original highlighted phone. */
+  .moments.reels-section.reels-phone-mode .reels-phone{
+    width:min(50vw,220px);
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--outer-left,
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--outer-right{
+    display:none!important;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--inner-left,
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--inner-right{
+    z-index:2;
+    top:21%;
+    width:clamp(92px,31vw,140px);
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--inner-left{left:2%}
+  .moments.reels-section.reels-phone-mode .reels-phone-slot--inner-right{right:2%;left:auto}
+  .moments.reels-section.reels-phone-mode .reels-phone-preview,
+  .moments.reels-section.reels-phone-mode .reels-phone-preview__media{
+    aspect-ratio:9/16!important;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-preview__media{
+    box-shadow:0 12px 22px #270a35a3;
+  }
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+    top:0!important;
+    bottom:auto!important;
+    left:-85px;
+    transform:scaleY(-1)!important;
+    transform-origin:center;
+  }
+  .reels-phone-mode + .social-ribbon{margin-top:-20px}
+
+  /* One centered text line with the original Quest underline. */
+  .membership-redesign .membership-headline{
+    display:flex!important;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    margin:0 0 16px;
+    white-space:nowrap;
+  }
+  .membership-redesign .membership-headline-left,
+  .membership-redesign .membership-headline-right{display:none!important}
+  .membership-redesign .membership-headline-mobile{
+    display:inline-flex;
+    align-items:baseline;
+    justify-content:center;
+    gap:8px;
+    max-width:100%;
+    white-space:nowrap;
+  }
+  .membership-redesign .membership-mobile-lead{
+    color:#6c217f;
+    font:800 clamp(17px,4.7vw,27px)/1 Inter,Poppins,sans-serif;
+    letter-spacing:-.035em;
+  }
+  .membership-redesign .membership-mobile-mark{
+    position:relative;
+    color:#fff;
+    font:400 clamp(29px,8vw,48px)/1 'Permanent Marker',cursive;
+    -webkit-text-stroke:1.5px #6c217f;
+    text-shadow:3px 3px 0 #6c217f;
+  }
+  .membership-redesign .membership-mobile-mark .membership-underline{
+    position:absolute;
+    left:0;
+    bottom:-17px;
+    display:block;
+    width:100%;
+    height:18px;
+    margin:0;
+    overflow:visible;
+  }
+  .membership-redesign .membership-wave-bl,
+  .membership-redesign .membership-wave-br{
+    width:calc(50% - 8px)!important;
+  }
+}
+@media(max-width:360px){
+  .hotels .destination-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .membership-redesign .membership-headline-mobile{gap:5px}
+  .membership-redesign .membership-mobile-lead{font-size:16px}
+  .membership-redesign .membership-mobile-mark{font-size:27px}
+}
