@@ -1,0 +1,26 @@
+/* Meet the social ribbon with the left Quest artwork. */
+.moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+  top:auto!important;
+  bottom:calc(-1 * clamp(36px,3vw,52px))!important;
+}
+
+/* Enlarge the same faint circular crop by 40%, without changing its opacity. */
+.moments.reels-section.reels-phone-mode .reels-phone-heading::before{
+  width:clamp(224px,28vw,392px);
+  background-size:812px auto;
+}
+
+/* Shift only the right artwork by 15% of its own width. */
+.moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+  transform:translateX(15%);
+}
+
+@media(max-width:700px){
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+    bottom:-28px!important;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-heading::before{
+    width:217px;
+    background-size:560px auto;
+  }
+}
