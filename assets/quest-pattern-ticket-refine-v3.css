@@ -1,0 +1,58 @@
+/* Targeted Quest pattern and ticket refinements. */
+.hero .hero-pattern-accent--right{
+  top:clamp(88px,11svh,125px);
+  right:-55px;
+  width:clamp(230px,21vw,315px);
+  translate:0 15%;
+  transform:translateX(10%) scaleX(-1);
+}
+.hotels .hotels-corner-left,
+.hotels .hotels-corner-right{transform:rotate(0deg)}
+.offers .offer-ticket{column-gap:30px}
+.offers .offer-perforation{left:calc(6px + var(--offer-thumb) + 15px)}
+
+/* Both edge accents use the same unaltered 369 × 738 PNG and one geometry. */
+.moments.reels-section.reels-phone-mode .reels-pattern-block--left,
+.moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+  top:auto!important;
+  bottom:-72px!important;
+  width:clamp(180px,21vw,300px)!important;
+  height:auto!important;
+  aspect-ratio:369 / 738;
+  object-fit:contain;
+  object-position:center;
+  opacity:1;
+  -webkit-mask-image:none;
+  mask-image:none;
+}
+.moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+  left:calc(-1 * clamp(72px,8.4vw,120px))!important;
+  right:auto!important;
+  transform:scaleX(-1)!important;
+}
+.moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+  right:calc(-1 * clamp(56px,6vw,90px))!important;
+  left:auto!important;
+  transform:none!important;
+  translate:0 -20%;
+}
+@media(max-width:1050px){
+  .hero .hero-pattern-accent--right{right:-65px;width:clamp(190px,21vw,245px)}
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left,
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+    width:clamp(150px,25vw,240px)!important;
+    bottom:-48px!important;
+  }
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{left:calc(-1 * clamp(60px,10vw,96px))!important}
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--right{right:calc(-1 * clamp(44px,7vw,72px))!important}
+}
+@media(max-width:700px){
+  .hero .hero-pattern-accent--right{top:72px;right:-50px;width:150px}
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left,
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--right{
+    width:clamp(118px,35vw,160px)!important;
+    bottom:-28px!important;
+  }
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{left:calc(-1 * clamp(50px,14vw,70px))!important}
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--right{right:calc(-1 * clamp(36px,10vw,54px))!important}
+}
