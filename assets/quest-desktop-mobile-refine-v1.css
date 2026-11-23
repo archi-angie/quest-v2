@@ -93,6 +93,7 @@
     padding-bottom:0;
     margin-bottom:clamp(18px,5vw,28px);
   }
+  .news-stage .news-stage-heading > svg:first-of-type{display:none}
   .news-stage .news-stage-heading-mobile{
     display:block;
     max-width:100%;
