@@ -1,0 +1,128 @@
+/* Quest desktop and mobile refinements. Keep each viewport's changes isolated. */
+.membership-redesign .membership-sweep--mobile{display:none}
+
+@media (min-width:701px){
+  .hero .hero-pattern-accent--right{display:block;z-index:0;pointer-events:none}
+  .hero .headline-stage .headline-rays-left{
+    left:-42px;top:clamp(36px,4vw,57px);
+  }
+  .hero .headline-stage .headline-rays-right{
+    right:-42px;top:clamp(36px,4vw,57px);
+  }
+  .hero .hero-gallery.qhc{
+    -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 4.5%,#000 95.5%,transparent 100%);
+    mask-image:linear-gradient(to right,transparent 0%,#000 4.5%,#000 95.5%,transparent 100%);
+  }
+
+  /* Keep the left cutout proportional and let its lower edge meet the ribbon. */
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{
+    top:auto!important;
+    bottom:-72px!important;
+    width:clamp(200px,21.6vw,344px);
+    height:auto;
+  }
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left img,
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left svg{
+    width:100%;height:auto;
+  }
+  .moments.reels-section.reels-phone-mode .reels-phone-heading::before{
+    width:clamp(270px,34vw,470px);
+    background-size:975px auto;
+    opacity:.1;
+  }
+
+  .membership-redesign .membership-banner-left,
+  .membership-redesign .membership-banner-right{
+    border-radius:7px;
+    font-style:normal;
+  }
+  .membership-redesign .membership-banner-text{
+    display:block;
+    font-style:normal;
+    transform:skewX(9deg);
+  }
+}
+
+@media (max-width:700px){
+  .membership-redesign .membership-sweep--desktop{display:none}
+  .membership-redesign .membership-sweep--mobile{
+    display:block;
+    top:calc(-1 * var(--member-sweep-height) + 1px);
+    width:100%;
+    height:calc(var(--member-sweep-height) * 1.74);
+    overflow:visible;
+  }
+
+  .quest-splash-logo{width:min(40vw,170px)}
+
+  /* Preserve the original stacked headline while scaling the whole hierarchy up. */
+  .hero .headline-stage{max-width:100%;margin-inline:auto}
+  .hero h1 .headline-first{font-size:clamp(30px,8vw,43px)}
+  .hero h1 .headline-highlight>span{font-size:clamp(37px,10vw,56px)}
+  .hero h1 strong{font-size:clamp(50px,13vw,68px)}
+  .hero .hero-pattern-accent--right,
+  .hero .headline-rays-left{display:none}
+
+  /* The dots have a 12px visible gap, with a consistent 10px base diameter. */
+  .hotels .destination-pages{
+    gap:0;
+    margin:5px auto 7px;
+  }
+  .hotels .destination-page-dot{width:22px;height:30px}
+  .hotels .destination-page-dot::before{top:10px;left:6px}
+  .hotels .hotel-stage{margin-top:24px}
+  .hotels .hotel-details{margin-top:20px}
+
+  .offers .offers-intro h2 span,
+  .offers .offers-intro h2 strong{font-size:36px}
+  .offers .offer-ticket{gap:14px}
+  .offers .offer-perforation{
+    left:calc(6px + var(--offer-thumb) + 7px);
+    top:11px;
+    bottom:11px;
+  }
+  .offers .offer-ticket-copy{padding-left:2px}
+  .offers .offers-list{gap:22px}
+
+  .news-stage .news-stage-heading{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    height:auto;
+    min-height:0;
+    padding-bottom:0;
+    margin-bottom:clamp(18px,5vw,28px);
+  }
+  .news-stage .news-stage-heading-mobile{
+    display:block;
+    max-width:100%;
+    line-height:1.12;
+    text-wrap:balance;
+  }
+  .news-stage .news-stage-heading .news-stage-underline{
+    position:relative;
+    left:auto;
+    bottom:auto;
+    flex:none;
+    width:min(55vw,200px);
+    height:26px;
+    margin:12px auto 0;
+    transform:none;
+  }
+  .offers-news-flow .news-stage-oval::before,
+  .offers-news-flow .news-stage-oval::after{display:none!important}
+
+  .membership-redesign .membership-headline{
+    margin-bottom:clamp(22px,5vw,32px);
+  }
+  .membership-redesign .membership-mobile-lead{
+    font-size:clamp(20px,5.4vw,31px);
+  }
+  .membership-redesign .membership-mobile-mark{
+    font-size:clamp(34px,9.4vw,54px);
+  }
+}
+@media (max-width:360px){
+  .membership-redesign .membership-mobile-lead{font-size:19px}
+  .membership-redesign .membership-mobile-mark{font-size:32px}
+}
