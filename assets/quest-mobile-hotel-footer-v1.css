@@ -1,0 +1,77 @@
+/* Mobile hotel carousel reserves space for the stacked cards and their shadow. */
+@media (max-width:700px){
+  .hotels .hotel-cards{
+    position:relative;
+    height:clamp(205px,29svh,265px);
+    overflow:visible;
+    transform:none;
+  }
+  .hotels .stacked-hotel-card{
+    bottom:18px;
+    height:calc(100% - 30px);
+  }
+  .hotels .stacked-hotel-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .hotels .carousel-controls{
+    position:relative;
+    z-index:4;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(14px,5vw,24px);
+    min-height:42px;
+    margin:16px auto 0;
+  }
+  .hotels .hotel-details{margin:18px auto 0}
+
+  /* Four certification items form two complete rows on ordinary phones. */
+  .footer .qf-corporate .qf-awards{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    align-items:start;
+    gap:22px 16px;
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding:0;
+    overflow:visible;
+    list-style:none;
+  }
+  .footer .qf-awards li{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:9px;
+    width:auto;
+    min-width:0;
+    max-width:100%;
+    padding:0;
+  }
+  .footer .qf-awards img,
+  .footer .qf-awards li:first-child img{
+    display:block;
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:52px;
+    object-fit:contain;
+    object-position:left center;
+  }
+  .footer .qf-awards span{
+    display:block;
+    max-width:100%;
+    overflow:visible;
+    white-space:normal;
+    overflow-wrap:anywhere;
+    -webkit-line-clamp:unset;
+    line-height:1.4;
+  }
+}
+@media (max-width:320px){
+  .footer .qf-corporate .qf-awards{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
