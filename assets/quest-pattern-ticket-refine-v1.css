@@ -15,7 +15,7 @@
   aspect-ratio:368.5/552.76;
   object-fit:contain;
 }
-.moments.reels-section.reels-phone-mode .reels-pattern-block--left{object-position:left bottom;transform:scaleX(-1)}
+.moments.reels-section.reels-phone-mode .reels-pattern-block--left{object-position:right bottom;transform:scaleX(-1)}
 .moments.reels-section.reels-phone-mode .reels-pattern-block--right{object-position:right bottom}
 @media(max-width:1050px){
   .hero .hero-pattern-accent--right{right:-65px;width:clamp(190px,21vw,245px)}
