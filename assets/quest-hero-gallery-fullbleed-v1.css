@@ -1,0 +1,9 @@
+/* Let only the Hero gallery span the viewport; keep its cards and motion intact. */
+.hero .hero-gallery.qhc{
+  box-sizing:border-box;
+  width:100vw;
+  max-width:none;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  padding-inline:0;
+}
