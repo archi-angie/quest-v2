@@ -1,0 +1,20 @@
+/* Targeted Quest pattern and ticket refinements. */
+.hero .hero-pattern-accent--right{
+  top:clamp(88px,11svh,125px);
+  right:-55px;
+  width:clamp(230px,21vw,315px);
+  translate:none;
+  transform:translateX(10%) scaleX(-1);
+}
+.hotels .hotels-corner-left,
+.hotels .hotels-corner-right{transform:rotate(0deg)}
+.offers .offer-ticket{column-gap:30px}
+.offers .offer-perforation{left:calc(6px + var(--offer-thumb) + 15px)}
+.moments.reels-section.reels-phone-mode .reels-pattern-block--left{transform:scaleX(-1)}
+@media(max-width:1050px){
+  .hero .hero-pattern-accent--right{right:-65px;width:clamp(190px,21vw,245px)}
+}
+@media(max-width:700px){
+  .hero .hero-pattern-accent--right{top:72px;right:-50px;width:150px}
+  .moments.reels-section.reels-phone-mode .reels-pattern-block--left{transform:scaleX(-1)!important}
+}
