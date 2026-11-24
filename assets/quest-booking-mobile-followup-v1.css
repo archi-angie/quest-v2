@@ -135,5 +135,15 @@
   .footer .qf-social a:hover,
   .footer .qf-main nav a:hover,
   .footer a:hover{transform:none;color:inherit}
-  .membership-redesign .membership-stores a:hover{transform:none}
+  .membership-redesign .membership-stores a:hover{transform:none;filter:none}
+  .marquee-card:hover .marquee-photo img{transform:none}
+  .offer-page-bubble:hover:not(.is-active),
+  .reels-phone-mode .reels-phone-dots button:hover:not([aria-pressed="true"]){transform:rotate(45deg)}
+  .offer-page-bubble.is-active:hover,
+  .reels-phone-mode .reels-phone-dots button[aria-pressed="true"]:hover{transform:rotate(45deg) scale(1.18)}
+  .news-stage-read:hover{background:#FDB913}
+  .social-ribbon__item:hover{text-decoration:none}
+  .footer .qf-social a:hover{background:transparent;color:#fff;border-color:#fff}
+  .footer .qf-book:hover{background:#FDB913;box-shadow:none}
+  .quest-splash-skip:hover{background:#4a145bb8}
 }
