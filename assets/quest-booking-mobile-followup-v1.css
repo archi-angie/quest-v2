@@ -72,6 +72,8 @@
     padding-bottom:8px;
   }
 
+  .hotels .carousel-controls.is-single{display:none!important}
+
   /* The desktop-only right wave has no mobile counterpart. */
   .membership-sweep--mobile .membership-wave-tl--right{display:none}
 
