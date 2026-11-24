@@ -1,0 +1,405 @@
+/* Quest booking fields and mobile bottom sheets */
+.hero .booking.qb-enhanced{
+  display:flex;
+  align-items:stretch;
+  gap:12px;
+}
+.hero .booking.qb-enhanced .qb-native{
+  display:none!important;
+}
+.hero .booking.qb-enhanced .qb-fields{
+  display:grid;
+  grid-template-columns:1.18fr .94fr .94fr 1.05fr;
+  flex:1 1 auto;
+  min-width:0;
+}
+.hero .booking.qb-enhanced .qb-field{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+  min-height:74px;
+  padding:7px clamp(12px,1.3vw,22px);
+  border:0;
+  border-right:1px solid #ffffff61;
+  border-radius:0;
+  background:transparent;
+  color:#fff;
+  text-align:left;
+  cursor:pointer;
+}
+.hero .booking.qb-enhanced .qb-field:last-child{border-right:0}
+.hero .booking.qb-enhanced .qb-field:hover,
+.hero .booking.qb-enhanced .qb-field[aria-expanded="true"]{
+  background:#ffffff12;
+}
+.hero .booking.qb-enhanced .qb-field:focus-visible{
+  outline:2px solid #FDB913;
+  outline-offset:-3px;
+  border-radius:10px;
+}
+.hero .booking.qb-enhanced .qb-label{
+  display:block;
+  margin:0 0 8px 26px;
+  color:#f8d3fc;
+  font:700 11px/1.2 Poppins,Arial,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.hero .booking.qb-enhanced .qb-value{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  min-width:0;
+  color:#fff;
+  font:700 clamp(13px,1vw,16px)/1.3 Poppins,Arial,sans-serif;
+  white-space:nowrap;
+}
+.hero .booking.qb-enhanced .qb-value>span{
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.hero .booking.qb-enhanced .qb-icon{
+  width:18px;
+  height:18px;
+  flex:none;
+  color:#FDB913;
+}
+.hero .booking.qb-enhanced .qb-chevron{
+  width:16px;
+  height:16px;
+  flex:none;
+  margin-left:auto;
+  color:#FDB913;
+  transition:transform .2s ease;
+}
+.hero .booking.qb-enhanced [aria-expanded="true"] .qb-chevron{transform:rotate(180deg)}
+.hero .booking.qb-enhanced .booking-submit{
+  align-self:center;
+  flex:none;
+  margin:0 2px 0 0;
+}
+.qb-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:990;
+  background:transparent;
+}
+.qb-backdrop[hidden],.qb-panel[hidden]{display:none!important}
+.qb-panel{
+  position:fixed;
+  z-index:991;
+  max-height:min(76dvh,610px);
+  overflow:hidden;
+  border:1px solid #e9cbe8;
+  border-radius:22px;
+  background:#fffaf5;
+  color:#6c217f;
+  box-shadow:0 18px 50px #2b0a3580;
+  font-family:Poppins,Arial,sans-serif;
+}
+.qb-panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  min-height:58px;
+  padding:11px 20px;
+  border-bottom:1px solid #ead1e8;
+  background:#fffaf5;
+}
+.qb-panel-head strong{
+  font-size:16px;
+  line-height:1.3;
+}
+.qb-close{
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:38px;
+  height:38px;
+  padding:0;
+  border:1px solid #d7acd7;
+  border-radius:50%;
+  background:#fff;
+  color:#6c217f;
+  font:400 26px/1 Poppins,Arial,sans-serif;
+  cursor:pointer;
+}
+.qb-panel-scroll{
+  max-height:calc(min(76dvh,610px) - 58px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  scrollbar-color:#c78cc7 transparent;
+}
+.qb-search{
+  position:sticky;
+  z-index:2;
+  top:0;
+  padding:16px 20px 12px;
+  background:#fffaf5;
+  box-shadow:0 7px 12px #fffaf5e8;
+}
+.qb-search label{
+  display:block;
+  margin-bottom:8px;
+  font:700 11px/1.2 Poppins,Arial,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.qb-search-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.qb-search-row input{
+  width:100%;
+  min-width:0;
+  height:43px;
+  padding:0 14px;
+  border:1px solid #e3c4df;
+  border-radius:24px;
+  outline:none;
+  background:#fff;
+  color:#4a115d;
+  font:500 14px Poppins,Arial,sans-serif;
+}
+.qb-search-row input:focus{border-color:#6c217f;box-shadow:0 0 0 3px #6c217f1c}
+.qb-search-row>span{
+  display:grid;
+  place-items:center;
+  flex:none;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#6c217f;
+  color:#FDB913;
+  font:700 28px/1 Poppins,Arial,sans-serif;
+}
+.qb-destination-results{padding:0 12px 16px}
+.qb-city,.qb-hotel{
+  display:flex;
+  align-items:center;
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#6c217f;
+  text-align:left;
+  cursor:pointer;
+}
+.qb-city{
+  justify-content:space-between;
+  gap:12px;
+  min-height:56px;
+  padding:10px 12px;
+  border-top:1px solid #eddbeb;
+  font:600 17px/1.3 Poppins,Arial,sans-serif;
+}
+.qb-city small{
+  flex:none;
+  color:#986c99;
+  font:500 11px/1.3 Poppins,Arial,sans-serif;
+}
+.qb-hotel{
+  min-height:36px;
+  padding:5px 18px;
+  color:#67456d;
+  font:500 12px/1.35 Poppins,Arial,sans-serif;
+}
+.qb-city:hover,.qb-hotel:hover,
+.qb-city:focus-visible,.qb-hotel:focus-visible{
+  border-radius:9px;
+  background:#f7e9f7;
+}
+.qb-empty{padding:16px;font-size:13px}
+.qb-dates-summary{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 20px;
+  border-bottom:1px solid #ebd5e8;
+  font-size:13px;
+}
+.qb-dates-summary small{color:#8a6a8f}
+.qb-calendar-nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px 18px 0;
+  color:#6c217f;
+  font-size:13px;
+  font-weight:700;
+}
+.qb-calendar-nav button{
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:#6c217f;
+  font-size:28px;
+  cursor:pointer;
+}
+.qb-calendar-nav button:hover:not(:disabled){background:#f2e1f1}
+.qb-calendar-nav button:disabled{opacity:.3;cursor:not-allowed}
+.qb-calendars{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  padding:8px 10px 14px;
+}
+.qb-month{min-width:0;padding:4px 12px 8px}
+.qb-month+.qb-month{border-left:1px solid #ead5e8}
+.qb-month h3{
+  margin:3px 0 17px;
+  color:#4a115d;
+  font:700 14px/1.2 Poppins,Arial,sans-serif;
+  text-align:center;
+}
+.qb-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.qb-weekday{
+  padding:3px 0 9px;
+  color:#9d83a1;
+  font-size:10px;
+  text-align:center;
+}
+.qb-day{
+  display:grid;
+  place-items:center;
+  min-width:0;
+  aspect-ratio:1;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:#4a3650;
+  font:500 12px/1 Poppins,Arial,sans-serif;
+  cursor:pointer;
+}
+.qb-day:hover:not(:disabled){background:#f4def3}
+.qb-day--outside{color:#c6a8c5}
+.qb-day:disabled{opacity:.28;cursor:not-allowed}
+.qb-day--range{border-radius:6px;background:#f9e8b3}
+.qb-day--start,.qb-day--end,
+.qb-day--start:hover,.qb-day--end:hover{
+  background:#FDB913!important;
+  color:#4a115d;
+  font-weight:800;
+}
+.qb-dates-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 20px;
+  border-top:1px solid #ead5e8;
+  background:#f9f3f8;
+}
+.qb-dates-foot span{color:#7b6780;font-size:11px}
+.qb-dates-foot button,.qb-guest-done{
+  min-height:39px;
+  padding:7px 18px;
+  border:0;
+  border-radius:10px;
+  background:#FDB913;
+  color:#4a115d;
+  font:700 12px Poppins,Arial,sans-serif;
+  cursor:pointer;
+}
+.qb-guests{padding:6px 20px 20px}
+.qb-guest-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  min-height:78px;
+  border-bottom:1px solid #ead5e8;
+}
+.qb-guest-row strong,.qb-guest-row small{display:block}
+.qb-guest-row strong{font-size:14px}
+.qb-guest-row small{margin-top:3px;color:#876c8c;font-size:11px}
+.qb-counter{display:flex;align-items:center;gap:12px}
+.qb-counter button{
+  display:grid;
+  place-items:center;
+  width:33px;
+  height:33px;
+  padding:0;
+  border:1px solid #6c217f;
+  border-radius:50%;
+  background:#fffaf5;
+  color:#6c217f;
+  font-size:19px;
+  cursor:pointer;
+}
+.qb-counter output{min-width:16px;font-size:14px;font-weight:700;text-align:center}
+.qb-guest-done{width:100%;margin-top:18px}
+@media(max-width:700px){
+  body.qb-sheet-open{overflow:hidden}
+  .hero .booking.qb-enhanced{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    width:100%;
+    max-width:none;
+    padding:9px;
+    border:1px solid #ffffff69;
+    border-radius:24px;
+    background:#4d145ebd;
+    box-shadow:none;
+  }
+  .hero .booking.qb-enhanced .qb-fields{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    width:100%;
+  }
+  .hero .booking.qb-enhanced .qb-field{
+    min-height:67px;
+    padding:9px 12px;
+    border:0;
+    border-bottom:1px solid #ffffff4d;
+  }
+  .hero .booking.qb-enhanced .qb-field--destination,
+  .hero .booking.qb-enhanced .qb-field--guests{grid-column:1/-1}
+  .hero .booking.qb-enhanced .qb-field--checkin{border-right:1px solid #ffffff4d}
+  .hero .booking.qb-enhanced .qb-label{margin-left:27px;font-size:10px}
+  .hero .booking.qb-enhanced .qb-value{font-size:14px}
+  .hero .booking.qb-enhanced .booking-submit{
+    width:100%;
+    min-height:50px;
+    margin:9px 0 0;
+    border-radius:26px;
+    background:#FDB913;
+    color:#4a115d;
+    font-size:14px;
+    box-shadow:none;
+  }
+  .qb-backdrop{background:#21082fb3}
+  .qb-panel{
+    inset:auto 0 0!important;
+    width:100%!important;
+    max-height:min(86dvh,760px);
+    border-radius:24px 24px 0 0;
+    padding-bottom:env(safe-area-inset-bottom);
+    box-shadow:0 -20px 55px #21082f70;
+  }
+  .qb-panel:before{
+    content:"";
+    display:block;
+    width:40px;
+    height:4px;
+    margin:9px auto 0;
+    border-radius:4px;
+    background:#caa7cc;
+  }
+  .qb-panel-scroll{max-height:calc(min(86dvh,760px) - 71px - env(safe-area-inset-bottom))}
+  .qb-panel-head{padding-inline:20px}
+  .qb-calendars{grid-template-columns:1fr}
+  .qb-month+.qb-month{display:none}
+  .qb-month{padding:4px 9px 10px}
+  .qb-day{font-size:13px}
+}
+@media(max-width:380px){
+  .hero .booking.qb-enhanced .qb-field{padding-inline:8px}
+  .hero .booking.qb-enhanced .qb-value{font-size:12px;gap:6px}
+  .qb-counter{gap:7px}
+}
