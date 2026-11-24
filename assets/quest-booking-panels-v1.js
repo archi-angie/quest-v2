@@ -252,6 +252,7 @@
       document.body.classList.toggle('qb-sheet-open',mobile());
       trigger.setAttribute('aria-expanded','true');
       position();
+      if(mode !== 'destination') panel.querySelector('.qb-close').focus({preventScroll:true});
     };
     fields.addEventListener('click',event => {
       const trigger = event.target.closest('[data-booking-open]');
@@ -270,7 +271,11 @@
     });
     addEventListener('resize',() => {
       if(mode === 'dates') drawDates();
-      if(mode) position();
+      if(mode){
+        panel.setAttribute('aria-modal',String(mobile()));
+        document.body.classList.toggle('qb-sheet-open',mobile());
+        position();
+      }
     },{passive:true});
     addEventListener('scroll',position,{passive:true});
     destination.addEventListener('change',update);
