@@ -159,7 +159,7 @@
     document.addEventListener('visibilitychange', syncPlayback);
     window.addEventListener('resize', syncPlayback, {passive:true});
     reduced.addEventListener?.('change', syncPlayback);
-    visible?.observe(section);
+    visible?.observe(phone);
     renderPreviews();
     setPhone();
 
