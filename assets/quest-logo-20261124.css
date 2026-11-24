@@ -1,0 +1,14 @@
+/* Keep the supplied wide Quest lockup legible without changing layout hierarchy. */
+.header .brand img{width:clamp(190px,15vw,230px)}
+.header.scrolled .brand img{width:180px}
+.quest-splash-logo{
+  width:clamp(250px,29vw,410px);
+  aspect-ratio:297.5 / 48.2;
+  clip-path:inset(0 83.5% 0 0);
+}
+.footer .qf-logo{width:clamp(250px,24vw,320px)}
+@media(max-width:700px){
+  .header .brand img,.header.scrolled .brand img{width:min(48vw,190px)}
+  .mobile-menu-head img{width:min(50vw,190px)}
+  .quest-splash-logo{width:min(65vw,250px)}
+}
