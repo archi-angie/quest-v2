@@ -43,6 +43,8 @@
     const triggers = [...fields.querySelectorAll('[data-booking-open]')];
     triggers.forEach(button => button.setAttribute('aria-controls',panel.id));
     const mobile = () => matchMedia('(max-width:700px)').matches;
+    const syncSubmitLabel = () => {submit.textContent = mobile() ? 'Book Now ↗' : 'Search stays →';};
+    syncSubmitLabel();
     const today = new Date();
     today.setHours(0,0,0,0);
     const firstMonth = new Date(today.getFullYear(),today.getMonth(),1);
@@ -270,6 +272,7 @@
       }
     });
     addEventListener('resize',() => {
+      syncSubmitLabel();
       if(mode === 'dates') drawDates();
       if(mode){
         panel.setAttribute('aria-modal',String(mobile()));
