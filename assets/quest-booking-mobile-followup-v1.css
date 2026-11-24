@@ -1,0 +1,138 @@
+/* Follow-up refinements for Quest booking, mobile tickets and hotel stages. */
+@media(min-width:701px){
+  .hero .booking.qb-enhanced{padding-block:16px}
+}
+.qb-search-row iconify-icon{
+  display:block;
+  width:24px;
+  height:24px;
+  font-size:24px;
+  line-height:1;
+}
+.qb-calendar-nav button{
+  display:grid;
+  place-items:center;
+}
+.qb-calendar-nav button iconify-icon{
+  display:block;
+  width:21px;
+  height:21px;
+  font-size:21px;
+  line-height:1;
+}
+@media(max-width:700px){
+  .hero .booking-shell{
+    box-sizing:border-box;
+    width:100%;
+    max-width:none;
+    padding-inline:0;
+  }
+  .hero .booking.qb-enhanced{
+    box-sizing:border-box;
+    width:100%;
+    max-width:none;
+    margin-inline:0;
+  }
+  .qb-panel{
+    display:flex;
+    flex-direction:column;
+    box-sizing:border-box;
+    max-height:calc(100dvh - 12px);
+  }
+  .qb-panel:before,
+  .qb-panel-head{flex:none}
+  .qb-panel-scroll{
+    flex:1 1 auto;
+    min-height:0;
+    max-height:none!important;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+  }
+  .qb-panel[data-mode="dates"]{height:min(92dvh,700px)}
+  .qb-panel[data-mode="destination"]{height:min(82dvh,640px)}
+  .qb-panel[data-mode="guests"]{height:auto}
+  .qb-panel[data-mode="guests"] .qb-panel-scroll{
+    flex:0 1 auto;
+    max-height:calc(100dvh - 85px - env(safe-area-inset-bottom))!important;
+  }
+  .qb-month{padding-bottom:18px}
+  .qb-dates-foot{padding-bottom:max(14px,env(safe-area-inset-bottom))}
+
+  /* Let image and copy determine each ticket's height. */
+  .offers .offer-ticket{
+    min-height:0!important;
+    height:auto;
+    padding-block:9px;
+    align-items:center;
+  }
+  .offers .offer-thumbnail-wrap{align-self:center}
+  .offers .offer-ticket-copy{
+    padding-top:30px;
+    padding-bottom:8px;
+  }
+
+  /* The desktop-only right wave has no mobile counterpart. */
+  .membership-sweep--mobile .membership-wave-tl--right{display:none}
+
+  /* Mobile taps use selected and focus states without sticky hover styling. */
+  .hero .booking.qb-enhanced .qb-field:hover:not([aria-expanded="true"]){background:transparent}
+  .qb-city:hover:not(:focus-visible),
+  .qb-hotel:hover:not(:focus-visible),
+  .qb-calendar-nav button:hover:not(:focus-visible),
+  .qb-day:hover:not(:focus-visible):not(.qb-day--start):not(.qb-day--end){
+    background:transparent;
+  }
+  .pill:hover,
+  .guest-done:hover,
+  .hero-cta:hover,
+  .offer-learn:hover,
+  .footer .qf-book:hover{
+    transform:none!important;
+  }
+  .pill:hover span,
+  .text-link:hover span,
+  .hero-cta:hover span,
+  .offers-all:hover span{transform:none!important}
+  .hero .booking-submit:hover{background:#FDB913;color:#4a115d;box-shadow:none}
+  .hotels .hotel-explore:hover{background:#6c217f;color:#FDB913}
+  .hotels .destination-row:hover:not(.selected){transform:none;box-shadow:none}
+  .hotels .carousel-controls button:hover:not(:disabled){background:#6c217f;color:#FDB913}
+  .offers .offer-ticket:hover,
+  .offers .offer-ticket:focus-within{
+    background:#fff;
+    box-shadow:none;
+    transform:none;
+  }
+  .offers .offer-ticket:hover::before,
+  .offers .offer-ticket:hover::after,
+  .offers .offer-ticket:focus-within::before,
+  .offers .offer-ticket:focus-within::after{background:#fff}
+  .offers .offer-ticket:hover .offer-learn,
+  .offers .offer-ticket:focus-within .offer-learn{
+    opacity:1;
+    pointer-events:auto;
+    transform:none;
+  }
+  .offers .offer-ticket:hover .offer-learn::after,
+  .offers .offer-ticket:focus-within .offer-learn::after{transform:translate(-150%)}
+  .news-stage-control:hover{transform:none;background:#FDB913}
+  .news-stage-preview:hover img{transform:none}
+  .news-stage-read:hover{transform:none}
+  .moments.reels-section.reels-phone-mode .reels-phone-preview:hover,
+  .moments.reels-section.reels-phone-mode .reels-phone-preview:hover .reels-phone-preview__media{
+    transform:none;
+    border-color:inherit;
+    box-shadow:none;
+  }
+  .reels-phone-mode + .social-ribbon:hover .social-ribbon__track,
+  .reels-phone-mode .social-ribbon:hover .social-ribbon__track,
+  .social-ribbon__slope:hover .social-ribbon__track{
+    animation-play-state:running;
+  }
+  .hero-gallery:hover .gallery-track{animation-play-state:running}
+  .footer .qf-social a:hover,
+  .footer .qf-main nav a:hover,
+  .footer a:hover{transform:none;color:inherit}
+  .membership-redesign .membership-stores a:hover{transform:none}
+}
