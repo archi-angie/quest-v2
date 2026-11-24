@@ -116,6 +116,7 @@
   }
   .offers .offer-ticket:hover .offer-learn::after,
   .offers .offer-ticket:focus-within .offer-learn::after{transform:translate(-150%)}
+  .offer-learn:hover{box-shadow:4px 4px #3d0c50}
   .news-stage-control:hover{transform:none;background:#FDB913}
   .news-stage-preview:hover img{transform:none}
   .news-stage-read:hover{transform:none}
@@ -123,14 +124,14 @@
   .moments.reels-section.reels-phone-mode .reels-phone-preview:hover .reels-phone-preview__media{
     transform:none;
     border-color:inherit;
-    box-shadow:none;
+    box-shadow:0 12px 22px #270a35a3;
   }
   .reels-phone-mode + .social-ribbon:hover .social-ribbon__track,
   .reels-phone-mode .social-ribbon:hover .social-ribbon__track,
   .social-ribbon__slope:hover .social-ribbon__track{
     animation-play-state:running;
   }
-  .hero-gallery:hover .gallery-track{animation-play-state:running}
+  .hero-gallery:hover:not(.is-touching):not(:focus-within) .gallery-track{animation-play-state:running}
   .footer .qf-social a:hover,
   .footer .qf-main nav a:hover,
   .footer a:hover{transform:none;color:inherit}
