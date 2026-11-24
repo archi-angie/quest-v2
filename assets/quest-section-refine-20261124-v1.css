@@ -1,0 +1,12 @@
+/* Section-only refinements. Keep the ticket notches and hover state. */
+.offers .offer-ticket::after{background:#fff}
+.offers .offer-ticket:hover::after,
+.offers .offer-ticket:focus-within::after{background:#fff9ed}
+@media(min-width:1051px){
+  .hotels .hotels-grid{
+    grid-template-columns:minmax(175px,.72fr) minmax(320px,1.12fr) minmax(290px,1.3fr);
+    column-gap:clamp(12px,1.6vw,26px);
+  }
+  .hotels .hotel-stage{justify-self:end;margin:0;max-width:500px}
+  .hotels .hotel-details{width:100%;min-width:0}
+}
