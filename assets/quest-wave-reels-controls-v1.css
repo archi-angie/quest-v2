@@ -1,0 +1,27 @@
+/* Reel thumbnails keep each 9:16 slot visually identical without four extra video decoders. */
+.moments.reels-section.reels-phone-mode .reels-phone-preview__media img{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  pointer-events:none;
+}
+
+/* Center the arrow artwork within the existing circular controls. */
+.news-stage-control,
+.news-stage-control:hover{
+  background:#FDB913;
+}
+.news-stage-control svg,
+.hotels .carousel-controls button svg{
+  display:block;
+  width:20px;
+  height:20px;
+  margin:auto;
+  flex:none;
+}
+.hotels .carousel-controls button{
+  place-items:center;
+}
