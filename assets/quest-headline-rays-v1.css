@@ -1,0 +1,29 @@
+/* Anchor the original three-stroke artwork to the yellow headline badge. */
+.hero h1 .headline-highlight{position:relative}
+.hero .headline-highlight .headline-rays{
+  display:block;
+  position:absolute;
+  z-index:2;
+  top:-18px;
+  pointer-events:none;
+  scale:1;
+}
+.hero .headline-highlight .headline-rays-left{
+  left:-16px;
+  right:auto;
+  transform:rotate(-22deg);
+}
+.hero .headline-highlight .headline-rays-right{
+  left:auto;
+  right:-16px;
+  transform:scaleX(-1) rotate(-22deg);
+}
+@media(max-width:700px){
+  .hero .headline-highlight .headline-rays{
+    display:block;
+    top:-12px;
+    scale:.68;
+  }
+  .hero .headline-highlight .headline-rays-left{left:-9px}
+  .hero .headline-highlight .headline-rays-right{right:-9px}
+}
