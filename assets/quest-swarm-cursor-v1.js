@@ -828,6 +828,7 @@ const rectField = (x, y, hx, hy, r, out) => {
       pattern.classList.toggle('is-visible', inside);
       const under = document.elementFromPoint(event.clientX, event.clientY);
       const light = !!under?.closest('.membership-redesign, .offers');
+      pattern.classList.toggle('on-light', light);
       settingsRef.current.color = light ? '#6c217f' : '#ffffff';
       settingsRef.current.accentColor = light ? '#3d0c50' : '#fdb913';
       wake();
