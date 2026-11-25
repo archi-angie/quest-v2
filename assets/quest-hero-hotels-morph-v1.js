@@ -54,9 +54,9 @@
       const style=getComputedStyle(highlight);
       const matrix=new DOMMatrixReadOnly(style.transform==='none'?undefined:style.transform);
       const angle=Math.atan2(matrix.b,matrix.a)*180/Math.PI;
-      const startRadius=parseFloat(style.borderTopLeftRadius)||15;
-      const endRadius=parseFloat(getComputedStyle(panel).borderTopLeftRadius)||40;
-      metrics={start,end,distance,from:{x:sx,y:sy,w,h,angle,radius:startRadius},to:{...target,angle:0,radius:endRadius}};
+      const panelStyle=getComputedStyle(panel);
+      const corners=s=>['TopLeft','TopRight','BottomRight','BottomLeft'].map(name=>parseFloat(s['border'+name+'Radius'])||0);
+      metrics={start,end,distance,from:{x:sx,y:sy,w,h,angle,corners:corners(style)},to:{...target,angle:0,corners:corners(panelStyle)}};
       request();
     };
     const render=()=>{
@@ -83,8 +83,8 @@
       shape.style.top=px(mix(a.y,b.y,t));
       shape.style.width=px(mix(a.w,b.w,t));
       shape.style.height=px(mix(a.h,b.h,t));
-      shape.style.borderRadius=px(mix(a.radius,b.radius,t));
-      shape.style.boxShadow=px(mix(7,12,t))+' '+px(mix(7,12,t))+' 0 #3d0c50';
+      shape.style.borderRadius=a.corners.map((corner,index)=>px(mix(corner,b.corners[index],t))).join(' ');
+      shape.style.boxShadow=px(mix(8,12,t))+' '+px(mix(9,12,t))+' 0 #3d0c50';
       shape.style.border=t>.01?px(t)+' solid #ffcf43':'0 solid transparent';
       shape.style.transform='rotate('+mix(a.angle,0,t).toFixed(3)+'deg)';
       shape.style.setProperty('--quest-stage-pattern',String(t*.035));
