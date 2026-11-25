@@ -12,7 +12,7 @@
         <path id="quest-arrow-shape" d="M3 3 46 29 29 33 39 51 Q41 54 38 56 L33 59 Q30 60 28 56 L18 38 6 48 Z"/>
         <clipPath id="quest-arrow-clip"><use href="#quest-arrow-shape"/></clipPath>
         <filter id="quest-arrow-purple" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".18 .25 .05 0 .22 .07 .14 .02 0 .04 .20 .22 .08 0 .30 0 0 0 1 0"/></filter>
-        <filter id="quest-arrow-yellow" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".18 .12 .02 0 .76 .20 .24 .02 0 .38 .02 .02 0 0 .01 0 0 0 1 0"/></filter>
+        <filter id="quest-arrow-yellow" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".08 .08 .01 0 .84 .12 .15 .01 0 .54 0 0 0 0 .03 0 0 0 1 0"/></filter>
       </defs>
       <use href="#quest-arrow-shape" fill="#fff"/>
       <g clip-path="url(#quest-arrow-clip)">
