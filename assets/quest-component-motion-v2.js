@@ -30,11 +30,11 @@
   };
   const targets=[
     ['.hero',['.booking label','.booking-submit','.booking-message'],0],
-    ['.hotels',['.destination-column h3','.destination-row','.hotel-cards','.carousel-controls','.hotel-location','.hotel-details h3','.hotel-description','.hotel-explore'],1],
+    ['.hotels',['.destination-column h3','.carousel-controls'],1],
     ['.offers',['.offer-thumbnail-wrap','.offer-count','.offer-title','.offer-ticket-copy p','.offer-learn'],2],
     ['.news-stage',['.news-stage-oval','.news-stage-heading','.news-stage-preview','.news-stage-featured-image','.news-stage-badge','.news-stage-date-sticker','.news-stage-featured h3','.news-stage-featured p','.news-stage-action','.news-stage-control'],3],
-    ['.reels-section',['.reels-phone-slot','.reels-phone-controls','.reels-phone-dots button'],4],
-    ['.membership-redesign',['.membership-headline-left','.membership-headline-right','.membership-banner','.membership-big','.membership-platform','.membership-stores a'],5],
+    ['.reels-section',['.reels-phone-controls','.reels-phone-dots button'],4],
+    ['.membership-redesign',['.membership-platform','.membership-wave-bl','.membership-wave-br'],5],
     ['.footer',['.qf-cta','.qf-logo-social','.qf-main-grid a','.qf-awards>*','.qf-bottom a','.qf-brands-viewport'],6]
   ];
   const scan=()=>{
