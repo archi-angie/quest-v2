@@ -880,6 +880,8 @@ const rectField = (x, y, hx, hy, r, out) => {
 
     const onPointerLeave = () => {
       pointer.inside = false;
+      pattern.classList.remove('is-visible');
+      wake();
     };
 
     const onVisibility = () => {
