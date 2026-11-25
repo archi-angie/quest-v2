@@ -1,0 +1,74 @@
+/* Coordinated motion layer. Natural styles remain visible if motion JS fails. */
+html.quest-motion .hero .headline-first,
+html.quest-motion .hero .headline-highlight,
+html.quest-motion .hero .headline-highlight>span,
+html.quest-motion .hero .headline-stage h1 strong,
+html.quest-motion .hero .headline-underline,
+html.quest-motion .hero .headline-rays,
+html.quest-motion .hero .booking{
+  animation:none!important;
+}
+html.quest-motion .hotels-panel.reveal,
+html.quest-motion .offers-intro.reveal,
+html.quest-motion .offer-ticket.reveal{
+  opacity:1;
+  transform:none;
+  transition:none;
+}
+html.quest-motion .hotels-panel.visible .hotels-title-tab,
+html.quest-motion .hotels-panel.visible .destination-row,
+html.quest-motion .hotels .stacked-hotel-card,
+html.quest-motion .hotels .hotel-details,
+html.quest-motion .offers .offer-ticket{
+  animation:none!important;
+}
+html.quest-motion .hotels .hotel-cards,
+html.quest-motion .hotels .hotel-details{
+  transition:opacity .22s cubic-bezier(.22,1,.36,1),translate .22s cubic-bezier(.22,1,.36,1);
+}
+html.quest-motion .hotels.is-switching .hotel-cards,
+html.quest-motion .hotels.is-switching .hotel-details{
+  opacity:.56;
+  translate:-8px 0;
+}
+html.quest-motion .hotels.is-arriving .hotel-cards,
+html.quest-motion .hotels.is-arriving .hotel-details{
+  transition-timing-function:cubic-bezier(.16,1,.25,1);
+}
+html.quest-motion .hero-pattern-accent img{
+  translate:var(--quest-parallax-x,0px) var(--quest-parallax-y,0px);
+}
+html.quest-motion .offers-news-pattern,
+html.quest-motion .news-stage-pattern{
+  translate:0 var(--quest-parallax-y,0px);
+}
+html.quest-motion .offers-list{
+  translate:0 var(--quest-offers-exit,0px);
+}
+html.quest-motion .social-ribbon.quest-motion-offscreen .social-ribbon__track,
+html.quest-motion .qf-brands-viewport.quest-motion-offscreen .qf-brands-track{
+  animation-play-state:paused!important;
+}
+@media(prefers-reduced-motion:no-preference){
+  html.quest-motion .membership-redesign.is-visible .membership-phone-art{
+    animation:none!important;
+  }
+  html.quest-motion .membership-redesign.is-active.is-settled .membership-phone-art{
+    animation:quest-phone-float 3.6s cubic-bezier(.45,0,.2,1) infinite!important;
+  }
+}
+@media(max-width:700px){
+  html.quest-motion .hotels.is-switching .hotel-cards,
+  html.quest-motion .hotels.is-switching .hotel-details{
+    translate:0 5px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html.quest-motion .hero-pattern-accent img,
+  html.quest-motion .offers-news-pattern,
+  html.quest-motion .news-stage-pattern,
+  html.quest-motion .offers-list{translate:none!important}
+  html.quest-motion .hotels .hotel-cards,
+  html.quest-motion .hotels .hotel-details{transition:none!important}
+  html.quest-motion .membership-redesign .membership-phone-art{animation:none!important;translate:none!important}
+}
