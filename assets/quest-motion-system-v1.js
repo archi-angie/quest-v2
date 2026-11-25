@@ -135,6 +135,13 @@
   const news=()=>{
     const section=document.querySelector('.news-stage');
     onceNear(section,()=>{
+      play(section.querySelector('.news-stage-heading'),{y:18,opacity:.7,delay:40});
+      play(section.querySelector('.news-stage-oval'),{y:16,opacity:.78,delay:90});
+      play(section.querySelector('.news-stage-featured-image'),{y:20,opacity:.75,delay:150});
+      play(section.querySelector('.news-stage-preview-left'),{x:-14,y:10,opacity:.75,delay:230});
+      play(section.querySelector('.news-stage-preview-right'),{x:14,y:10,opacity:.75,delay:290});
+      play(section.querySelector('.news-stage-featured h3'),{y:12,opacity:.72,delay:330});
+      play(section.querySelector('.news-stage-action'),{y:8,opacity:.78,delay:400});
       const path=section.querySelector('.news-stage-underline path');
       if(!path || reduce.matches || typeof path.animate!=='function')return;
       try{
@@ -142,7 +149,7 @@
         const animation=path.animate([
           {strokeDasharray:length,strokeDashoffset:length},
           {strokeDasharray:length,strokeDashoffset:0}
-        ],{duration:680,delay:260,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'});
+        ],{duration:850,delay:260,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'});
         activeAnimations.add(animation);
         animation.finished.catch(()=>{}).finally(()=>activeAnimations.delete(animation));
       }catch(_){}
