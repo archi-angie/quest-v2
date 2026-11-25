@@ -41,7 +41,7 @@
   const schedule=()=>{if(!pending){pending=true;requestAnimationFrame(update)}};
   const install=()=>{
     if(reduce.matches)return;
-    const anchor=[...tracks.keys()].find(s=>{const r=s.getBoundingClientRect();return r.top<=innerHeight*.5&&r.bottom>=innerHeight*.5});
+    const anchor=selectors.map(s=>document.querySelector(s)).filter(Boolean).find(s=>{const r=s.getBoundingClientRect();return r.top<=innerHeight*.5&&r.bottom>=innerHeight*.5});
     const before=anchor?.getBoundingClientRect().top;
     let added=false;
     selectors.forEach(selector=>{
