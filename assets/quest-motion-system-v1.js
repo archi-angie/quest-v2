@@ -11,7 +11,8 @@
     const base=style.transform==='none'?'':style.transform;
     const dx=(options.x||0)*(mobile.matches?.5:1);
     const dy=(options.y||0)*(mobile.matches?.55:1);
-    const opacity=Number(style.opacity)||1;
+    const parsedOpacity=parseFloat(style.opacity);
+    const opacity=Number.isFinite(parsedOpacity)?parsedOpacity:1;
     const from='translate3d('+dx+'px,'+dy+'px,0) '+base;
     const settle='translate3d('+(-dx*.075)+'px,'+(-dy*.075)+'px,0) '+base;
     const to=base||'none';
@@ -35,13 +36,15 @@
     const style=getComputedStyle(element);
     const pieces=(style.translate==='none'?'0px 0px':style.translate).split(' ');
     const x=pieces[0]||'0px',y=pieces[1]||'0px';
+    const shifted=(value,delta)=>delta>=0?'calc('+value+' + '+delta+'px)':'calc('+value+' - '+Math.abs(delta)+'px)';
     const dx=(options.x||0)*(mobile.matches?.5:1);
     const dy=(options.y||0)*(mobile.matches?.55:1);
-    const opacity=Number(style.opacity)||1;
+    const parsedOpacity=parseFloat(style.opacity);
+    const opacity=Number.isFinite(parsedOpacity)?parsedOpacity:1;
     try{
       const animation=element.animate([
-        {translate:'calc('+x+' + '+dx+'px) calc('+y+' + '+dy+'px)',opacity:Math.max(.55,opacity*(options.opacity??.76)),offset:0},
-        {translate:'calc('+x+' - '+(dx*.075)+'px) calc('+y+' - '+(dy*.075)+'px)',opacity:opacity,offset:.84},
+        {translate:shifted(x,dx)+' '+shifted(y,dy),opacity:Math.max(.55,opacity*(options.opacity??.76)),offset:0},
+        {translate:shifted(x,-dx*.075)+' '+shifted(y,-dy*.075),opacity:opacity,offset:.84},
         {translate:x+' '+y,opacity:opacity,offset:1}
       ],{duration:options.duration||650,delay:options.delay||0,easing:'cubic-bezier(.2,.82,.2,1)',fill:'backwards'});
       activeAnimations.add(animation);
