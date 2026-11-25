@@ -36,13 +36,16 @@
       hero.classList.remove('quest-morph-hero-hidden');
     };
     const measure=()=>{
-      if(media.matches){restore();panel.style.removeProperty('--quest-mobile-inset');track.style.removeProperty('--quest-pin-height');track.style.removeProperty('--quest-hero-height');metrics=null;return}
+      if(media.matches){root.classList.remove('quest-morph-eligible');restore();panel.style.removeProperty('--quest-mobile-inset');track.style.removeProperty('--quest-pin-height');track.style.removeProperty('--quest-hero-height');metrics=null;return}
       const isMobile=mobile.matches;
       const heroHeight=hero.offsetHeight;
-      const distance=isMobile?0:Math.round(clamp(innerHeight*1.16,620,1400));
+      const eligible=!isMobile && heroHeight<=innerHeight*1.18;
+      root.classList.toggle('quest-morph-eligible',eligible);
+      const distance=eligible?Math.round(clamp(innerHeight*1.16,620,1400)):0;
       track.style.setProperty('--quest-hero-height',px(heroHeight));
       track.style.setProperty('--quest-pin-height',px(heroHeight+distance));
       if(isMobile){restore();track.style.removeProperty('--quest-pin-height');metrics=null;request();return}
+      if(!eligible){restore();track.style.removeProperty('--quest-pin-height');track.style.removeProperty('--quest-hero-height');metrics=null;return}
       panel.style.removeProperty('--quest-mobile-inset');
       const start=track.getBoundingClientRect().top+scrollY;
       const end=start+distance;
