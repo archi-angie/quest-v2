@@ -8,14 +8,14 @@
 .quest-pin-track .reels-phone-content,
 .quest-pin-track .membership-stage,
 .quest-pin-track .footer-main{
-  translate:0 var(--quest-pin-lift,0px);
+  translate:0 calc(var(--quest-pin-lift,0px) + var(--quest-pin-enter-lift,0px));
 }
 .quest-pin-track .hotels-title-tab,
 .quest-pin-track .offers-intro h2,
 .quest-pin-track .news-stage-heading,
 .quest-pin-track .reels-phone-heading,
 .quest-pin-track .qf-cta-content{
-  translate:0 calc(var(--quest-section-leave-shift,0px) + var(--quest-pin-lift,0px));
+  translate:0 calc(var(--quest-section-leave-shift,0px) + var(--quest-pin-lift,0px) + var(--quest-pin-enter-lift,0px));
 }
 @media(prefers-reduced-motion:reduce){
   .quest-pin-track>.quest-pin-target{position:relative;top:auto}
