@@ -1,0 +1,60 @@
+/* A short, reversible yellow-stage reveal at the real section boundary. */
+@media (prefers-reduced-motion:no-preference){
+  html.quest-stage-bridge .hotels-panel{
+    clip-path:inset(var(--quest-stage-top,0px) var(--quest-stage-side,0px) var(--quest-stage-top,0px) var(--quest-stage-side,0px) round clamp(28px,3.2vw,48px));
+  }
+  html.quest-stage-bridge .hotels-panel-top,
+  html.quest-stage-bridge .hotels-grid{
+    opacity:var(--quest-stage-content,1);
+  }
+  html.quest-stage-bridge .hero .headline-highlight{
+    translate:0 var(--quest-bridge-lift,0px);
+  }
+}
+@media (max-width:700px){
+  html.quest-stage-bridge .hotels-panel{
+    clip-path:inset(var(--quest-stage-top,0px) var(--quest-stage-side,0px) var(--quest-stage-top,0px) var(--quest-stage-side,0px) round 30px);
+  }
+}
+/* Motion on interactive details stays tactile and never changes their layout. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .hero .booking label,
+  .hotels .destination-row,
+  .hotels .carousel-controls button,
+  .offers .offer-ticket,
+  .offers .offer-learn,
+  .news-stage .news-stage-control,
+  .news-stage .news-stage-read,
+  .reels-section .reels-phone-slot,
+  .reels-section .reels-phone-dots button,
+  .membership-redesign .membership-stores a,
+  .footer a{
+    transition:translate .24s cubic-bezier(.2,.8,.23,1),filter .24s ease,box-shadow .24s ease;
+  }
+  .hero .booking label:hover,
+  .hotels .destination-row:hover,
+  .offers .offer-ticket:hover,
+  .reels-section .reels-phone-slot:hover{translate:0 -3px}
+  .hotels .carousel-controls button:hover,
+  .offers .offer-learn:hover,
+  .news-stage .news-stage-control:hover,
+  .news-stage .news-stage-read:hover,
+  .reels-section .reels-phone-dots button:hover,
+  .membership-redesign .membership-stores a:hover{translate:0 -2px}
+  .footer a:hover{translate:0 -1px}
+}
+.hero .booking label:focus-within,
+.hotels .destination-row:focus-visible,
+.offers .offer-learn:focus-visible,
+.news-stage .news-stage-control:focus-visible,
+.reels-section .reels-phone-dots button:focus-visible,
+.membership-redesign .membership-stores a:focus-visible{
+  outline:2px solid #fdb913;
+  outline-offset:3px;
+}
+@media (prefers-reduced-motion:reduce){
+  html.quest-stage-bridge .hotels-panel{clip-path:none!important}
+  html.quest-stage-bridge .hotels-panel-top,
+  html.quest-stage-bridge .hotels-grid{opacity:1!important}
+  html.quest-stage-bridge .hero .headline-highlight{translate:none!important}
+}
