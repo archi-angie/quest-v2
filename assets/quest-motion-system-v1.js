@@ -99,6 +99,7 @@
   const hotels=()=>{
     const section=document.querySelector('.hotels');
     onceNear(section,()=>{
+      if(document.documentElement.classList.contains('quest-morph-enabled') && !mobile.matches && !reduce.matches)return;
       play(section.querySelector('.hotels-title-tab'),{x:-20,y:8,opacity:.7,duration:660});
       section.querySelectorAll('.destination-row').forEach((row,index)=>play(row,{x:-13,y:3,opacity:.7,duration:480,delay:100+index*75}));
       play(section.querySelector('.hotel-cards'),{y:23,opacity:.76,duration:730,delay:170});
