@@ -71,15 +71,15 @@
       fn();
     };
     const patterns=()=>trigger('patterns',()=>{
-      playShift(section.querySelector('.hero-pattern-accent--left'),{x:-34,y:4,opacity:.65,duration:680});
-      playShift(section.querySelector('.hero-pattern-accent--right'),{x:34,y:-2,opacity:.65,duration:720,delay:90});
+      playShift(section.querySelector('.hero-pattern-accent--left'),{y:16,opacity:.65,duration:680});
+      playShift(section.querySelector('.hero-pattern-accent--right'),{y:19,opacity:.65,duration:720,delay:90});
     });
     const headline=()=>trigger('headline',()=>{
       play(section.querySelector('.headline-first'),{y:17,opacity:.58,duration:580});
-      play(section.querySelector('.headline-highlight'),{x:12,y:22,opacity:.7,duration:730,delay:95});
-      play(section.querySelector('.headline-stage h1 strong'),{x:-11,y:16,opacity:.65,duration:690,delay:230});
-      play(section.querySelector('.headline-underline'),{x:-10,y:2,opacity:.65,duration:470,delay:360});
-      section.querySelectorAll('.headline-rays').forEach((ray,index)=>play(ray,{x:index?7:-7,y:5,opacity:.5,duration:410,delay:500+index*50}));
+      play(section.querySelector('.headline-highlight'),{y:22,opacity:.7,duration:730,delay:95});
+      play(section.querySelector('.headline-stage h1 strong'),{y:16,opacity:.65,duration:690,delay:230});
+      play(section.querySelector('.headline-underline'),{y:8,opacity:.65,duration:470,delay:360});
+      section.querySelectorAll('.headline-rays').forEach((ray,index)=>play(ray,{y:7,opacity:.5,duration:410,delay:500+index*50}));
     });
     const booking=()=>trigger('booking',()=>play(section.querySelector('.booking'),{y:20,opacity:.82,duration:590,delay:70}));
     const synchronize=()=>{
