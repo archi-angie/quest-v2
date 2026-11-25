@@ -1,0 +1,21 @@
+/* Motion must never crop the real Hotels stage or its controls. */
+.hotels .hotels-panel{clip-path:none}
+.hotels .hotels-panel-top,.hotels .hotels-grid{opacity:1}
+
+/* The rotated pagination diamonds need space for their full corners and focus ring. */
+.moments.reels-section.reels-phone-mode .reels-phone-controls{min-height:52px;overflow:visible;padding-block:8px;box-sizing:border-box}
+.moments.reels-section.reels-phone-mode .reels-phone-dots{min-height:34px;align-items:center;overflow:visible;padding:5px 7px;box-sizing:border-box}
+.moments.reels-section.reels-phone-mode .reels-phone-dots button{flex:none;overflow:visible}
+
+/* Keep the existing control feedback without affecting content positions. */
+.hero .booking label:focus-within,
+.hotels .destination-row:focus-visible,
+.offers .offer-learn:focus-visible,
+.news-stage .news-stage-control:focus-visible,
+.reels-section .reels-phone-dots button:focus-visible,
+.membership-redesign .membership-stores a:focus-visible{outline:2px solid #fdb913;outline-offset:4px}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .header .desktop-nav a,.header .nav-book,.hotels .destination-page-dot,.offers .offer-page-bubble,.social-ribbon__item,.footer a{transition:translate .24s cubic-bezier(.2,.8,.23,1),filter .24s ease}
+  .header .desktop-nav a:hover,.header .nav-book:hover,.social-ribbon__item:hover,.footer a:hover{translate:0 -2px}
+  .hotels .destination-page-dot:hover,.offers .offer-page-bubble:hover{translate:0 -2px}
+}
