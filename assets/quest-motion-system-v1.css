@@ -45,6 +45,12 @@ html.quest-motion .news-stage-pattern{
 html.quest-motion .offers-list{
   translate:0 var(--quest-offers-exit,0px);
 }
+html.quest-motion .quest-motion-offscreen .pattern-drift,
+html.quest-motion .hero.quest-motion-offscreen::before,
+html.quest-motion .hero.quest-motion-offscreen .sparkle,
+html.quest-motion .hotels.quest-motion-offscreen .hotels-panel::before{
+  animation-play-state:paused!important;
+}
 html.quest-motion .social-ribbon.quest-motion-offscreen .social-ribbon__track,
 html.quest-motion .qf-brands-viewport.quest-motion-offscreen .qf-brands-track{
   animation-play-state:paused!important;
