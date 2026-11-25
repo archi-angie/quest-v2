@@ -1,7 +1,7 @@
 (() => {
   const reduce=matchMedia('(prefers-reduced-motion: reduce)');
   const mobile=matchMedia('(max-width:700px)');
-  const selectors=['.hotels','.offers','.news-stage','.reels-section','.membership-redesign','footer.footer'];
+  const selectors=['.hotels','.offers','.news-stage','.reels-section','footer.footer'];
   const tracks=new Map();
   let pending=false;
   let measuring=false;
@@ -57,7 +57,6 @@
       if(section.matches('.offers'))track.classList.add('quest-pin-track--offers');
       if(section.matches('.reels-section'))track.classList.add('quest-pin-track--reels','reels-phone-mode');
       if(section.matches('.news-stage'))track.classList.add('quest-pin-track--news');
-      if(section.matches('.membership-redesign'))track.classList.add('quest-pin-track--membership');
       if(section.matches('footer.footer'))track.classList.add('quest-pin-track--footer');
       parent.insertBefore(track,section);
       track.append(section);
