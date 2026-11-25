@@ -222,7 +222,7 @@
     });
   };
   const init=()=>{
-    hero();hotels();offers();news();reels();footer();parallax();pauseOffscreen();
+    hero();news();parallax();pauseOffscreen();
     reduce.addEventListener?.('change',()=>{
       if(reduce.matches){
         activeAnimations.forEach(animation=>animation.cancel());
