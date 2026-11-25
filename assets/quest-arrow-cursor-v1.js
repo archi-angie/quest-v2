@@ -47,7 +47,7 @@
     };
     const draw=()=>{
       queued=false;
-      cursor.style.transform='translate3d('+Math.round(x-3)+'px,'+Math.round(y-3)+'px,0)';
+      cursor.style.transform='translate3d('+Math.round(x-2)+'px,'+Math.round(y-2)+'px,0)';
     };
     const move=e=>{
       if(e.pointerType==='touch')return;
