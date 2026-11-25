@@ -1,18 +1,18 @@
 /* The extra scroll length belongs to the hero track; Hotels stays in normal flow. */
 @media (min-width:701px) and (prefers-reduced-motion:no-preference){
-  html.quest-morph-enabled .quest-morph-track{
+  html.quest-morph-eligible .quest-morph-track{
     position:relative;
     z-index:2;
     height:var(--quest-pin-height,auto);
     isolation:isolate;
   }
-  html.quest-morph-enabled .quest-morph-track>.hero{
+  html.quest-morph-eligible .quest-morph-track>.hero{
     position:sticky;
     top:0;
     width:100%;
     z-index:1;
   }
-  html.quest-morph-enabled .quest-morph-track+.hotels{
+  html.quest-morph-eligible .quest-morph-track+.hotels{
     position:relative;
     z-index:3;
     margin-top:calc(-1 * var(--quest-hero-height,0px));
@@ -85,10 +85,10 @@
 }
 /* Tall mobile heroes retain normal scrolling. The Hotels stage widens as it enters. */
 @media (max-width:700px) and (prefers-reduced-motion:no-preference){
-  html.quest-morph-enabled .quest-morph-track{height:auto!important}
-  html.quest-morph-enabled .quest-morph-track>.hero{position:relative}
-  html.quest-morph-enabled .quest-morph-track+.hotels{margin-top:0}
-  html.quest-morph-enabled .quest-morph-track+.hotels .hotels-panel{
+  html.quest-morph-eligible .quest-morph-track{height:auto!important}
+  html.quest-morph-eligible .quest-morph-track>.hero{position:relative}
+  html.quest-morph-eligible .quest-morph-track+.hotels{margin-top:0}
+  html.quest-morph-eligible .quest-morph-track+.hotels .hotels-panel{
     clip-path:inset(0 var(--quest-mobile-inset,0px) 0 var(--quest-mobile-inset,0px) round 30px);
   }
 }
