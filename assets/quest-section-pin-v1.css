@@ -6,6 +6,8 @@
 .quest-pin-track--hotels,.quest-pin-track--reels{background:#6c217f}
 .quest-pin-track--offers,.quest-pin-track--membership{background:#fdb913}
 .quest-pin-track--footer{background:#3d0c50}
+/* Clip the shared artwork without turning the Offers/News parent into a sticky scroll container. */
+@supports (overflow:clip){.offers-news-flow{overflow:clip}}
 /* The News hold reveals the purple bottom of the existing oval, not a yellow seam. */
 .quest-pin-track--news::after{content:"";position:absolute;z-index:0;left:0;right:0;bottom:-1px;height:calc(var(--quest-pin-hold,0px) + 2px);background:#6c217f;pointer-events:none}
 .quest-pin-track--news>.news-stage.section{z-index:1}
