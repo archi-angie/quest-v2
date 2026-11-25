@@ -236,6 +236,23 @@
       }
     });
   };
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
-  else init();
+  let started=false;
+  const boot=()=>{
+    if(started)return;
+    if(document.querySelector('.hero,.hotels,.offers,.news-stage,.reels-section,.membership-redesign,footer.footer')){
+      started=true;
+      init();
+      return;
+    }
+    const observer=new MutationObserver(()=>{
+      if(document.querySelector('.hero,.hotels,.offers,.news-stage,.reels-section,.membership-redesign,footer.footer')){
+        observer.disconnect();
+        if(!started){started=true;init()}
+      }
+    });
+    observer.observe(document.getElementById('app')||document.body,{childList:true,subtree:true});
+    setTimeout(()=>observer.disconnect(),8000);
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});
+  else boot();
 })();
