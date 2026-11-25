@@ -87,3 +87,8 @@
   .reels-section button:active,
   .membership-redesign a:active{filter:brightness(1.07)}
 }
+
+/* A focused hotel control always exposes the complete stage. */
+html.quest-stage-bridge .hotels-panel:focus-within{clip-path:none!important}
+html.quest-stage-bridge .hotels-panel:focus-within .hotels-panel-top,
+html.quest-stage-bridge .hotels-panel:focus-within .hotels-grid{opacity:1!important}
