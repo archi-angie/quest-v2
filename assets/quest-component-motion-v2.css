@@ -92,3 +92,10 @@
 html.quest-stage-bridge .hotels-panel:focus-within{clip-path:none!important}
 html.quest-stage-bridge .hotels-panel:focus-within .hotels-panel-top,
 html.quest-stage-bridge .hotels-panel:focus-within .hotels-grid{opacity:1!important}
+
+/* Scroll-linked travel follows the wheel or touch gesture with a short settle. */
+@media (prefers-reduced-motion:no-preference){
+  .quest-scroll-piece{
+    transition:translate .16s cubic-bezier(.2,.8,.2,1),opacity .16s ease;
+  }
+}
