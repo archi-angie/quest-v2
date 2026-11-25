@@ -30,7 +30,10 @@
       const rect=track.getBoundingClientRect();
       const progress=hold?clamp((nav-rect.top)/hold):0;
       const lift=reduce.matches?0:-Math.sin(progress*Math.PI)*(mobile.matches?5:10);
+      const approach=reduce.matches?1:clamp((innerHeight*.9-rect.top)/(innerHeight*.35));
+      const enterLift=reduce.matches?0:(1-approach)*(mobile.matches?8:14);
       track.style.setProperty('--quest-pin-lift',lift.toFixed(1)+'px');
+      track.style.setProperty('--quest-pin-enter-lift',enterLift.toFixed(1)+'px');
     }
     measuring=false;
     if(scrollCorrection&&scrollY>0)scrollBy(0,scrollCorrection);
