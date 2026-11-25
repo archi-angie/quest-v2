@@ -99,7 +99,6 @@
   const hotels=()=>{
     const section=document.querySelector('.hotels');
     onceNear(section,()=>{
-      if(document.documentElement.classList.contains('quest-morph-eligible') && !reduce.matches)return;
       play(section.querySelector('.hotels-title-tab'),{x:-20,y:8,opacity:.7,duration:660});
       section.querySelectorAll('.destination-row').forEach((row,index)=>play(row,{x:-13,y:3,opacity:.7,duration:480,delay:100+index*75}));
       play(section.querySelector('.hotel-cards'),{y:23,opacity:.76,duration:730,delay:170});
@@ -157,7 +156,6 @@
       ['inner-left','inner-right','outer-left','outer-right'].forEach((name,index)=>{
         play(section.querySelector('.reels-phone-slot--'+name),{x:index%2?22:-22,y:9,opacity:.68,duration:590,delay:260+index*80});
       });
-      play(section.querySelector('.reels-phone-dots'),{y:8,opacity:.75,duration:430,delay:560});
       play(document.querySelector('.reels-phone-mode + .social-ribbon'),{y:4,opacity:.82,duration:450,delay:620});
     });
   };
@@ -181,7 +179,6 @@
       [document.querySelector('.offers'),[...document.querySelectorAll('.offers-news-pattern')],17],
       [document.querySelector('.news-stage'),[...document.querySelectorAll('.news-stage-pattern')],15]
     ];
-    const offersList=document.querySelector('.offers-list');
     let queued=false;
     const update=()=>{
       queued=false;
@@ -200,10 +197,7 @@
             element.style.setProperty('--quest-parallax-x',((index?1:-1)*exit).toFixed(1)+'px');
           }
         });
-        if(group===1 && offersList){
-          const exit=clamp((height*.4-rect.bottom)/(height*.35),0,1)*(mobile.matches?3:8);
-          offersList.style.setProperty('--quest-offers-exit',exit.toFixed(1)+'px');
-        }
+
       });
     };
     const schedule=()=>{if(!queued){queued=true;requestAnimationFrame(update)}};
@@ -222,7 +216,7 @@
     });
   };
   const init=()=>{
-    hero();news();parallax();pauseOffscreen();
+    hero();hotels();offers();news();reels();footer();parallax();pauseOffscreen();
     reduce.addEventListener?.('change',()=>{
       if(reduce.matches){
         activeAnimations.forEach(animation=>animation.cancel());
