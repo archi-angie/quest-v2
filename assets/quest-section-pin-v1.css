@@ -15,7 +15,6 @@
 .quest-pin-track .offers-layout,
 .quest-pin-track .news-stage-inner,
 .quest-pin-track .reels-phone-content,
-.quest-pin-track .membership-stage,
 .quest-pin-track .footer-main{
   translate:0 calc(var(--quest-pin-lift,0px) + var(--quest-pin-enter-lift,0px));
 }
