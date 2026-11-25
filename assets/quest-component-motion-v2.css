@@ -58,3 +58,32 @@
   html.quest-stage-bridge .hotels-grid{opacity:1!important}
   html.quest-stage-bridge .hero .headline-highlight{translate:none!important}
 }
+
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .header .desktop-nav a,
+  .header .nav-book,
+  .hotels .destination-page-dot,
+  .offers .offer-page-bubble,
+  .social-ribbon__item,
+  .footer .qf-main-grid a{
+    transition:translate .24s cubic-bezier(.2,.8,.23,1),filter .24s ease;
+  }
+  .header .desktop-nav a:hover,
+  .header .nav-book:hover,
+  .social-ribbon__item:hover,
+  .footer .qf-main-grid a:hover{translate:0 -2px}
+  .hotels .destination-page-dot:hover,
+  .offers .offer-page-bubble:hover{translate:0 -2px}
+  .offers .offer-ticket:hover .offer-thumbnail{scale:1.025}
+}
+@media (prefers-reduced-motion:no-preference){
+  .offers .offer-thumbnail{transition:scale .35s cubic-bezier(.2,.8,.23,1)}
+}
+@media (pointer:coarse){
+  .header a:active,
+  .hotels button:active,
+  .offers button:active,
+  .news-stage button:active,
+  .reels-section button:active,
+  .membership-redesign a:active{filter:brightness(1.07)}
+}
