@@ -1,7 +1,7 @@
 /* A short per-section sticky track creates a reversible hold without changing
    section dimensions, content order, or interactive stacking. */
-.quest-pin-track{position:relative;width:100%;isolation:isolate;overflow:visible}
-.quest-pin-track>.quest-pin-target{position:sticky;top:var(--quest-pin-top,0px);z-index:1}
+.quest-pin-track{position:relative;width:100%;overflow:visible}
+.quest-pin-track>.quest-pin-target{position:sticky;top:var(--quest-pin-top,0px)}
 .quest-pin-track .hotels-grid,
 .quest-pin-track .offers-layout,
 .quest-pin-track .news-stage-inner,
