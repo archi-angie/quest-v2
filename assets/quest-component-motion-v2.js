@@ -61,6 +61,7 @@
         root.classList.remove('quest-stage-bridge');
         panel.style.removeProperty('--quest-stage-side');
         panel.style.removeProperty('--quest-stage-top');
+        panel.style.removeProperty('--quest-stage-content');
         hero.style.removeProperty('--quest-bridge-lift');
         return;
       }
@@ -76,6 +77,7 @@
       root.classList.add('quest-stage-bridge');
       panel.style.setProperty('--quest-stage-side',(side*(1-progress)).toFixed(1)+'px');
       panel.style.setProperty('--quest-stage-top',(top*(1-progress)).toFixed(1)+'px');
+      panel.style.setProperty('--quest-stage-content',String(smooth((progress-.55)/.4)));
       const leave=smooth((innerHeight*.55-h.bottom)/(innerHeight*.4));
       hero.style.setProperty('--quest-bridge-lift',(-12*leave*(mobile.matches?.5:1)).toFixed(1)+'px');
     };
