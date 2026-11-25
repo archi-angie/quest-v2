@@ -930,7 +930,20 @@ const rectField = (x, y, hx, hy, r, out) => {
     };
 
     })();
-    if(typeof cleanup!=='function'){container.remove();return}
+    if(typeof cleanup!=='function'){
+      canvas.remove();
+      const move=event=>{
+        pattern.style.left=event.clientX+'px';
+        pattern.style.top=event.clientY+'px';
+        pattern.classList.add('is-visible');
+        pattern.classList.toggle('on-light',!!document.elementFromPoint(event.clientX,event.clientY)?.closest('.membership-redesign, .offers'));
+      };
+      const leave=()=>pattern.classList.remove('is-visible');
+      window.addEventListener('pointermove',move,{passive:true});
+      document.documentElement.addEventListener('pointerleave',leave);
+      dispose=()=>{window.removeEventListener('pointermove',move);document.documentElement.removeEventListener('pointerleave',leave);container.remove();dispose=null};
+      return;
+    }
     dispose=()=>{cleanup();container.remove();dispose=null};
   };
   const sync=()=>{if(reduced.matches||!fine.matches)dispose?.();else start()};
