@@ -85,10 +85,10 @@
 }
 /* Tall mobile heroes retain normal scrolling. The Hotels stage widens as it enters. */
 @media (max-width:700px) and (prefers-reduced-motion:no-preference){
-  html.quest-morph-eligible .quest-morph-track{height:auto!important}
-  html.quest-morph-eligible .quest-morph-track>.hero{position:relative}
-  html.quest-morph-eligible .quest-morph-track+.hotels{margin-top:0}
-  html.quest-morph-eligible .quest-morph-track+.hotels .hotels-panel{
+  html.quest-morph-enabled .quest-morph-track{height:auto!important}
+  html.quest-morph-enabled .quest-morph-track>.hero{position:relative}
+  html.quest-morph-enabled .quest-morph-track+.hotels{margin-top:0}
+  html.quest-morph-enabled .quest-morph-track+.hotels .hotels-panel{
     clip-path:inset(0 var(--quest-mobile-inset,0px) 0 var(--quest-mobile-inset,0px) round 30px);
   }
 }
