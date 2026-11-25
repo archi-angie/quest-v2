@@ -75,8 +75,9 @@
       const running=p>.001 && p<.995;
       if(!running){restore();return}
       root.classList.add('quest-morph-running');
-      const t=ease(.18,.79,p), reveal=ease(.65,.94,p);
-      const a=metrics.from,b=metrics.to;
+      const t=ease(.18,.68,p), reveal=ease(.65,.94,p);
+      const currentPanel=panel.getBoundingClientRect();
+      const a=metrics.from,b={...metrics.to,x:currentPanel.left,y:currentPanel.top,w:panel.offsetWidth,h:panel.offsetHeight};
       shape.style.visibility='visible';
       shape.style.left=px(mix(a.x,b.x,t));
       shape.style.top=px(mix(a.y,b.y,t));
