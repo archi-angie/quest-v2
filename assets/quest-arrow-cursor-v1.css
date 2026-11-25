@@ -1,0 +1,11 @@
+/* Quest arrow uses the site's original pattern SVG, cropped inside a crisp pointer. */
+.quest-arrow-cursor{position:fixed;left:0;top:0;z-index:2147483000;width:50px;height:60px;pointer-events:none;opacity:0;transform:translate3d(-100px,-100px,0);transition:opacity .12s ease;will-change:transform;contain:layout style paint}
+.quest-arrow-cursor.is-visible{opacity:1}
+.quest-arrow-cursor svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(1px 2px 1px rgba(48,12,65,.36))}
+.quest-arrow-cursor__yellow,.quest-arrow-cursor__purple{transition:opacity .12s ease}
+.quest-arrow-cursor[data-ink="yellow"] .quest-arrow-cursor__purple,
+.quest-arrow-cursor[data-ink="purple"] .quest-arrow-cursor__yellow{opacity:0}
+.quest-arrow-cursor[data-ink="yellow"] .quest-arrow-cursor__yellow,
+.quest-arrow-cursor[data-ink="purple"] .quest-arrow-cursor__purple{opacity:1}
+html.quest-arrow-active,html.quest-arrow-active body,html.quest-arrow-active body *{cursor:none!important}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.quest-arrow-cursor{display:none!important}}
