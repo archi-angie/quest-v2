@@ -8,6 +8,7 @@
   const play=(element,options={})=>{
     if(!element || reduce.matches || !element.getClientRects().length || typeof element.animate!=='function') return;
     const style=getComputedStyle(element);
+    const memberStyle=!element.closest('.hero');
     const base=style.transform==='none'?'':style.transform;
     const dx=(options.x||0)*(mobile.matches?.5:1);
     const dy=(options.y||0)*(mobile.matches?.55:1);
@@ -22,9 +23,9 @@
         {transform:settle,opacity:opacity,offset:.84},
         {transform:to,opacity:opacity,offset:1}
       ],{
-        duration:options.duration||650,
+        duration:memberStyle?Math.max(750,Math.min(900,(options.duration||650)+150)):(options.duration||650),
         delay:options.delay||0,
-        easing:'cubic-bezier(.2,.82,.2,1)',
+        easing:memberStyle?'cubic-bezier(.22,1,.36,1)':'cubic-bezier(.2,.82,.2,1)',
         fill:'backwards'
       });
       activeAnimations.add(animation);
@@ -34,6 +35,7 @@
   const playShift=(element,options={})=>{
     if(!element || reduce.matches || !element.getClientRects().length || typeof element.animate!=='function')return;
     const style=getComputedStyle(element);
+    const memberStyle=!element.closest('.hero');
     const pieces=(style.translate==='none'?'0px 0px':style.translate).split(' ');
     const x=pieces[0]||'0px',y=pieces[1]||'0px';
     const shifted=(value,delta)=>delta>=0?'calc('+value+' + '+delta+'px)':'calc('+value+' - '+Math.abs(delta)+'px)';
@@ -46,7 +48,7 @@
         {translate:shifted(x,dx)+' '+shifted(y,dy),opacity:Math.max(.55,opacity*(options.opacity??.76)),offset:0},
         {translate:shifted(x,-dx*.075)+' '+shifted(y,-dy*.075),opacity:opacity,offset:.84},
         {translate:x+' '+y,opacity:opacity,offset:1}
-      ],{duration:options.duration||650,delay:options.delay||0,easing:'cubic-bezier(.2,.82,.2,1)',fill:'backwards'});
+      ],{duration:memberStyle?Math.max(750,Math.min(900,(options.duration||650)+150)):(options.duration||650),delay:options.delay||0,easing:memberStyle?'cubic-bezier(.22,1,.36,1)':'cubic-bezier(.2,.82,.2,1)',fill:'backwards'});
       activeAnimations.add(animation);
       animation.finished.catch(()=>{}).finally(()=>activeAnimations.delete(animation));
     }catch(_){}
