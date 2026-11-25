@@ -26,7 +26,7 @@
     let x=-100,y=-100,queued=false,visible=false;
     const interactive='a,button,input,textarea,select,label,summary,[role="button"],[contenteditable="true"],[draggable="true"]';
     const rgb=color=>{
-      const m=color?.match(/rgba?\\(([^)]+)\\)/);
+      const m=color?.match(/rgba?\(([^)]+)\)/);
       if(!m)return null;
       const p=m[1].split(/[ ,/]+/).map(Number);
       return p.length>=3&&p.slice(0,3).every(Number.isFinite)&&p[3]!==0?p:null;
