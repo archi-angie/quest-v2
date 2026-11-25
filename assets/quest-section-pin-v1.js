@@ -18,7 +18,8 @@
       if(!section.isConnected||!track.isConnected){tracks.delete(section);continue}
       const h=section.getBoundingClientRect().height;
       const fits=h<=innerHeight-nav-12;
-      const hold=reduce.matches?0:mobile.matches?(fits?Math.min(76,innerHeight*.1):Math.min(42,innerHeight*.06)):(fits?Math.min(155,innerHeight*.18):Math.min(78,innerHeight*.09));
+      const editorial=section.matches('.news-stage,.reels-section');
+      const hold=reduce.matches?0:editorial?(mobile.matches?Math.min(55,innerHeight*.075):Math.min(110,innerHeight*.13)):mobile.matches?(fits?Math.min(76,innerHeight*.1):Math.min(42,innerHeight*.06)):(fits?Math.min(155,innerHeight*.18):Math.min(78,innerHeight*.09));
       const old=parseFloat(track.dataset.hold||'0');
       const nextHeight=h+hold;
       if(Math.abs((parseFloat(track.style.height)||0)-nextHeight)>.5){
@@ -27,6 +28,7 @@
         track.dataset.hold=String(hold);
       }
       track.style.setProperty('--quest-pin-top',nav.toFixed(1)+'px');
+      track.style.setProperty('--quest-pin-hold',hold.toFixed(1)+'px');
       const rect=track.getBoundingClientRect();
       const progress=hold?clamp((nav-rect.top)/hold):0;
       const lift=reduce.matches?0:-Math.sin(progress*Math.PI)*(mobile.matches?5:10);
@@ -51,6 +53,9 @@
       if(!parent)return;
       const track=document.createElement('div');
       track.className='quest-pin-track';
+      if(section.matches('.reels-section'))track.classList.add('quest-pin-track--reels','reels-phone-mode');
+      if(section.matches('.news-stage'))track.classList.add('quest-pin-track--news');
+      if(section.matches('.membership-redesign'))track.classList.add('quest-pin-track--membership');
       parent.insertBefore(track,section);
       track.append(section);
       section.classList.add('quest-pin-target');
