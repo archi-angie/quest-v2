@@ -57,10 +57,11 @@ html.quest-motion .qf-brands-viewport.quest-motion-offscreen .qf-brands-track{
 }
 @media(prefers-reduced-motion:no-preference){
   html.quest-motion .membership-redesign.is-visible .membership-phone-art{
-    animation:none!important;
+    animation:quest-phone-float 3.6s cubic-bezier(.45,0,.2,1) infinite!important;
+    animation-play-state:paused!important;
   }
   html.quest-motion .membership-redesign.is-active.is-settled .membership-phone-art{
-    animation:quest-phone-float 3.6s cubic-bezier(.45,0,.2,1) infinite!important;
+    animation-play-state:running!important;
   }
 }
 @media(max-width:700px){
