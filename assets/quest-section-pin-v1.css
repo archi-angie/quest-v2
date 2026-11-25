@@ -1,0 +1,28 @@
+/* A short per-section sticky track creates a reversible hold without changing
+   section dimensions, content order, or interactive stacking. */
+.quest-pin-track{position:relative;width:100%;isolation:isolate;overflow:visible}
+.quest-pin-track>.quest-pin-target{position:sticky;top:var(--quest-pin-top,0px);z-index:1}
+.quest-pin-track .hotels-grid,
+.quest-pin-track .offers-layout,
+.quest-pin-track .news-stage-inner,
+.quest-pin-track .reels-phone-content,
+.quest-pin-track .membership-stage,
+.quest-pin-track .footer-main{
+  translate:0 var(--quest-pin-lift,0px);
+}
+.quest-pin-track .hotels-title-tab,
+.quest-pin-track .offers-intro h2,
+.quest-pin-track .news-stage-heading,
+.quest-pin-track .reels-phone-heading,
+.quest-pin-track .qf-cta-content{
+  translate:0 calc(var(--quest-section-leave-shift,0px) + var(--quest-pin-lift,0px));
+}
+@media(prefers-reduced-motion:reduce){
+  .quest-pin-track>.quest-pin-target{position:relative;top:auto}
+  .quest-pin-track .hotels-grid,
+  .quest-pin-track .offers-layout,
+  .quest-pin-track .news-stage-inner,
+  .quest-pin-track .reels-phone-content,
+  .quest-pin-track .membership-stage,
+  .quest-pin-track .footer-main{translate:none!important}
+}
