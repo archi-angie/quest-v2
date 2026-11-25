@@ -48,7 +48,8 @@
         node.style.translate='0px '+shift.toFixed(2)+'px';
         state.last=shift;
       }
-      if(Math.abs((state.lastOpacity??-1)-opacity)>.006){
+      const preservesOwnOpacity=state.section==='.news-stage'||node.matches('.hotel-details,.reels-pattern-block');
+      if(!preservesOwnOpacity && Math.abs((state.lastOpacity??-1)-opacity)>.006){
         node.style.opacity=opacity.toFixed(3);
         state.lastOpacity=opacity;
       }
