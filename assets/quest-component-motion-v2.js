@@ -29,9 +29,10 @@
     observer.observe(node);
   };
   const targets=[
+    ['.header',['.brand','.desktop-nav a','.nav-book','.menu-toggle'],0],
     ['.hero',['.booking label','.booking-submit','.booking-message'],0],
-    ['.hotels',['.destination-column h3','.carousel-controls'],1],
-    ['.offers',['.offer-thumbnail-wrap','.offer-count','.offer-title','.offer-ticket-copy p','.offer-learn'],2],
+    ['.hotels',['.destination-column h3','.destination-page-dot','.carousel-controls'],1],
+    ['.offers',['.offer-thumbnail-wrap','.offer-count','.offer-title','.offer-ticket-copy p','.offer-learn','.offer-page-bubble'],2],
     ['.news-stage',['.news-stage-featured-image','.news-stage-date-sticker','.news-stage-control'],3],
     ['.reels-section',['.reels-phone-controls','.reels-phone-dots button'],4],
     ['.membership-redesign',['.membership-platform','.membership-wave-bl','.membership-wave-br'],5],
