@@ -212,7 +212,7 @@
     const observer=new IntersectionObserver(entries=>{
       entries.forEach(entry=>entry.target.classList.toggle('quest-motion-offscreen',!entry.isIntersecting));
     },{threshold:0});
-    ['.social-ribbon','.qf-brands-viewport','.reels-section','.membership-redesign'].forEach(selector=>{
+    ['.hero','.hotels','.offers','.news-stage','.reels-section','.membership-redesign','.social-ribbon','.qf-brands-viewport'].forEach(selector=>{
       const element=document.querySelector(selector);
       if(element)observer.observe(element);
     });
