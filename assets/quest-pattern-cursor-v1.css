@@ -1,0 +1,10 @@
+/* Miniature fragments of the original Quest geometric pattern, beside the native cursor. */
+.quest-pattern-cursor{position:fixed;left:0;top:0;z-index:80;width:42px;height:42px;pointer-events:none;opacity:0;transform:translate3d(-100px,-100px,0);transition:opacity .16s ease;contain:layout style paint;will-change:transform}
+.quest-pattern-cursor.is-visible{opacity:.8}
+.quest-pattern-cursor__tile{position:absolute;display:block;width:20px;height:20px;background-image:url('/quest-v2/assets/pattern-02.svg');background-size:80px 120px;background-repeat:no-repeat}
+.quest-pattern-cursor__tile--quarter{left:0;top:0;background-position:-20px -40px;border-radius:0 100% 0 0}
+.quest-pattern-cursor__tile--arrow{right:1px;top:5px;background-position:0 0;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.quest-pattern-cursor__tile--sun{left:13px;bottom:0;background-position:-40px -60px;border-radius:50%}
+.quest-pattern-cursor__trail{position:fixed;left:0;top:0;z-index:79;width:16px;height:16px;pointer-events:none;opacity:0;background:url('/quest-v2/assets/pattern-02.svg') -24px -48px / 64px 96px no-repeat;clip-path:polygon(0 0,100% 0,100% 100%);transform:translate3d(-100px,-100px,0);transition:opacity .18s ease;will-change:transform}
+.quest-pattern-cursor__trail.is-visible{opacity:.58}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.quest-pattern-cursor,.quest-pattern-cursor__trail{display:none!important}}
