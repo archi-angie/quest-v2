@@ -24,7 +24,7 @@
     hero.insertBefore(shape,hero.querySelector('.hero-inner'));
     root.classList.add('quest-morph-enabled');
 
-    let metrics=null, frame=0, lastRunning=false, suspended=false;
+    let metrics=null, frame=0;
     const restore=()=>{
       root.classList.remove('quest-morph-running');
       hero.style.removeProperty('--quest-hero-copy');
@@ -34,16 +34,16 @@
       hotels.style.removeProperty('--quest-hotels-offset');
       shape.style.visibility='hidden';
       hero.classList.remove('quest-morph-hero-hidden');
-      lastRunning=false;
     };
     const measure=()=>{
-      if(media.matches){restore();track.style.removeProperty('--quest-pin-height');track.style.removeProperty('--quest-hero-height');metrics=null;return}
+      if(media.matches){restore();panel.style.removeProperty('--quest-mobile-inset');track.style.removeProperty('--quest-pin-height');track.style.removeProperty('--quest-hero-height');metrics=null;return}
       const isMobile=mobile.matches;
       const heroHeight=hero.offsetHeight;
       const distance=isMobile?0:Math.round(clamp(innerHeight*1.16,620,1400));
       track.style.setProperty('--quest-hero-height',px(heroHeight));
       track.style.setProperty('--quest-pin-height',px(heroHeight+distance));
-      if(isMobile){restore();metrics=null;return}
+      if(isMobile){restore();track.style.removeProperty('--quest-pin-height');metrics=null;request();return}
+      panel.style.removeProperty('--quest-mobile-inset');
       const start=track.getBoundingClientRect().top+scrollY;
       const end=start+distance;
       const hr=hero.getBoundingClientRect(), sr=highlight.getBoundingClientRect(), pr=panel.getBoundingClientRect();
@@ -61,13 +61,20 @@
     };
     const render=()=>{
       frame=0;
-      if(!metrics || media.matches || mobile.matches || root.classList.contains('quest-splash-pending')){restore();return}
+      if(media.matches || root.classList.contains('quest-splash-pending')){restore();return}
+      if(mobile.matches){
+        restore();
+        const rect=panel.getBoundingClientRect();
+        const progress=ease(0,.65,(innerHeight-rect.top)/innerHeight);
+        panel.style.setProperty('--quest-mobile-inset',px((1-progress)*Math.min(panel.offsetWidth*.25,85)));
+        return;
+      }
+      if(!metrics){restore();return}
       const p=clamp((scrollY-metrics.start)/metrics.distance);
       const focus=booking.contains(document.activeElement) || !!document.querySelector('.qb-enhanced[aria-expanded="true"], .qb-bottomsheet.is-open, .qb-bottomsheet[open]');
       const running=p>.001 && p<.995;
       if(!running){restore();return}
       root.classList.add('quest-morph-running');
-      lastRunning=true;
       const t=ease(.18,.79,p), reveal=ease(.65,.94,p);
       const a=metrics.from,b=metrics.to;
       shape.style.visibility='visible';
@@ -77,6 +84,7 @@
       shape.style.height=px(mix(a.h,b.h,t));
       shape.style.borderRadius=px(mix(a.radius,b.radius,t));
       shape.style.boxShadow=px(mix(7,12,t))+' '+px(mix(7,12,t))+' 0 #3d0c50';
+      shape.style.border=t>.01?px(t)+' solid #ffcf43':'0 solid transparent';
       shape.style.transform='rotate('+mix(a.angle,0,t).toFixed(3)+'deg)';
       shape.style.setProperty('--quest-stage-pattern',String(t*.035));
       hero.style.setProperty('--quest-hero-copy',String(1-ease(.04,.3,p)));
