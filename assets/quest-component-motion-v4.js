@@ -70,6 +70,7 @@
       for(const [selector,factor] of items){
         for(const node of section.querySelectorAll(selector)){
           if(tracked.has(node))continue;
+          node.classList.add('quest-scroll-piece');
           tracked.set(node,{factor,section:sectionSelector,order:Math.min(order++,4),original:node.style.translate,originalOpacity:node.style.opacity,last:null,lastOpacity:null});
           if(observer)observer.observe(node);else near.add(node);
         }
