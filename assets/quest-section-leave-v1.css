@@ -1,0 +1,21 @@
+/* Membership-style leave: only headings and artwork shift near the viewport edge.
+   Resting state is always the approved layout. */
+.hotels .hotels-title-tab,
+.offers .offers-intro h2,
+.news-stage .news-stage-heading,
+.reels-section .reels-phone-heading,
+.footer .qf-cta-content{
+  translate:0 var(--quest-section-leave-shift,0px);
+  opacity:var(--quest-section-leave-opacity,1);
+}
+.reels-section .reels-pattern-block{
+  translate:0 var(--quest-section-pattern-shift,0px);
+}
+@media(prefers-reduced-motion:reduce){
+  .hotels .hotels-title-tab,
+  .offers .offers-intro h2,
+  .news-stage .news-stage-heading,
+  .reels-section .reels-phone-heading,
+  .footer .qf-cta-content,
+  .reels-section .reels-pattern-block{translate:none!important;opacity:1!important}
+}
