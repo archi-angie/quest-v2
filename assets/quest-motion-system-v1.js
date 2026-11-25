@@ -30,6 +30,24 @@
       animation.finished.catch(()=>{}).finally(()=>activeAnimations.delete(animation));
     }catch(_){}
   };
+  const playShift=(element,options={})=>{
+    if(!element || reduce.matches || !element.getClientRects().length || typeof element.animate!=='function')return;
+    const style=getComputedStyle(element);
+    const pieces=(style.translate==='none'?'0px 0px':style.translate).split(' ');
+    const x=pieces[0]||'0px',y=pieces[1]||'0px';
+    const dx=(options.x||0)*(mobile.matches?.5:1);
+    const dy=(options.y||0)*(mobile.matches?.55:1);
+    const opacity=Number(style.opacity)||1;
+    try{
+      const animation=element.animate([
+        {translate:'calc('+x+' + '+dx+'px) calc('+y+' + '+dy+'px)',opacity:Math.max(.55,opacity*(options.opacity??.76)),offset:0},
+        {translate:'calc('+x+' - '+(dx*.075)+'px) calc('+y+' - '+(dy*.075)+'px)',opacity:opacity,offset:.84},
+        {translate:style.translate==='none'?'none':style.translate,opacity:opacity,offset:1}
+      ],{duration:options.duration||650,delay:options.delay||0,easing:'cubic-bezier(.2,.82,.2,1)',fill:'backwards'});
+      activeAnimations.add(animation);
+      animation.finished.catch(()=>{}).finally(()=>activeAnimations.delete(animation));
+    }catch(_){}
+  };
   const onceNear=(element,callback,margin='0px 0px 8% 0px')=>{
     if(!element)return;
     if(!('IntersectionObserver' in window)){callback();return}
@@ -50,8 +68,8 @@
       fn();
     };
     const patterns=()=>trigger('patterns',()=>{
-      play(section.querySelector('.hero-pattern-accent--left'),{x:-34,y:4,opacity:.65,duration:680});
-      play(section.querySelector('.hero-pattern-accent--right'),{x:34,y:-2,opacity:.65,duration:720,delay:90});
+      playShift(section.querySelector('.hero-pattern-accent--left'),{x:-34,y:4,opacity:.65,duration:680});
+      playShift(section.querySelector('.hero-pattern-accent--right'),{x:34,y:-2,opacity:.65,duration:720,delay:90});
     });
     const headline=()=>trigger('headline',()=>{
       play(section.querySelector('.headline-first'),{y:17,opacity:.58,duration:580});
@@ -129,8 +147,8 @@
     const section=document.querySelector('.reels-section');
     onceNear(section,()=>{
       play(section.querySelector('.reels-phone-heading'),{y:18,opacity:.65,duration:650});
-      play(section.querySelector('.reels-pattern-block--left'),{x:-34,opacity:.65,duration:710,delay:30});
-      play(section.querySelector('.reels-pattern-block--right'),{x:34,opacity:.65,duration:730,delay:110});
+      playShift(section.querySelector('.reels-pattern-block--left'),{x:-34,opacity:.65,duration:710,delay:30});
+      playShift(section.querySelector('.reels-pattern-block--right'),{x:34,opacity:.65,duration:730,delay:110});
       play(section.querySelector('.reels-phone'),{y:24,opacity:.8,duration:740,delay:160});
       ['inner-left','inner-right','outer-left','outer-right'].forEach((name,index)=>{
         play(section.querySelector('.reels-phone-slot--'+name),{x:index%2?22:-22,y:9,opacity:.68,duration:590,delay:260+index*80});
