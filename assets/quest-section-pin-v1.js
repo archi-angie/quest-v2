@@ -53,9 +53,12 @@
       if(!parent)return;
       const track=document.createElement('div');
       track.className='quest-pin-track';
+      if(section.matches('.hotels'))track.classList.add('quest-pin-track--hotels');
+      if(section.matches('.offers'))track.classList.add('quest-pin-track--offers');
       if(section.matches('.reels-section'))track.classList.add('quest-pin-track--reels','reels-phone-mode');
       if(section.matches('.news-stage'))track.classList.add('quest-pin-track--news');
       if(section.matches('.membership-redesign'))track.classList.add('quest-pin-track--membership');
+      if(section.matches('footer.footer'))track.classList.add('quest-pin-track--footer');
       parent.insertBefore(track,section);
       track.append(section);
       section.classList.add('quest-pin-target');
