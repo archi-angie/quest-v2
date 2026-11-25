@@ -42,7 +42,7 @@
       const animation=element.animate([
         {translate:'calc('+x+' + '+dx+'px) calc('+y+' + '+dy+'px)',opacity:Math.max(.55,opacity*(options.opacity??.76)),offset:0},
         {translate:'calc('+x+' - '+(dx*.075)+'px) calc('+y+' - '+(dy*.075)+'px)',opacity:opacity,offset:.84},
-        {translate:style.translate==='none'?'none':style.translate,opacity:opacity,offset:1}
+        {translate:x+' '+y,opacity:opacity,offset:1}
       ],{duration:options.duration||650,delay:options.delay||0,easing:'cubic-bezier(.2,.82,.2,1)',fill:'backwards'});
       activeAnimations.add(animation);
       animation.finished.catch(()=>{}).finally(()=>activeAnimations.delete(animation));
