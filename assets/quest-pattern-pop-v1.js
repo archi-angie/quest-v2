@@ -71,7 +71,7 @@
       record.pop=element.animate([
         {transform:'translate3d('+dx+'px,'+dy+'px,0) rotate('+(side*3)+'deg) scale(.88) '+base,offset:0},
         {transform:'translate3d('+(-dx*.06)+'px,'+(-dy*.08)+'px,0) rotate('+(-side*.8)+'deg) scale(1.045) '+base,offset:.72},
-        {transform:base,offset:1}
+        {transform:base||'none',offset:1}
       ],{duration:740,delay:Math.min(index,3)*70,easing:'cubic-bezier(.2,.78,.2,1)',fill:'backwards'});
       record.pop.finished.then(()=>{record.pop=null;if(animations.get(element)===record)idle(element,record,index)}).catch(()=>{});
     }catch(_){element.style.willChange=record.willChange;animations.delete(element)}
