@@ -9,7 +9,7 @@ const DEFAULT_FONT_URL = 'https://fonts.googleapis.com/css2?family=Figtree:wght@
 const SEGMENTS_X = 32;
 const SEGMENTS_Y = 24;
 const INTRO_SECONDS = 1.4;
-const WORLD_HEIGHT = 30; // Wider Quest hero: keep bend 5 visible without clipping the lower edge.
+const WORLD_HEIGHT = 16.57;
 const CLASSES = {
   root: 'circular-gallery',
   canvas: 'circular-gallery-canvas',
@@ -452,7 +452,7 @@ const CircularGallery = ({
     const arcOf = x => {
       const s = settingsRef.current;
       if (!s.bend) return { y: 0, angle: 0 };
-      const depth = (Math.abs(s.bend) * view.height) / WORLD_HEIGHT;
+      const depth = (Math.abs(s.bend) * view.height) / (window.innerWidth > 700 ? 30 : WORLD_HEIGHT);
       const half = Math.max(view.width, view.height * 1.9) / 2;
       const radius = (half * half + depth * depth) / (2 * depth);
       const reach = Math.min(Math.abs(x), half, radius * 0.999);
