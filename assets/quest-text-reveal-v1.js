@@ -86,7 +86,7 @@
   const reveal=(section,effect)=>{
     if(reduce.matches)return;
     const headings=[];
-    const titleCandidates=section.querySelectorAll('h1,h2,h3,.membership-banner-text,.membership-big');
+    const titleCandidates=section.querySelectorAll('h1,h2,h3,h4,.headline-first,.headline-highlight>span,.headline-stage h1 strong,#offers-title>span,#offers-title>strong,.membership-banner-text,.membership-big');
     titleCandidates.forEach(el=>{
       if(el.closest('.sr-only,[aria-hidden="true"],.social-ribbon,.reels-track,.news-stage-underline')||!el.getClientRects().length||seen.has(el))return;
       seen.add(el);
