@@ -63,6 +63,19 @@
         });
       });
     },{passive:true});
+    el.addEventListener('pointerenter',event=>{
+      if(reduce.matches||event.pointerType==='touch')return;
+      const nearest=chars.reduce((best,char,index)=>{
+        const box=char.getBoundingClientRect();
+        const distance=Math.abs(event.clientX-(box.left+box.width/2));
+        return distance<best.distance?{index,distance}:best;
+      },{index:0,distance:Infinity}).index;
+      chars.forEach((char,index)=>animate(char,[
+        {transform:'translateY(0)'},
+        {transform:'translateY(-7px)',offset:.46},
+        {transform:'translateY(0)'}
+      ],{duration:430,delay:Math.abs(index-nearest)*50,easing:'cubic-bezier(.22,1,.36,1)'}));
+    },{passive:true});
     el.addEventListener('pointerleave',()=>{
       if(frame)cancelAnimationFrame(frame);
       chars.forEach(char=>char.style.translate='');
