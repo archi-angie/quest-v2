@@ -1,6 +1,7 @@
 /* Floating geometry only; the existing .scrolled class keeps the approved glass colors and blur. */
 .header{
   box-sizing:border-box;
+  width:100%;
   transition:top .46s cubic-bezier(.22,1,.36,1),left .46s cubic-bezier(.22,1,.36,1),right .46s cubic-bezier(.22,1,.36,1),width .46s cubic-bezier(.22,1,.36,1),border-radius .46s cubic-bezier(.22,1,.36,1),padding .46s cubic-bezier(.22,1,.36,1),background-color .35s ease,box-shadow .35s ease,backdrop-filter .35s ease;
 }
 .header.scrolled{
@@ -14,17 +15,17 @@
 }
 @media(min-width:701px){
   .header.scrolled{
-    left:50%;
+    left:var(--quest-nav-left,10px);
     right:auto;
-    width:min(var(--quest-nav-hug-width,920px),calc(100vw - 20px));
-    transform:translateX(-50%);
+    width:var(--quest-nav-hug-width,920px);
+    max-width:calc(100vw - 20px);
     padding-inline:clamp(18px,2vw,30px);
     gap:clamp(14px,1.5vw,26px);
   }
   .header.scrolled .desktop-nav{flex:0 0 auto}
 }
 @media(min-width:701px) and (max-width:1100px){
-  .header.scrolled{left:50%;right:auto;padding-inline:clamp(16px,2vw,24px)}
+  .header.scrolled{padding-inline:clamp(16px,2vw,24px)}
 }
 @media(max-width:700px){
   .header.scrolled{
