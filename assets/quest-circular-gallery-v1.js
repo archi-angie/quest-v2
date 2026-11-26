@@ -9,7 +9,7 @@ const DEFAULT_FONT_URL = 'https://fonts.googleapis.com/css2?family=Figtree:wght@
 const SEGMENTS_X = 32;
 const SEGMENTS_Y = 24;
 const INTRO_SECONDS = 1.4;
-const WORLD_HEIGHT = 16.57;
+const WORLD_HEIGHT = 30; // Wider Quest hero: keep bend 5 visible without clipping the lower edge.
 const CLASSES = {
   root: 'circular-gallery',
   canvas: 'circular-gallery-canvas',
@@ -461,6 +461,24 @@ const CircularGallery = ({
       return s.bend > 0 ? { y: -arc, angle: -angle } : { y: arc, angle };
     };
 
+    // Expand the center path as cards rotate, preserving their visible border gap.
+    const spreadX = (raw, width, height, spacing) => {
+      if (window.innerWidth <= 700 || !settingsRef.current.bend) return raw;
+      const sign = Math.sign(raw);
+      const target = Math.abs(raw);
+      const step = Math.max(8, spacing / 12);
+      let x = 0;
+      let traveled = 0;
+      while (traveled < target) {
+        const delta = Math.min(step, target - traveled);
+        const angle = Math.abs(arcOf(x + delta * 0.5).angle);
+        const projectedWidth = width * Math.cos(angle) + height * Math.sin(angle);
+        x += delta * (projectedWidth + spacing - width) / spacing;
+        traveled += delta;
+      }
+      return sign * x;
+    };
+
     const captionSize = () => clamp(view.height * 0.045, 15, 22);
 
     const ensurePool = spacing => {
@@ -505,7 +523,7 @@ const CircularGallery = ({
         const item = list[index];
         const entry = textureFor(item.image);
         const focus = ease(state.focus.get(slot) || 0);
-        let x = slot * spacing - scroll;
+        let x = spreadX(slot * spacing - scroll, w, h, spacing);
         x += Math.sign(x - activeX) * state.open * (1 - focus) * spread;
         const arc = arcOf(x);
         const frame = focus > 0 ? openFrame(item) : activeFrame;
@@ -1117,17 +1135,23 @@ const mountQuestGallery = () => {
   host.className = 'quest-circular-gallery-host';
   const root = createRoot(host);
   const desktop = matchMedia('(min-width:701px)');
-  const renderGallery = () => root.render(h(CircularGallery, {
-    items, bend: 2, textColor: '#ffffff', borderRadius: 0.06,
-    scrollEase: 0.1, itemSize: 1.34, itemAspect: 0.77,
-    gap: desktop.matches ? 0.07 : 0.035,
-    fadeEdges: 0.08, autoScroll: 1, showTitles: false,
-    openOnClick: false, wave: 1, shadow: 0.25, snap: true
-  }));
-  desktop.addEventListener?.('change', renderGallery);
-  renderGallery();
   gallery.replaceChildren(host);
   gallery.classList.add('qhc','quest-rb-mounted');
+  const renderGallery = () => {
+    const cardWidth = gallery.clientHeight * 0.6 * 1.34 * 0.77;
+    root.render(h(CircularGallery, {
+      items, bend: desktop.matches ? 5 : 2,
+      textColor: '#ffffff', borderRadius: 0.06,
+      scrollEase: 0.1, itemSize: 1.34, itemAspect: 0.77,
+      gap: desktop.matches ? 28 / Math.max(cardWidth, 1) : 0.035,
+      fadeEdges: 0.08, autoScroll: 1, showTitles: false,
+      openOnClick: false, wave: 1, shadow: 0.25, snap: true
+    }));
+  };
+  const galleryResize = new ResizeObserver(renderGallery);
+  galleryResize.observe(gallery);
+  desktop.addEventListener?.('change', renderGallery);
+  renderGallery();
   gallery.removeAttribute('tabindex');
   return true;
 };
