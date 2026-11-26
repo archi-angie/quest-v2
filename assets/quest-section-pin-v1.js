@@ -7,7 +7,7 @@
   let measuring=false;
   let sizeObserver;
   const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
-  const headerHeight=()=>document.querySelector('.header')?.getBoundingClientRect().height||0;
+  const headerHeight=()=>Math.max(0,document.querySelector('.header')?.getBoundingClientRect().bottom||0);
   const update=()=>{
     pending=false;
     if(measuring)return;
