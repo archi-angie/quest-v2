@@ -14,8 +14,8 @@
   }
   /* Keep the original marquee fallback portrait-shaped if WebGL2 is unavailable. */
   .hero .hero-gallery:not(.quest-rb-mounted) .gallery-sequence{
-    width:max(960px,calc(var(--gallery-height) * 3.6));
-    grid-template-columns:repeat(5,minmax(0,1fr) 8px);
+    width:max(1030px,calc(var(--gallery-height) * 3.6 + 70px));
+    grid-template-columns:repeat(5,minmax(0,1fr) 22px);
   }
   .hero .hero-gallery:not(.quest-rb-mounted) .marquee-photo img{
     width:100%;height:100%;object-fit:cover;
