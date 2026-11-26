@@ -1,0 +1,24 @@
+/* Desktop hero fit: keep the approved composition and scale only the gallery viewport. */
+@media (min-width:701px){
+  .hero.section{
+    --gallery-height:clamp(240px,34svh,320px);
+    padding-top:clamp(78px,8svh,94px);
+    padding-bottom:clamp(18px,2.4svh,30px);
+  }
+  .hero .hero-gallery,
+  .hero .hero-gallery.qhc{
+    height:var(--gallery-height);
+  }
+  .hero .hero-gallery.qhc{
+    margin-top:clamp(8px,1svh,12px);
+  }
+  .hero .booking-shell{
+    margin-top:clamp(10px,1.2svh,14px);
+  }
+  .hero .booking.qb-enhanced{
+    padding-block:6px;
+  }
+}
+@media (min-width:701px) and (max-height:760px){
+  .hero.section{--gallery-height:clamp(190px,30svh,240px)}
+}
