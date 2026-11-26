@@ -64,8 +64,8 @@
     const style=getComputedStyle(element);
     const base=style.transform==='none'?'':style.transform;
     const {side,corner,vertical}=direction(element);
-    const dx=side*(mobile.matches?14:26);
-    const dy=corner?vertical*(mobile.matches?7:12):(mobile.matches?6:10);
+    const dx=side*(mobile.matches?32:68);
+    const dy=corner?vertical*(mobile.matches?15:27):(mobile.matches?10:20);
     const record={section,side,base,willChange:element.style.willChange,pop:null,idle:null};
     animations.set(element,record);
     popped.add(element);
@@ -73,10 +73,11 @@
     element.style.willChange='transform';
     try{
       record.pop=element.animate([
-        {transform:'translate3d('+dx+'px,'+dy+'px,0) rotate('+(side*3)+'deg) scale(.88) '+base,offset:0},
-        {transform:'translate3d('+(-dx*.06)+'px,'+(-dy*.08)+'px,0) rotate('+(-side*.8)+'deg) scale(1.045) '+base,offset:.72},
+        {transform:'translate3d('+dx+'px,'+dy+'px,0) rotate('+(side*11)+'deg) scale(.64) '+base,offset:0},
+        {transform:'translate3d('+(-dx*.14)+'px,'+(-dy*.16)+'px,0) rotate('+(-side*2.4)+'deg) scale(1.13) '+base,offset:.68},
+        {transform:'translate3d('+(dx*.025)+'px,'+(dy*.025)+'px,0) rotate('+(side*.5)+'deg) scale(.985) '+base,offset:.88},
         {transform:base||'none',offset:1}
-      ],{duration:740,delay:Math.min(index,3)*70,easing:'cubic-bezier(.2,.78,.2,1)',fill:'backwards'});
+      ],{duration:960,delay:Math.min(index,3)*95,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'});
       record.pop.finished.then(()=>{record.pop=null;if(animations.get(element)===record)idle(element,record,index)}).catch(()=>{});
     }catch(_){element.style.willChange=record.willChange;animations.delete(element)}
   };
