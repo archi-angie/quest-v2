@@ -1120,7 +1120,7 @@ const mountQuestGallery = () => {
   const renderGallery = () => root.render(h(CircularGallery, {
     items, bend: 2, textColor: '#ffffff', borderRadius: 0.06,
     scrollEase: 0.1, itemSize: 1.34, itemAspect: 0.77,
-    gap: desktop.matches ? 0.10 : 0.035,
+    gap: desktop.matches ? 0.07 : 0.035,
     fadeEdges: 0.08, autoScroll: 1, showTitles: false,
     openOnClick: false, wave: 1, shadow: 0.25, snap: true
   }));
