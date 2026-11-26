@@ -33,7 +33,11 @@
     const name=String(host.className?.baseVal||host.className||'');
     const side=/left/.test(name)?-1:/right/.test(name)?1:element.getBoundingClientRect().left+element.getBoundingClientRect().width/2<innerWidth/2?-1:1;
     const corner=/corner|arc/.test(name);
-    return {side,corner};
+    const section=element.closest('.section,footer');
+    const box=host.getBoundingClientRect();
+    const boundary=section?.getBoundingClientRect();
+    const vertical=boundary&&box.top+box.height/2>boundary.top+boundary.height/2?1:-1;
+    return {side,corner,vertical};
   };
   const stop=element=>{
     const record=animations.get(element);
@@ -59,9 +63,9 @@
     if(!section||!active.has(section))return;
     const style=getComputedStyle(element);
     const base=style.transform==='none'?'':style.transform;
-    const {side,corner}=direction(element);
+    const {side,corner,vertical}=direction(element);
     const dx=side*(mobile.matches?14:26);
-    const dy=corner?(mobile.matches?-7:-12):(mobile.matches?6:10);
+    const dy=corner?vertical*(mobile.matches?7:12):(mobile.matches?6:10);
     const record={section,side,base,willChange:element.style.willChange,pop:null,idle:null};
     animations.set(element,record);
     popped.add(element);
