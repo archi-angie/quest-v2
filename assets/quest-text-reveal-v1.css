@@ -1,0 +1,5 @@
+.quest-text-word{display:inline-block;white-space:nowrap}
+.quest-text-char{display:inline-block;white-space:pre;will-change:auto}
+@media(prefers-reduced-motion:reduce){
+  .quest-text-char{animation:none!important;transition:none!important}
+}
