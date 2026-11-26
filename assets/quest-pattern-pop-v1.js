@@ -46,10 +46,10 @@
     const base=record.base;
     try{
       record.idle=element.animate([
-        {transform:base,offset:0},
+        {transform:base||'none',offset:0},
         {transform:'translate3d(0,-4px,0) rotate('+(sign*1.2)+'deg) '+base,offset:.45},
         {transform:'translate3d(0,2px,0) rotate('+(-sign*.7)+'deg) '+base,offset:.8},
-        {transform:base,offset:1}
+        {transform:base||'none',offset:1}
       ],{duration:4800+(index%3)*450,delay:sign>0?-800:0,iterations:Infinity,easing:'ease-in-out'});
     }catch(_){}
   };
@@ -58,7 +58,7 @@
     const section=[...items.keys()].find(s=>items.get(s)?.includes(element));
     if(!section||!active.has(section))return;
     const style=getComputedStyle(element);
-    const base=style.transform==='none'?'none':style.transform;
+    const base=style.transform==='none'?'':style.transform;
     const {side,corner}=direction(element);
     const dx=side*(mobile.matches?14:26);
     const dy=corner?(mobile.matches?-7:-12):(mobile.matches?6:10);
