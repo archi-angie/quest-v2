@@ -1116,12 +1116,16 @@ const mountQuestGallery = () => {
   const host = document.createElement('div');
   host.className = 'quest-circular-gallery-host';
   const root = createRoot(host);
-  root.render(h(CircularGallery, {
+  const desktop = matchMedia('(min-width:701px)');
+  const renderGallery = () => root.render(h(CircularGallery, {
     items, bend: 2, textColor: '#ffffff', borderRadius: 0.06,
-    scrollEase: 0.1, itemSize: 1.34, itemAspect: 0.77, gap: 0.035,
+    scrollEase: 0.1, itemSize: 1.34, itemAspect: 0.77,
+    gap: desktop.matches ? 0.10 : 0.035,
     fadeEdges: 0.08, autoScroll: 1, showTitles: false,
     openOnClick: false, wave: 1, shadow: 0.25, snap: true
   }));
+  desktop.addEventListener?.('change', renderGallery);
+  renderGallery();
   gallery.replaceChildren(host);
   gallery.classList.add('qhc','quest-rb-mounted');
   gallery.removeAttribute('tabindex');
