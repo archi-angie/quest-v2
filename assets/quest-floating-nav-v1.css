@@ -20,7 +20,7 @@
     width:var(--quest-nav-hug-width,920px);
     max-width:calc(100vw - 20px);
     padding-inline:clamp(26px,2.4vw,42px);
-    --quest-nav-gap:clamp(38px,3.2vw,60px);
+    --quest-nav-gap:clamp(44px,4.25vw,80px);
     gap:var(--quest-nav-gap);
   }
   .header.scrolled .desktop-nav{flex:0 0 auto;gap:clamp(24px,2.7vw,46px)}
