@@ -12,6 +12,14 @@
   .hero .hero-gallery.qhc{
     margin-top:clamp(8px,1svh,12px);
   }
+  /* Keep the original marquee fallback portrait-shaped if WebGL2 is unavailable. */
+  .hero .hero-gallery:not(.quest-rb-mounted) .gallery-sequence{
+    width:max(960px,calc(var(--gallery-height) * 3.6));
+    grid-template-columns:repeat(5,minmax(0,1fr) 8px);
+  }
+  .hero .hero-gallery:not(.quest-rb-mounted) .marquee-photo img{
+    width:100%;height:100%;object-fit:cover;
+  }
   .hero .booking-shell{
     margin-top:clamp(10px,1.2svh,14px);
   }
