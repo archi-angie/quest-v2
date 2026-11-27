@@ -41,6 +41,9 @@
 
 /* Extend the original Quest texture across Offers and echo a narrow crop on the right. */
 .offers-news-flow .offers-news-pattern{
+  background-image:url('/quest-v2/assets/pattern-05.svg');
+  background-repeat:repeat-y;
+  background-position:left top;
   left:0;
   width:min(58vw,1000px);
   height:clamp(1275px,90vw,1500px);
