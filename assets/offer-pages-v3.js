@@ -4,7 +4,7 @@
   const pages = [
     [
       {id:'stay-dine',count:12,title:'Stay & Dine with More Time to Share at Quest',description:'Enjoy a relaxed meal and more time around the table.',image:asset+'hero-breakfast.webp'},
-      {id:'family-time',count:3,title:'Family Days Made for Little Adventures Together',description:'Make space for the moments that turn a trip into a memory.',image:asset+'hero-quality.webp'},
+      {id:'family-time',count:3,title:'Family Days Made for Little Adventures Together',description:'Make space for the moments that turn a trip into a memory.',image:asset+'offer-family-pool-v1.svg'},
       {id:'unwind',count:5,title:'Room to Unwind',description:'Settle in, slow down, and enjoy a comfortable stay.',image:'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1000&q=85'}
     ],
     [
