@@ -24,7 +24,8 @@
     gap:var(--quest-nav-gap);
   }
   .header.scrolled .desktop-nav{flex:0 0 auto;gap:clamp(24px,2.7vw,46px)}
-  .header .nav-membership{display:none}
+  .header .nav-membership{display:flex;align-items:center;justify-content:center;flex:none;width:48px;margin-right:calc(18px - clamp(25px,4vw,70px));outline-offset:4px}
+  .header .nav-membership img{display:block;width:48px;height:auto;max-height:44px;object-fit:contain}
   .header.scrolled .nav-membership{display:flex;align-items:center;justify-content:center;flex:none;width:48px;margin-right:calc(18px - var(--quest-nav-gap));outline-offset:4px}
   .header.scrolled .nav-membership img{display:block;width:48px;height:auto;max-height:44px;object-fit:contain}
 }
