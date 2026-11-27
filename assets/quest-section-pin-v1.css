@@ -4,7 +4,8 @@
 .quest-pin-track>.section.quest-pin-target,
 .quest-pin-track>footer.footer.quest-pin-target{position:sticky;top:var(--quest-pin-top,0px)}
 .quest-pin-track--hotels,.quest-pin-track--reels{background:#6c217f}
-.quest-pin-track--offers{background:#fdb913}
+/* The Offers/News parent supplies the yellow surface and Quest pattern. An opaque track hid that pattern. */
+.quest-pin-track--offers{background:transparent}
 .quest-pin-track--footer{background:#3d0c50}
 /* Clip the shared artwork without turning the Offers/News parent into a sticky scroll container. */
 @supports (overflow:clip){.offers-news-flow{overflow:clip}}
