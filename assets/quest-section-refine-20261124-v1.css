@@ -5,7 +5,7 @@
 @media(min-width:1051px){
   .hotels .hotels-grid{
     grid-template-columns:minmax(175px,.72fr) minmax(320px,1.12fr) minmax(290px,1.3fr);
-    column-gap:clamp(12px,1.6vw,26px);
+    column-gap:clamp(16px,2.08vw,34px);
   }
   .hotels .hotel-stage{justify-self:end;margin:0;max-width:500px}
   .hotels .hotel-details{width:100%;min-width:0}
